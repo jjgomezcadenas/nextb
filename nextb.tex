@@ -19,122 +19,98 @@ E-mail: \email{CorrespondingAuthor@email.com}}
 
 \bibliographystyle{plainnat}
 
-\abstract{We propose potential improvements in background rejection capabilities in neutrinoless double-beta ($0\nu\beta\beta$) decay experiments conducted with high-pressure xenon gas detectors capable of imaging electron tracks.  The improvements arise from the successful rejection of events consisting of a single energetic electron in favor of events consisting of two energetic electrons based on the analysis of tracks reconstructed in the detector.  Two methods are introduced.  In one, the Kalman filter technique is used to characterize the amount of electron multiple scattering exhibited at each point along the reconstructed track, and the single-electron tracks are identified by comparison to an expected profile of multiple scattering.   The other identifies single-electron tracks based on their direction of curvature in the presence of an external magnetic field.}
+\abstract{We propose potential improvements in background rejection capabilities in neutrinoless double-beta ($0\nu\beta\beta$) decay experiments conducted with high-pressure xenon gas detectors capable of imaging electron tracks.  The improvements arise from the successful rejection of events consisting of a single energetic electron in favor of events consisting of two energetic electrons based on the analysis of tracks reconstructed in the detector.  The proposed method identifies single-electron tracks based on their direction of curvature in the presence of an external magnetic field.  This initial study shows that a potentially significant additional background rejection factor can be obtained with an acceptably small loss in signal efficiency using this strategy.}
 
 \keywords{Neutrinoless double beta decay; Kalman filter; particle tracking}
 
 \begin{document}
 
 \section{Introduction}\label{sec:intro}
-The observation of neutrinoless double-beta ($0\nu\beta\beta$) decay, in which two neutrons become two protons within a nucleus and two energetic electrons are emitted, would have several significant implications in fundamental physics.  First, the decay cannot occur unless the neutrino is a Majorana particle, that is, it is physically equivalent to its anti-particle, and the decay violates the conservation of total lepton number.
+The observation of neutrinoless double-beta ($0\nu\beta\beta$) decay, in which two neutrons become two protons within a nucleus and two energetic electrons are emitted, would have several significant implications in fundamental physics.  First, the decay cannot occur unless the neutrino is a Majorana particle, that is, it is physically equivalent to its anti-particle, and the decay violates the conservation of total lepton number.\\
 
-\section{Analysis Techniques}\label{sec:trackanalysis}
+(Additional statements on $0\nu\beta\beta$ and NEXT?)
 
-\subsection{The Kalman Filter}\label{ssec:kf}
-\noindent The Kalman Filter is a technique that can be used to iteratively fit a dataset assuming some predictive model and a noise process that distorts the evolution of the system from that dictated by the model.  It provides the best fit, or that yielding the minimal mean square error in the fit parameters, given that the noise processes involved are Gaussian in nature.  The fit parameters are arranged in a vector called the state vector, and the uncertainties and correlations between them are encompassed in a covariance matrix.  The state vector and covariance matrix are determined recursively using the measurements in the dataset, beginning with some initial values, and for each recorded measurement predicting a new state vector and correlation matrix using a model and then correcting (or ``filtering'') these predictions based on the measured value.  Here we will be most interested in the application of the Kalman Filter to the fitting of ionization tracks left by energetic electrons in high pressure xenon gas.
-
-Here we state the standard Kalman Filter equations to be applied to a dynamical system whose evolution is governed by a known predictive model with an accompanied noise process.  We adopt a notation similar to that of \cite{Wolin_1993}.  We denote the state vector containing the values of the fit parameters as $\mathbf{a}$, the covariance matrix containing the uncertainties and correlations in these parameters as $\mathbf{C}$, the vector containing the results of a single measurement in the dataset as $\mathbf{m}$, and the covariance matrix of the measured values as $\mathbf{G}$.  In addition, the noise process distorts the values of the fit parameters according to a covariance matrix $\mathbf{Q}$.  The Kalman Filter operates in two stages on each measurement $k$ in a dataset of $N$ measurements.  In the first stage, the fit parameters of the previous state are propagated to new values, forming a predicted state.  In the second stage, this state is modified based on the value of the measurement to give a ``filtered'' state.
-
-For a dataset of $N$ measurements we will have $N-1$ predicted states and $N-1$ filtered states, and we label the states with the index $k$.  We denote the predicted state and covariance matrix as $\mathbf{a}_{\mathrm{P},k}$ and $\mathbf{C}_{\mathrm{P},k}$, and the filtered state and covariance matrix as $\mathbf{a}_{\mathrm{F},k}$ and $\mathbf{C}_{\mathrm{F},k}$.  The predicted state vector and covariance matrix are calculated as
-
-\begin{equation}
-\begin{split}
-\mathbf{a}_{\mathrm{P},k} = & \,\,\mathbf{F}_{k-1}\mathbf{a}_{\mathrm{F},k-1},\\
-\mathbf{C}_{\mathrm{P},k} = & \,\,\mathbf{F}_{k-1}\mathbf{C}_{\mathrm{F},k-1}\mathbf{F}_{k-1}^{T} + \mathbf{Q}_{k-1},
-\end{split}
-\end{equation}
-
-% Note that here $\mathbf{Q}_{k-1}$ means the covariance matrix constructed with the coordinates of the filtered state (k-1) and z = zi of the current
-% slice k.  In addition, the dz of the current slice k is used to compute the multiple scattering for this slice.  In other words, we are sitting on the
-% scattering surface for state k (the beginning of the slice) when we compute $\mathbf{Q}_{k-1}$
-\noindent where $\mathbf{F}_{k-1}$ is the propagator matrix which advances the state vector from state $k-1$ to the predicted state $k$ according to the predictive model.  Note that in the $k = 0$ case, an initial state is determined by some arbitrary means and is set as the filtered state to begin the process.  For a measurement $\mathbf{m}_{k}$ with measurement covariance matrix $\mathbf{V}_{k}$ and inverse $\mathbf{G}_{k} = \mathbf{V}_{k}^{-1}$, the filtered state vector and covariance matrix are calculated as
-
-\begin{equation}
-\begin{split}
-\mathbf{a}_{\mathrm{F},k} = & \,\,\mathbf{a}_{\mathrm{P},k} + \mathbf{K}_{k}(\mathbf{m}_{k} - \mathbf{H}_{k}\mathbf{a}_{\mathrm{P},k}),\\
-\mathbf{C}_{\mathrm{F},k} = & \,\,[\mathbf{C}_{\mathrm{P},k}^{-1} + \mathbf{H}_{k}^{T}\mathbf{G}_{k}\mathbf{H}_{k}]^{-1},
-\end{split}
-\end{equation}
-
-\noindent where $\mathbf{I}$ is the identity matrix, $\mathbf{H}_{k}$ converts the state vector $\mathbf{a}_{\mathrm{P},k}$ into a corresponding physical measurement, and $\mathbf{K}_{k}$ is called the Kalman gain matrix,
-
-\begin{equation}
-\mathbf{K}_{k} = \bigl[\mathbf{C}_{\mathrm{P},k}^{-1} + \mathbf{H}_{k}^{T}\mathbf{G}_{k}\mathbf{H}_{k}\bigr]^{-1}\mathbf{H}_{k}^{T}\mathbf{G}_{k}.
-\end{equation}
-
-\subsubsection{Multiple Scattering}
-Multiple scattering is assumed to occur during the travel from $z_{i}$ to $z_{f}$ in which the angles $\theta_{x}$ and $\theta_{y}$ are altered by gaussian noise with variance \cite{RPP_2012}
-
-\begin{equation}
-\sigma^{2}(\theta_{x,y}) = \frac{13.6\,\,\mathrm{MeV}}{\beta p}\sqrt{dz/L_{0}}\bigl[1 + 0.038\ln(dz/L_{0})\bigr],
-\end{equation}
-
-\subsection{Determining Reconstructed Track Curvature}\label{sec:curv}
+\section{Particle Tracks in Xenon in a Magnetic Field}\label{sec:magmotion}
 A particle of charge $q$ moving at a velocity $\mathbf{v}$ in the presence of a magnetic field $\mathbf{B}$ is acted upon by a force
 
 \begin{equation}
 \mathbf{F} = q(\mathbf{v} \times \mathbf{B}).
 \end{equation}
 
+This force will cause an electron to execute helical motion in the magnetic field such that if the thumb of the right hand is positioned along the direction of the field line $\mathbf{B}$ the electron will spiral in the direction in which the fingers curl when closed around the field line (see figure \ref{fig_bfieldmotion}).  The frequency of rotation about the field line is known as the cyclotron frequency $\omega = qB/m$, where $B$ is the magnitude of the applied magnetic field $B = |\mathbf{B}|$ and $m$ is the mass of the charged particle.  
+% radius of curvature $r = p_{T}/qB$
 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.48]{fig/bfield_motion.pdf}
+	\caption{\label{fig_bfieldmotion}Motion of an electron in a magnetic field.  The electron exhibits helical motion around the field line as shown (entering the page at the $\bullet$ and exiting the page at the $\times$) regardless of the direction of the component of the electron's velocity along the direction of $\mathbf{B}$.}
+\end{figure}
 
-\section{Implementation}
-
-\subsection{Track Preparation}\label{ssec:track}
-The simulation-based study consisted of analysis of Monte Carlo datasets generated in a large virtual box of high pressure xenon gas using GEANT4.  For various configurations of gas pressure and magnetic field, 10000 events were generated consisting of single energetic electrons of kinetic energy equal to the Q-value of $0\nu\beta\beta$ in xenon gas ($Q_{\beta\beta} = 2.447$ MeV), and 10000 $0\nu\beta\beta$ events were generated consisting of two energetic electrons with total energy equal to $Q_{\beta\beta}$.  Each simulated track was recorded as a series of hits consisting of a location $(x,y,z)$ and a deposited energy $E$.  
-
-From this series of hits, a single continuous track was constructed by defining a main track as those hits produced directly by the one (or two in the case of $0\nu\beta\beta$ events) energetic electron(s) produced in the event.  Other hits produced by secondary ionization electrons were added to the main track if they were produced within 1 mm of at least one hit in the main track, and indirectly\footnote{Hits added indirectly were bunched into sub-tracks of hits lying within 1 mm of at least one other hit in the sub-track, and the energy-weighted centroid of the sub-track was calculated.  The total energy of the sub-track was then added to the hit closest to the location of the calculated centroid.} if they were produced within 2 cm of at least one hit in the main track.  Events containing hits located greater than 2 cm from all hits in the main track were discarded.  Note that the ordering of the hits was determined by Monte Carlo, however the orientation of the track was defined by constructing two ``blobs'' composed of hits within 2 cm of the first and last hits of the track, and setting as the ``initial'' end the one at which the constructed blob had less total energy.  The resulting list of hits was then smeared randomly in $(x,y)$ about their original values according to a gaussian distribution with sigma $\sigma_{s}$.  The hits were then ``sparsed,'' that is each group of $N_{s}$ hits was replaced with a single hit with $(x,y,z)$ location equal to the energy-weighted average of the constituent hit locations and energy equal to the sum of the constituent energies.  From this point on we will refer to the final list of ordered hits as the ``track.''
-% In practice we will also have to determine the ordering in between hits!
-
-\subsection{Kalman Filter Fit}
-The track was then fit using the Kalman filter technique.  The RECPACK \cite{Recpack} software was used to perform the fit.  The fit stepped through the hits, for each step performing a ``prediction,'' in which the next hit location is calculated assuming a straight-line trajectory,\footnote{Though this is not strictly the case in the presence of a magnetic field, it is a good approximation assuming that enough hits are used that the curvature between each hit is small compared to the measurement error.} followed by a ``filter'' calculation as described in section \ref{ssec:kf}.  The fit assumes that the track is that of a single electron with initial momentum equal to that of an electron of kinetic energy 2.447 MeV, that is approx. $p_{i} = 2.9$, and the value of the momentum is updated along each step by subtracting the kinetic energy lost at each hit and recalculating the momentum.  In this way a ``measured'' momentum is used in calculating the multiple scattering.  A $\chi^2$ value is associated with each step such that for each track a corresponding $\chi^2$ profile can be constructed.  Figure shows a fit single-electron track and the corresponding $\chi^2$ profile.  The fit is performed in both directions, once starting from the end with lower ionization density (the ``forward'' fit) determined as described in section \ref{ssec:track}, and once starting from the end with higher ionization density (the ``reverse'' fit).
-
-
-
-Average $\chi^2$ profiles are constructed for each fit direction are constructed in which the fractional distance along the track is divided into bins and values from $\chi^2$ profiles from many fits are averaged in each bin.  For each track, the $\chi^2$ profile is compared to each of the average profiles (one for the forward fits, and one for the reverse fits) with the calculation of two factors:
-
-\begin{eqnarray}\label{eqns_chi2FR}
-\chi^2_F = \sum_{m=0}^{1}(\chi^2_m - \overline{\chi_{f}^2}_{m})^2\\
-\chi^2_R = \sum_{m=0}^{1}(\chi^2_m - \overline{\chi_{r}^2}_{m})^2
-\end{eqnarray}
-
-\noindent where $m$ is the fractional distance along the track ($m = n/N$ for hit number $n$ and total number of hits $N$) and $\overline{\chi_{f}^2}_{m}$ and $\overline{\chi_{r}^2}_{m}$ are the $\chi^2$ values taken from the forward and reverse averaged profiles respectively.  The two factors in equations \ref{eqns_chi2FR} are computed using the $\chi^2$ profiles from each individual track fit in the forward and reverse directions.  The ratio of these two factors is then taken for the forward profile $(\chi^2_F/\chi^2_R)_{\mathrm{fwd}}$ and reverse profile $(\chi^2_F/\chi^2_R)_{\mathrm{rev}}$.  The quantity compared in distinguishing single-electron and double-beta events is taken to be 
-
-\begin{equation}
-\phi_{KF} = (\chi^2_F/\chi^2_R)_{\mathrm{rev}} - (\chi^2_F/\chi^2_R)_{\mathrm{fwd}}.
-\end{equation}
-
-\subsection{Determination of the Track Curvature}
-The x-values, y-values, and z-values of the track hits are each placed in their own array.  An FIR filter is designed to sufficiently smooth the track (see section \ref{s_lpf}) and applied to each of the arrays.  The derivatives $dx/dz$, $dy/dz$, $d^2x/dz^2$, and $d^2y/dz^2$ are calculated using the values in the array.  From these the curvature $\kappa$ is calculated at each point.
-
-\noindent Since we do not have $x$ and $y$ as a function of $z$ but rather $x$, $y$, and $z$ as a function of hit number $n$, we can calculate the derivatives $x' \equiv dx/dn$, $y' \equiv dy/dn$, $z' \equiv dz/dn$ using the chain rule as $\frac{dx}{dz} = x'/z'$, and
-
-\begin{equation}
-\frac{d^2x}{dz^2} = \frac{x'' - z''(dx/dz)}{(z')^2}.
-\end{equation}
-
-\noindent The expressions for $dy/dz$ and $d^2y/dz^2$ can be obtained by replacing in the above $x \rightarrow y$.  
-
-Note that outliers may need to be removed from the resulting arrays of first and second derivatives due to points between which the z-coordinate changes very little.  To ensure more stable values of the derivatives, an outlier removal procedure is applied to all derivatives and second derivatives computed which consists of iteratively calculating the mean and variance $\sigma$ of each array, replacing any value that lies outside of $5\sigma$ of the mean value with the average of the two nearest values in the array, and continuing this procedure until the calculated variance $\sigma'^2$ is no longer less than the previous value of the variance $\sigma^2$ (continue until $\sigma' < 0.99\sigma$).  The curvature can then be calculated as
+An energetic electron moving through high pressure xenon gas creates an ionization track as it deposits its energy.  In the presence of an applied external magnetic field, this track will be a helix with some alterations due to electron multiple scattering.  If the direction of the applied magnetic field is known, the curvature of the track can be calculated to determine whether the component of the electron velocity along the magnetic field is parallel or antiparallel to the field.  The curvature $\kappa$ can be calculated for track coordinates $(x,y,z)$ as
 
 \begin{equation}\label{eqn_curv}
 \kappa = \frac{(dx/dz)\cdot(d^2y/dz^2) - (dy/dz)\cdot(d^2x/dz^2)}{\Bigl[(dx/dz)^2 + (dy/dz)^2\Bigr]^{3/2}}.
 \end{equation}
 
-\noindent The curvature calculated using each pair of points is then corrected as follows: if for the two points $z_2 < z_1$, the curvature is multiplied by -1 (see section \ref{sss_sign}).  Note that the outlier removal procedure described in step c) is also applied to the calculated curvature array.
+With this definition, an electron traveling in the direction of the magnetic field will spiral around the field lines with positive curvature, while an electron traveling opposite the direction of the magnetic field will spiral with negative curvature.  The curvature, however, will be of the opposite sign if the track orientation is not properly identified in the calculation (i.e., if $dz$ is of the wrong sign).  Thus, when calculating the curvature of a single-electron track, one would expect $\kappa > 0$ for $dz > 0$ and $\kappa < 0$ for $dz < 0$ given that $dz$ is always in the direction of the electron velocity.  However, for a $0\nu\beta\beta$ track, taking one of the extremes to be the beginning of the track and the other to be the end will lead to a calculation of $\kappa$ assuming the wrong track orientation for one of the two electrons, as the vertex at which the reaction occured is found somewhere on the interior of the track.  Therefore one expects to find $\kappa < 0$ for $dz < 0$ and $\kappa > 0$ for $dz > 0$ for a significant fraction of the track.  This difference in the behavior of the calculated curvature of reconstructed tracks will allow for the separation of single-electron and $0\nu\beta\beta$ events.
+
+\section{Implementation}
+
+\subsection{Track Preparation}\label{ssec:track}
+The simulation-based study consisted of analysis of Monte Carlo datasets generated in a large virtual box of high pressure xenon gas using GEANT4.  For various configurations of gas pressure and magnetic field, 10000 events were generated consisting of single energetic electrons of kinetic energy equal to the Q-value of $0\nu\beta\beta$ in xenon gas ($Q_{\beta\beta} = 2.447$ MeV), and 10000 $0\nu\beta\beta$ events were generated consisting of two energetic electrons with total energy equal to $Q_{\beta\beta}$.  Each simulated track was recorded as a series of hits consisting of a location $(x,y,z)$ and a deposited energy $E$.
+
+From this series of hits, a single continuous track was constructed by defining a main track as those hits produced directly by the one (or two in the case of $0\nu\beta\beta$ events) energetic electron(s) produced in the event.  Other hits produced by secondary ionization electrons were added to the main track if they were produced within 1 mm of at least one hit in the main track, and indirectly\footnote{Hits added indirectly were bunched into sub-tracks of hits lying within 1 mm of at least one other hit in the sub-track, and the energy-weighted centroid of the sub-track was calculated.  The total energy of the sub-track was then added to the hit closest to the location of the calculated centroid.} if they were produced within 2 cm of at least one hit in the main track.  Events containing hits located greater than 2 cm from all hits in the main track were discarded.  Note that the ordering of the hits was determined by Monte Carlo, however the orientation of the track was defined by constructing two ``blobs'' composed of hits within 2 cm of the first and last hits of the track, and setting as the ``initial'' end the one at which the constructed blob had less total energy.  The resulting list of hits was then smeared randomly in $(x,y)$ about their original values according to a gaussian distribution with sigma $\sigma_{s}$.  The hits were then ``sparsed,'' that is each group of $N_{s}$ hits was replaced with a single hit with $(x,y,z)$ location equal to the energy-weighted average of the constituent hit locations and energy equal to the sum of the constituent energies.  From this point on we will refer to the final list of ordered hits as the ``track.''
+% In practice we will also have to determine the ordering in between hits!
+
+\subsection{Determination of the Track Curvature}
+The curvature at each hit in the track is calculated numerically by first separating the x-values, y-values, and z-values into their own arrays.  A low-pass FIR filter is designed to sufficiently smooth the track (additional details about the FIR filter) and applied to each of the arrays.  The derivatives $dx/dz$, $dy/dz$, $d^2x/dz^2$, and $d^2y/dz^2$ are calculated using the values in the array.  From these the curvature $\kappa$ is calculated at each point.  Since we do not have $x$ and $y$ as a function of $z$ but rather $x$, $y$, and $z$ as a function of hit number $n$, we can calculate the derivatives $x' \equiv dx/dn$, $y' \equiv dy/dn$, $z' \equiv dz/dn$ using the chain rule as $\frac{dx}{dz} = x'/z'$, and
+
+\begin{equation}
+\frac{d^2x}{dz^2} = \frac{x'' - z''(dx/dz)}{(z')^2}.
+\end{equation}
+
+The expressions for $dy/dz$ and $d^2y/dz^2$ can be obtained by replacing in the above $x \rightarrow y$.  Note that outliers may need to be removed from the resulting arrays of first and second derivatives due to points between which the z-coordinate changes very little.  To ensure more stable values of the derivatives, an outlier removal procedure is applied to all derivatives and second derivatives computed which consists of iteratively calculating the mean and variance $\sigma$ of each array, replacing any value that lies outside of $5\sigma$ of the mean value with the average of the two nearest values in the array, and continuing this procedure until the calculated variance $\sigma'^2$ is no longer less than the previous value of the variance $\sigma^2$. % (continue until $\sigma' < 0.99\sigma$).
+
+The curvature calculated using each pair of points is then corrected as follows: if for the two points $z_2 < z_1$, that is $dz < 0$, the curvature is multiplied by -1 (see section \ref{sec:magmotion}).  Note that the outlier removal procedure described in step c) is also applied to the calculated curvature array.  Figure \ref{fig_trkcurv} shows the calculated curvature signs for a single-electron and double-beta event, after filtering with a lowpass filter.
+
+\begin{figure}[!htb]
+	\includegraphics[scale=0.48]{fig/plt_trkcurv_nmagse2_6.pdf}
+	\includegraphics[scale=0.48]{fig/plt_trkcurv_nmagbb2_2.pdf}
+	\caption{\label{fig_trkcurv}Calculated curvature sign at each point along the track for a single-electron event (left) and a double-beta event (right).}
+\end{figure}
 
 A curvature sign array is created consisting of values of either $+1$ or $-1$ depending on the sign of each value in the calculated curvature array.  The curvature asymmetry factor is defined as the average of the curvature sign array using elements in the first half of the track minus the average of the curvature sign array using elements in the second half of the track.
 
-\begin{equation}
+\begin{equation}\label{eqn_assym}
 \phi_{C} = \frac{1}{N}\Biggl(\sum_{i=0}^{N/2-1}\mathrm{sgn}(\kappa_{i}) - \sum_{i=N/2}^{N}\mathrm{sgn}(\kappa_{i})\Biggr).
 \end{equation}
 
-Show a KF fit and profile (10 bar), show a curvature fit and sign profile
-
 \section{Results}
-Show signal vs. background separation (should we be using different training and run datasets?) for different configurations and related plots; 80 pct and 90 pct signal efficiency factors vs. B-field for different pressures; final conclusions and recommendations
+The asymmetry factor shown in equation \ref{eqn_assym} was calculated for each of 10000 single-electron and 10000 $0\nu\beta\beta$ tracks per configuration for all combinations of $P =$ 5, 10, and 15 atm and $B =$ 0.1, 0.3, 0.5, 0.7, and 1.0 T.  In all of these configurations, the hits were smeared in $(x,y)$ with $\sigma_{s} = 2$ mm and sparsed with $N_{s} = 2$.  A cut on the calculated asymmetry factors defining what events were considered to be candidate $0\nu\beta\beta$ tracks was varied, and in each case the fraction of single-electron (background) events rejected by the cut was determined along with the fraction of $0\nu\beta\beta$ (signal) events accepted.  An example of such an analysis is summarized in figure \ref{fig_svsbg}.
 
-\newpage % Please avoid layout-changing commands if not strictly necessary
+\begin{figure}[!htb]
+	\includegraphics[scale=0.44]{fig/10atm_05T_scurv_diff_means.pdf}
+	\includegraphics[scale=0.44]{fig/10atm_05T_sigvsb_all.pdf}
+	\caption{\label{fig_svsbg}Curvature asymmetry factor for single-electron and $0\nu\beta\beta$ events (left) and resulting signal efficiency vs. background rejection curve produced by varying a cut on $\phi_{C}$ space (right).  These results were obtained for $P = 10$ atm and $B = 0.5$ T.}
+\end{figure}
+
+To demonstrate the performance of the method at the different configurations of gas pressure and magnetic field, we examine the signal efficiency obtained given 80\% background rejection.  The results are shown in figure \ref{fig_config}.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.43]{fig/eff_vs_b_80.pdf}
+	\includegraphics[scale=0.43]{fig/eff_vs_b_90.pdf}
+	\caption{\label{fig_config}Signal efficiency corresponding to 80\% background rejection (left) and 90\% background rejection (right) vs. magnitude of applied external magnetic field for different pressures.}
+\end{figure}
+
+%Show signal vs. background separation (should we be using different training and run datasets?) for different configurations and related plots; 80 pct and 90 pct signal efficiency factors vs. B-field for different pressures; final conclusions and recommendations
+
+\section{Conclusions}
+The application of an external magnetic field in a high-pressure xenon detector capable of particle track reconstruction with resolution of approximately 2 mm in $(x,y,z)$ could present an additional background rejection factor of 80\% with an acceptable loss of signal efficiency.\\
+
+(Additional comments on how this will apply to NEXT)
+
+%\newpage % Please avoid layout-changing commands if not strictly necessary
 
 %\begin{figure}[tbp] % figures (and tables) should go top or bottom of
 %                    % the page where they are first cited or in
@@ -161,7 +137,7 @@ Show signal vs. background separation (should we be using different training and
 
 \acknowledgments
 
-Aacknowledgments.
+This work was supported by the European Research Council under the Advanced Grant 339787-NEXT and the Ministerio de Econom\'{i}a y Competitividad of Spain under Grants CONSOLIDER-Ingenio 2010 CSD2008-0037 (CUP), FPA2009-13697-C04-04, FPA2009-13697-C04-01, FIS2012-37947-C04-01, FIS2012-37947-C04-02, FIS2012-37947-C04-03, and FIS2012-37947-C04-04.
 
 \bibliography{nextb}
 
