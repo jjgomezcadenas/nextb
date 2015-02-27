@@ -81,7 +81,7 @@ isotope, 5 counts/year.  To improve sensitivity at the current scale and in anti
 if this rate could possibly be reduced further.  One potential improvement would be in energy resolution, narrowing the
 energy region of interest and therefore the total background rate.  Xenon has been shown to have very good intrinsic 
 energy resolution in the gas phase \cite{Bolotnikov}, and the current energy resolution achieved in NEXT prototypes 
-using the low-noise electroluminescent (EL) gain process has not yet reached the intrinsic level \cite{NEXT_2013, NEXT_}  Improvements particularly in photon collection and detection statistics could further improve the energy resolution and therefore the observed background rate in high pressure xenon TPCs.  
+using the low-noise electroluminescent (EL) gain process has not yet reached the intrinsic level \cite{NEXT_2013}  Improvements particularly in photon collection and detection statistics could further improve the energy resolution and therefore the observed background rate in high pressure xenon TPCs.  
 
 The present study will focus on a different approach to background rejection in which the one-electron background events 
 and two-electron double beta events are distinguished by examining the signature of the track left by the event in the 
@@ -166,7 +166,7 @@ The simulation-based study consisted of analysis of Monte Carlo datasets generat
 From this series of hits, a single continuous track was constructed by defining a main track as those hits produced directly by the one (or two in the case of $0\nu\beta\beta$ events) energetic electron(s) produced in the event.  Other hits produced by secondary ionization electrons were added to the main track if they were produced within 1 mm of at least one hit in the main track, and indirectly\footnote{Hits added indirectly were bunched into sub-tracks of hits lying within 1 mm of at least one other hit in the sub-track, and the energy-weighted centroid of the sub-track was calculated.  The total energy of the sub-track was then added to the hit closest to the location of the calculated centroid.} if they were produced within 2 cm of at least one hit in the main track.  Events containing hits located greater than 2 cm from all hits in the main track were discarded.  Note that the ordering of the hits was determined by Monte Carlo, however the orientation of the track was defined by constructing two ``blobs'' composed of hits within 2 cm of the first and last hits of the track, and setting as the ``initial'' end the one at which the constructed blob had less total energy.  The resulting list of hits was then smeared randomly in $(x,y)$ about their original values according to a gaussian distribution with sigma $\sigma_{s}$.  The hits were then ``sparsed,'' that is each group of $N_{s}$ hits was replaced with a single hit with $(x,y,z)$ location equal to the energy-weighted average of the constituent hit locations and energy equal to the sum of the constituent energies.  From this point on we will refer to the final list of ordered hits as the ``track.''
 % In practice we will also have to determine the ordering in between hits!
 
-\subsection{A Lowpass FIR Filter}
+\subsection{A Lowpass FIR Filter}\label{ssec:FIR}
 One way to make the calculation of the curvature more consistent and less susceptible to noise introduced through 
 multiple scattering and non-ideal reconstruction resolution is to apply a lowpass filter to the lists of values for each 
 coordinate x, y, and z.  We now look at the arrays of x, y, and z coordinates as digital signals in the time
@@ -260,7 +260,8 @@ The curvature calculated using each pair of points is then corrected as follows:
 \begin{figure}[!htb]
 	\includegraphics[scale=0.48]{fig/plt_trkcurv_nmagse2_6.pdf}
 	\includegraphics[scale=0.48]{fig/plt_trkcurv_nmagbb2_2.pdf}
-	\caption{\label{fig_trkcurv}Calculated curvature sign at each point along the track for a single-electron event (left) and a double-beta event (right).  The red $+$ markers indicate positive curvature, while the blue dots indicate negative curvature.  Note that a lowpass filter has been applied to }
+	\caption{\label{fig_trkcurv}Calculated curvature sign at each point along the track for a single-electron event (left) and a double-beta event (right).  The red $+$ markers indicate positive curvature, while the blue dots indicate negative
+	curvature.  Note that a lowpass filter has been applied to the tracks shown as described in section \protect\ref{ssec:FIR}.}
 \end{figure}
 
 A curvature sign array is created consisting of values of either $+1$ or $-1$ depending on the sign of each value in the calculated curvature array.  The curvature asymmetry factor is defined as the average of the curvature sign array using elements in the first half of the track minus the average of the curvature sign array using elements in the second half of the track.
