@@ -3,7 +3,6 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage[numbers]{natbib}
-%\usepackage{hyperref}
 %\hypersetup{colorlinks, citecolor=blue, linkcolor=blue, filecolor=blue, urlcolor=red}
 
 \title{Improved Background Rejection in Neutrinoless Double Beta Decay Experiments with Gaseous Xenon Detectors}
@@ -59,7 +58,7 @@ mode in their chosen candidate isotope and set new lower limits on the half-life
 still in the prototype or construction phases including CUORE \cite{CUORE_2015}, MAJORANA \cite{MAJORANA_2013}, 
 NEXT \cite{NEXT_2014}, SNO$+$ \cite{SNOPLUS_2014}, and SuperNEMO \cite{SuperNEMO_2010}.  Because no signal
 has yet been seen in experiments employing hundreds of kilograms, it may be necessary to design an experiment capable 
-of operating with tonnes of candidate isotope.
+of operating with tonnes of candidate isotope.  
 
 %The $0\nu\beta\beta$ experiment NEXT will use 100 kg of xenon enriched in the candidate isotope $^{136}$Xe in a
 %high pressure xenon time projection chamber (TPC).  A tracking plane consisting of silicon photomultipliers (SiPMs)
@@ -70,18 +69,14 @@ of operating with tonnes of candidate isotope.
 \section{Motivation}
 \subsection{Background Rejection in Double Beta Experiments}
 In recent $0\nu\beta\beta$ experiments, the total number of background events observed or expected in the energy 
-region of interest is of order a few to a few tens of counts per year.  For example, 
-
-High pressure xenon detectors offer technology that could potentially allow for operation at the ton-scale and permit the 
-reconstruction of ionization tracks with good resolution \cite{NEXT_2013, NEXT_2013tracking}.  The NEXT 
-experiment will use a high pressure xenon time projection chamber (TPC) to search for $0\nu\beta\beta$ decay
+region of interest is of order a few to a few tens of counts per year.  The NEXT experiment will use a high pressure xenon time projection chamber (TPC) to search for $0\nu\beta\beta$ decay
 using 100 kg of xenon enriched in the candidate isotope $^{136}$Xe.  The experiment currently 
 expects a background rate of $5 \times 10^{-4}$ counts/keV/kg/year, and for a 10 keV region of interest and 100 kg of 
 isotope, 5 counts/year.  To improve sensitivity at the current scale and in anticipation of a larger mass detector, we ask
 if this rate could possibly be reduced further.  One potential improvement would be in energy resolution, narrowing the
 energy region of interest and therefore the total background rate.  Xenon has been shown to have very good intrinsic 
 energy resolution in the gas phase \cite{Bolotnikov}, and the current energy resolution achieved in NEXT prototypes 
-using the low-noise electroluminescent (EL) gain process has not yet reached the intrinsic level \cite{NEXT_2013}  Improvements particularly in photon collection and detection statistics could further improve the energy resolution and therefore the observed background rate in high pressure xenon TPCs.  
+using the low-noise electroluminescent (EL) gain process has not yet reached the intrinsic level \cite{NEXT_2013}.  Improvements particularly in photon collection and detection statistics could further improve the energy resolution and therefore the observed background rate in high pressure xenon TPCs.  
 
 The present study will focus on a different approach to background rejection in which the one-electron background events 
 and two-electron double beta events are distinguished by examining the signature of the track left by the event in the 
@@ -306,8 +301,6 @@ provides approximately 80\% and 90\% background rejection.  The results are show
 	\caption{\label{fig_config}Signal efficiency corresponding to approximately 80\% background rejection (left) and 90\% background rejection (right) vs. magnitude of applied external magnetic field for different pressures.}
 \end{figure}
 
-%Show signal vs. background separation (should we be using different training and run datasets?) for different configurations and related plots; 80 pct and 90 pct signal efficiency factors vs. B-field for different pressures; final conclusions and recommendations
-
 \section{Conclusions}
 The application of an external magnetic field in a high-pressure xenon detector capable of particle track reconstruction with resolution of approximately 2 mm in $(x,y,z)$ could present an additional background rejection factor of 80\% with an acceptable loss of signal efficiency at pressures of about 10 atm or less.  The background rejection improves with decreasing pressure due to the more extended tracks produced at lower gas densities.  The use of this analysis at pressures above 10 atm does not seem practical due to the shortened tracks.  For a given pressure, there appears to be an optimal value of the magnetic field at which a maximum in signal efficiency is obtained for a given background rejection, and magnetic fields in the range of 0.3 - 0.7 T seem to give the best results.
 
@@ -322,5 +315,9 @@ more aspects of the detector track reconstruction process.
 This work was supported by the European Research Council under the Advanced Grant 339787-NEXT and the Ministerio de Econom\'{i}a y Competitividad of Spain under Grants CONSOLIDER-Ingenio 2010 CSD2008-0037 (CUP), FPA2009-13697-C04-04, FPA2009-13697-C04-01, FIS2012-37947-C04-01, FIS2012-37947-C04-02, FIS2012-37947-C04-03, and FIS2012-37947-C04-04.
 
 \bibliography{nextb}
+
+% Still to consider:
+% - how does lower b.g. translate to sensitivity?
+
 
 \end{document}
