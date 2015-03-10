@@ -51,14 +51,17 @@ in reviews (see for example \cite{Cadenas_2012, Bilenky_2010, Elliot_2012}).
 
 Many experimental challenges accompany these far-reaching physics implications.  No confirmed observation of
 $0\nu\beta\beta$ has yet been made, though it has received much recent experimental attention.   The current 
-generation of experiments operate with one to several hundred kilograms of candidate isotope mass.  Some of these
+generation of experiments operate with tens to several hundred kilograms of candidate isotope mass.  Some of these
 experiments such as EXO \cite{EXO_2012, EXOPRL_2012}, GERDA \cite{GERDA_2004, GERDA_2013}, and KamLAND-Zen 
 \cite{KamLANDZen_2012, KamLANDZen_2013} are already running and have directly observed the $2\nu\beta\beta$ 
 mode in their chosen candidate isotope and set new lower limits on the half-life for $0\nu\beta\beta$ decay.  Others are 
 still in the prototype or construction phases including CUORE \cite{CUORE_2015}, MAJORANA \cite{MAJORANA_2013}, 
 NEXT \cite{NEXT_2014}, SNO$+$ \cite{SNOPLUS_2014}, and SuperNEMO \cite{SuperNEMO_2010}.  Because no signal
-has yet been seen in experiments employing hundreds of kilograms, it may be necessary to design an experiment capable 
-of operating with tonnes of candidate isotope.  
+has yet been seen in experiments employing hundreds of kilograms of candidate isotope, it may be necessary to 
+design a low-background experiment capable of operating with tonnes of candidate isotope to continue searching
+for the decay.  The different technological strategies used in the current wide variety of $0\nu\beta\beta$
+experiments may not be applicable at the tonne-scale, and such technologies would need to demostrate a clear
+ability to scale upward in size before being considered for a tonne-scale experiment.
 
 %The $0\nu\beta\beta$ experiment NEXT will use 100 kg of xenon enriched in the candidate isotope $^{136}$Xe in a
 %high pressure xenon time projection chamber (TPC).  A tracking plane consisting of silicon photomultipliers (SiPMs)
@@ -67,30 +70,34 @@ of operating with tonnes of candidate isotope.
 %and therefore the techniques developed here should be directly applicable to such an experiment.
 
 \section{Motivation}
-\subsection{Background Rejection in Double Beta Experiments}
+\subsection{Background Rejection in Double-Beta Experiments}
 In recent $0\nu\beta\beta$ experiments, the total number of background events observed or expected in the energy 
-region of interest is of order a few to a few tens of counts per year.  The NEXT experiment will use a high pressure xenon time projection chamber (TPC) to search for $0\nu\beta\beta$ decay
+region of interest has been on the order of a few counts to a few tens of counts per year.  The NEXT experiment will use a 
+high pressure xenon time projection chamber (TPC) to search for $0\nu\beta\beta$ decay
 using 100 kg of xenon enriched in the candidate isotope $^{136}$Xe.  The experiment currently 
 expects a background rate of $5 \times 10^{-4}$ counts/keV/kg/year, and for a 10 keV region of interest and 100 kg of 
 isotope, 5 counts/year.  To improve sensitivity at the current scale and in anticipation of a larger mass detector, we ask
 if this rate could possibly be reduced further.  One potential improvement would be in energy resolution, narrowing the
 energy region of interest and therefore the total background rate.  Xenon has been shown to have very good intrinsic 
 energy resolution in the gas phase \cite{Bolotnikov}, and the current energy resolution achieved in NEXT prototypes 
-using the low-noise electroluminescent (EL) gain process has not yet reached the intrinsic level \cite{NEXT_2013}.  Improvements particularly in photon collection and detection statistics could further improve the energy resolution and therefore the observed background rate in high pressure xenon TPCs.  
+using the low-noise electroluminescent (EL) gain process has not yet reached the intrinsic level \cite{NEXT_2013}.  
+Improvements particularly in photon collection and detection statistics could further improve the energy resolution and 
+therefore the observed background rate in high pressure xenon TPCs.  
 
-The present study will focus on a different approach to background rejection in which the one-electron background events 
-and two-electron double beta events are distinguished by examining the signature of the track left by the event in the 
-detector.  The energetic electrons produced in $0\nu\beta\beta$ decay deposit their energy as they travel through the 
-xenon gas, leaving a track of ionization in their path.  Because the ionization density $dE/dx$ is greater at lower electron 
-energies, the two ends of the electron tracks are marked by two ``blobs'' of greater ionization density.  For a 
+The present study will focus on a different approach to background rejection in which the one-electron background 
+events and two-electron double beta events are distinguished by examining the signature of the track left by the event in 
+the detector.  The energetic electrons produced in $0\nu\beta\beta$ decay deposit their energy as they travel through 
+the xenon gas, leaving a track of ionization in their path.  Because the ionization density $dE/dx$ is greater at lower 
+electron energies, the two ends of the electron tracks are marked by two ``blobs'' of greater ionization density.  For a 
 single-electron track, only one ionization track with one ``blob'' is produced.  This difference in track signatures can be 
 used to distinguish between background events, for example due to high-energy gamma rays, that produce 
 single-electron tracks, and double-beta events.\footnote{Note that this track signature is present for both 
 $0\nu\beta\beta$ and $2\nu\beta\beta$ events, and so it cannot be used to reject background events from the 
 two-neutrino mode.  For this one must rely on good energy resolution.}  Such studies based on identification of the two 
-``blobs'' have already shown that the track signatures can be used to reject background events.  In this study we compare 
-the single and double-electron track signatures in the presence of an applied external field and quantify the additional 
-ability to reject single-electron events that is gained by examining the curvature of the tracks induced by the field.
+``blobs'' have already shown that the track signatures can be used to reject background events.  In this study we 
+compare the single and double-electron track signatures in the presence of an applied external field and quantify the 
+additional ability to reject single-electron events that is gained by examining the curvature of the tracks induced by the 
+field.
 
 We note that the ability to conduct a detailed study of the reconstructed track is highly dependent on the resolution
 with which the track can be reconstructed in the detector.  One major limiting factor in tracking resolution is the diffusion
@@ -172,7 +179,7 @@ X[k] = \sum_{n=0}^{N-1}x[n]e^{-i2\pi kn/N},
 \end{equation}
 
 \noindent where $N$ is the total number of samples and $k$ is the discrete frequency of each complex
-sinusoid $e{-i2\pi kn/N}$ in cycles per $N$ samples.  This discrete frequency can be translated to an analog
+sinusoid $e^{-i2\pi kn/N}$ in cycles per $N$ samples.  This discrete frequency can be translated to an analog
 frequency $f_{k}$ (for example in units of time$^{-1}$) by knowing the frequency at which the digital signal was
 sampled, or the sampling frequency $f_{s}$ in samples per unit time, as
 
@@ -187,9 +194,9 @@ $X[k]$ in the digital signal for $k$ greater than some cutoff frequency $k_{c}$ 
 others with $k$ less than $k_{c}$.  In practice, the filter will have a non-ideal stopband in which sinusoidal 
 components with frequencies less than $k_{c}$ will be increasingly preserved with decreasing $k$ and those 
 with frequencies greater than $k_{c}$ will be increasingly quenched with increasing $k$.  The filter must be designed 
-to ensure we don't eliminate the sinusoidal motion introduced by the magnetic field.  In practice we use a
-filter with a wide stopband (this reduces its complexity) and place $k_{c}$ at the discrete frequency corresponding
-to the cyclotron frequency.
+to ensure we don't eliminate the sinusoidal motion introduced by the magnetic field, and we use a
+filter with a wide stopband (this reduces its complexity) and place $k_{c}$ near the discrete frequency corresponding
+to the cyclotron frequency
 
 %The application of a magnetic field in the z-direction will cause an electron with some component of its velocity in the 
 %x-y plane to move in a helix, meaning that the projection of the electron's path in the x-y plane (in the absence of 
@@ -208,12 +215,12 @@ list of coefficients $b_{m}$ and is applied as
   x_{f}[n] = \sum_{m=0}^{N_f} b_{m}x[n-m]
 \end{equation}
   
-\noindent where the number of filter coefficients $N_{t}$ is the order of the filter.  In practice a delay will exist in the
+\noindent where the number of filter coefficients $N_{t}$ is the order of the filter.  A delay will exist in the
 final filtered signal equal to $N_{t}/2$ samples, and the final $N_{t}/2$ samples will not be useful in the final analysis
 and are removed.
-For a track sampled in x, y, and z for a total of $N$ samples, to determine what discrete frequency $k_{cyc}$ this analog
-frequency ($\omega_{\mathrm{cyc}}/2\pi$ in cycles per second) corresponds to, one must know the frequency with
-which the track has been sampled.  An average track production time $\overline{T}$ can be calculated from 
+For a track sampled in x, y, and z for a total of $N$ samples, to determine what discrete frequency $k_{cyc}$ to which
+this analog frequency ($\omega_{\mathrm{cyc}}/2\pi$ in cycles per second) corresponds, one must know the frequency 
+with which the track has been sampled.  An average track production time $\overline{T}$ can be calculated from 
 tabulated values of $dE/dx$ (which, since this refers to kinetic energy loss, we will call $dK/dx$) as
 
 \begin{equation}\label{eqn_T}
@@ -223,10 +230,20 @@ tabulated values of $dE/dx$ (which, since this refers to kinetic energy loss, we
 \noindent where here we have used $K_{f} = Q_{\beta\beta} = 2.447$ MeV and tabulated 
 $dE/dx$ from NIST \cite{NIST_mac} in xenon.  The sampling frequency is then $f_{s} = N/T$, and so the motion
 due to the magnetic field should manifest itself in the arrays of sampled x and y coordinates
-of the track as a sinusoidal component of discrete frequency $k_{\mathrm{cyc}} = (qB/m)\cdot(T/N)$.
+of the track as a sinusoidal component of discrete frequency 
+
+\begin{equation}\label{eqn_kcyc}
+k_{\mathrm{cyc}} = (qB/m)\cdot(T/N).
+\end{equation}
+
 One should ensure that the track is sampled at a rate higher than the cyclotron
 frequency, that is $N/T > \omega_{\mathrm{cyc}}/2\pi$, or the helical motion will not be properly
-reconstructed.
+reconstructed.  An example filter is shown in figure \ref{fig_FIR}.  For each track, an FIR filter is designed with 
+stopband frequency equal to $1.2k_{\mathrm{cyc}}$ and stopband width equal to 0.2.  This was sufficient to 
+eliminate high-frequency noise, leaving a smooth track for the calculation of derivatives, yet the filter order was
+low enough so as to not lose a significant number of the track samples.  For this track, a number of samples 
+$N = 198$ and using $T = 1.25$ ns from equation \ref{eqn_T} and $\omega_{\mathrm{cyc}} = 0.88 \times 
+10^{11}$ rad/s from equation \ref{eqn_wcyc} with $B = 0.5$ T, we have $k_{\mathrm{cyc}}/2\pi = 0.089$ cycles/sample as shown in figure \ref{fig_FIR}.
 
 \begin{figure}[!htb]
 	\centering
@@ -234,14 +251,14 @@ reconstructed.
 	\caption{\label{fig_FIR}FIR filter designed for a track of length $N = 198$ samples.  The cutoff frequency of the track is shown as a blue vertical line.}
 \end{figure}
 
-An example filter is shown in figure \ref{fig_FIR}.  For each track, an FIR filter is designed with stopband frequency equal 
-to $1.2k_{\mathrm{cyc}}$ and stopband width equal to 0.2.  This was sufficient to eliminate high-frequency noise, 
-leaving a smooth track for the calculation of derivatives, yet the filter order was low enough so as to not lose a 
-significant number of the track samples.  For this track, a number of samples $N = 198$ and using $T = 1.25$ ns from 
-equation \ref{eqn_T} and $\omega_{\mathrm{cyc}} = 0.88 \times 10^{11}$ rad/s from equation \ref{eqn_wcyc} 
-with $B = 0.5$ T, we have $k_{\mathrm{cyc}}/2\pi = 0.089$ cycles/sample as shown in figure \ref{fig_FIR}.
+As the magnitude of $B$ increases, the frequency of helical motion often becomes great enough that placing the filter
+cutoff frequency $k_{c}$ near the cyclotron frequency does not permit sufficient filtering of the high-frequency
+components of the track, and the resulting track is not smooth enough for a clean calculation of the curvature.
+Thus we will often perform the analysis discussed in section \ref{ssec:curvature} using a lowpass filter with 
+cutoff frequency of a fixed value for all magnetic field strengths, knowing that for the higher fields the resulting 
+smoother track may be obtained at the expense of some information on the curvature induced by the field.
 
-\subsection{Determination of the Track Curvature}
+\subsection{Determination of the Track Curvature}\label{ssec:curvature}
 The curvature at each hit in the track is calculated numerically by first separating the x-values, y-values, and z-values into their own arrays.  A lowpass FIR filter is designed to sufficiently smooth the track and applied to each of the arrays.  The derivatives $dx/dz$, $dy/dz$, $d^2x/dz^2$, and $d^2y/dz^2$ are calculated using the values in the array.  From these the curvature $\kappa$ is calculated at each point.  Since we do not have $x$ and $y$ as a function of $z$ but rather $x$, $y$, and $z$ as a function of hit number $n$, we can calculate the derivatives $x' \equiv dx/dn$, $y' \equiv dy/dn$, $z' \equiv dz/dn$ using the chain rule as $\frac{dx}{dz} = x'/z'$, and
 
 \begin{equation}
@@ -250,13 +267,12 @@ The curvature at each hit in the track is calculated numerically by first separa
 
 The expressions for $dy/dz$ and $d^2y/dz^2$ can be obtained by replacing in the above $x \rightarrow y$.  Note that outliers may need to be removed from the resulting arrays of first and second derivatives due to points between which the z-coordinate changes very little.  To ensure more stable values of the derivatives, an outlier removal procedure is applied to all derivatives and second derivatives computed which consists of iteratively calculating the mean and variance $\sigma$ of each array, replacing any value that lies outside of $5\sigma$ of the mean value with the average of the two nearest values in the array, and continuing this procedure until the calculated variance $\sigma'^2$ is no longer less than the previous value of the variance $\sigma^2$. % (continue until $\sigma' < 0.99\sigma$).
 
-The curvature calculated using each pair of points is then corrected as follows: if for the two points $z_2 < z_1$, that is $dz < 0$, the curvature is multiplied by -1 (see section \ref{ssec:magmotion}).  Note that the outlier removal procedure described in step c) is also applied to the calculated curvature array.  Figure \ref{fig_trkcurv} shows the calculated curvature signs for a single-electron and double-beta event, after filtering with a lowpass filter.
+The curvature calculated using each pair of points is then corrected as follows: if for the two points $z_2 < z_1$, that is $dz < 0$, the curvature is multiplied by -1 (see section \ref{ssec:magmotion}).  Note that the outlier removal procedure described above is also applied to the calculated curvature array.  Figure \ref{fig_trkcurv} shows the calculated curvature signs for a single-electron and double-beta event, after filtering with a lowpass filter.
 
 \begin{figure}[!htb]
 	\includegraphics[scale=0.48]{fig/plt_trkcurv_nmagse2_6.pdf}
 	\includegraphics[scale=0.48]{fig/plt_trkcurv_nmagbb2_2.pdf}
-	\caption{\label{fig_trkcurv}Calculated curvature sign at each point along the track for a single-electron event (left) and a double-beta event (right).  The red $+$ markers indicate positive curvature, while the blue dots indicate negative
-	curvature.  Note that a lowpass filter has been applied to the tracks shown as described in section \protect\ref{ssec:FIR}.}
+	\caption{\label{fig_trkcurv}Calculated curvature sign at each point along the track for a single-electron event (left) and a double-beta event (right).  The red $+$ markers indicate positive curvature, while the blue dots indicate negative curvature.  Note that a lowpass filter has been applied to the tracks shown as described in section \protect\ref{ssec:FIR}.}
 \end{figure}
 
 A curvature sign array is created consisting of values of either $+1$ or $-1$ depending on the sign of each value in the calculated curvature array.  The curvature asymmetry factor is defined as the average of the curvature sign array using elements in the first half of the track minus the average of the curvature sign array using elements in the second half of the track.
@@ -271,18 +287,19 @@ the second term includes the remaining $(N-1)/2 + 1$ hits.
 \section{Results: Background Rejection}
 The analysis described in section \ref{sec:implementation} was performed for single-electron and
 $0\nu\beta\beta$ tracks for all combinations of $P =$ 5, 10, and 15 atm and $B =$ 0.1, 0.3, 0.5, 0.7, 
-and 1.0 T.  In all of these configurations, the hits were smeared in $(x,y)$ with $\sigma_{s} = 2$ mm and sparsed with 
-$N_{s} = 2$.  Additional analyses in the $P =$ 10 atm, $B = 0.5$ T configuration were performed, one with 
-$\sigma_{s} = 1$ mm and $N_{s} = 1$, and another with $\sigma_{s} = 3$ mm and $N_{s} = 3$.  For each configuration, 
-10000 events of each track type (single-electron and $0\nu\beta\beta$) were generated, and approximately 
-40-60\% of the tracks passed the initial topological cuts described in section \ref{ssec:track}.  The asymmetry factor 
-shown in equation \ref{eqn_assym} was calculated for these tracks, and a cut was placed on the calculated asymmetry
-factors defining the events considered to be candidate $0\nu\beta\beta$ tracks.  The cut was varied, and in each case 
+and 1.0 T.  In all of these configurations, the hits were smeared in $(x,y)$ with $\sigma_{s} = 2$ mm and 
+sparsed with $N_{s} = 2$.  Additional analyses in the $P =$ 10 atm, $B = 0.5$ T configuration were performed, 
+one with $\sigma_{s} = 1$ mm and $N_{s} = 1$, and another with $\sigma_{s} = 3$ mm and $N_{s} = 3$.  For 
+each configuration, 10000 events of each track type (single-electron and $0\nu\beta\beta$) were generated, 
+and approximately 40-65\% of the tracks passed the initial topological cuts described in section 
+\ref{ssec:track}.  The asymmetry factor shown in equation \ref{eqn_assym} was calculated for these tracks, and
+a cut was placed on the calculated asymmetry factors defining the events considered to be candidate 
+$0\nu\beta\beta$ tracks.  The cut was varied, and in each case 
 the fraction of single-electron (background) tracks rejected by the cut was determined along with the fraction of 
-$0\nu\beta\beta$ (signal) tracks accepted.\footnote{This is the fraction of the events that passed the initial topological
-analysis.  That is, we are considering the additional background rejection provided by this analysis once events of
-the chosen energy with a single continuous track have been selected out.}  An example of such an analysis is 
-summarized in figure \ref{fig_svsbg}.
+$0\nu\beta\beta$ (signal) tracks accepted.\footnote{This is the fraction of the events that passed the initial 
+topological analysis.  That is, we are considering the additional background rejection provided by this analysis  
+once events of the chosen energy with a single continuous track have been selected out.}  An example of such 
+an analysis is summarized in figure \ref{fig_svsbg}.
 
 \begin{figure}[!htb]
 	\includegraphics[scale=0.44]{fig/10atm_05T_scurv_diff_means.pdf}
@@ -290,24 +307,25 @@ summarized in figure \ref{fig_svsbg}.
 	\caption{\label{fig_svsbg}Curvature asymmetry factor for single-electron and $0\nu\beta\beta$ events with $\sigma_{s} = 2$ mm and $N_{s} = 2$ (left) and resulting signal efficiency vs. background rejection curve produced by varying a cut on $\phi_{C}$ space, shown also for $\sigma_{s} = 1$ mm and $N_{s} = 1$ and $\sigma_{s} = 3$ mm and $N_{s} = 3$ (right).  Here $s$ is the fraction of the total number of $0\nu\beta\beta$ events considered that was identified as a $0\nu\beta\beta$ event, and $b$ is the fraction of the total number of single-electron background events considered that was identifield as a $0\nu\beta\beta$ event.  These results were obtained for the $P = 10$ atm and $B = 0.5$ T configuration.}
 \end{figure}
 
-To demonstrate the performance of the method at the different configurations of gas pressure and magnetic field, we 
-examine the signal efficiency $s$ (fraction of $0\nu\beta\beta$ events correctly identified) obtained given a cut that 
-provides approximately 80\% and 90\% background rejection.  The results are shown in figure \ref{fig_config}.
+To demonstrate the performance of the method at the different configurations of gas pressure and magnetic 
+field, we examine the signal efficiency $s$ (fraction of $0\nu\beta\beta$ events correctly identified) obtained 
+given a cut that provides approximately 80\% and 90\% background rejection.  The results are shown in figure 
+\ref{fig_config}.
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[scale=0.43]{fig/eff_vs_b_80.pdf}
 	\includegraphics[scale=0.43]{fig/eff_vs_b_90.pdf}
-	\caption{\label{fig_config}Signal efficiency corresponding to approximately 80\% background rejection (left) and 90\% background rejection (right) vs. magnitude of applied external magnetic field for different pressures.}
+	\caption{\label{fig_config}Signal efficiency corresponding to approximately 80\% background rejection (left) and 90\% background rejection (right) vs. magnitude of applied external magnetic field for different pressures.  The solid lines show the results of an analysis in which the lowpass filter applied varied from track to track, calculated using equation \protect\ref{eqn_kcyc}.  The dot-dashed lines show the results of an analysis in which $k_{\mathrm{cyc}}$ was fixed to a value of 0.085, a value representative of these simulated tracks for $B = 0.5$ T.}  % and $N_{s} = 2$.}
 \end{figure}
 
 \section{Conclusions}
-The application of an external magnetic field in a high-pressure xenon detector capable of particle track reconstruction with resolution of approximately 2 mm in $(x,y,z)$ could present an additional background rejection factor of 80\% with an acceptable loss of signal efficiency at pressures of about 10 atm or less.  The background rejection improves with decreasing pressure due to the more extended tracks produced at lower gas densities.  The use of this analysis at pressures above 10 atm does not seem practical due to the shortened tracks.  For a given pressure, there appears to be an optimal value of the magnetic field at which a maximum in signal efficiency is obtained for a given background rejection, and magnetic fields in the range of 0.3 - 0.7 T seem to give the best results.
+The application of an external magnetic field in a high-pressure xenon detector capable of particle track reconstruction with resolution of approximately 2 mm in $(x,y,z)$ could present an additional background rejection factor of 80\% with an acceptable loss of signal efficiency at pressures of about 10 atm or less.  The background rejection improves with decreasing pressure due to the more extended tracks produced at lower gas densities.  For the lower pressures (5 atm and 10 atm), relatively little increase in signal efficiency is gained for an increase in magnetic field for fields greater than approximately 0.5 T.
 
 Even an 80\% reduction in background would reduce the expected background rate in the NEXT experiment to
 $1 \times 10^{-4}$ counts/keV/kg/year, or about 1 count/year for a 100 kg detector.  This warrants further
-investigation, including the development of a discriminating variable more sophisticated than the asymmetry factor
-used in this study and application of this methodology to Monte Carlo data generated taking into account 
+investigation, including the development of a discriminating variable more sophisticated than the asymmetry 
+factor used in this study and application of this methodology to Monte Carlo data generated taking into account 
 more aspects of the detector track reconstruction process.
 
 \acknowledgments
