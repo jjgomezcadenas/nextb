@@ -267,15 +267,19 @@ The curvature at each hit in the track is calculated numerically by first separa
 
 The expressions for $dy/dz$ and $d^2y/dz^2$ can be obtained by replacing in the above $x \rightarrow y$.  Note that outliers may need to be removed from the resulting arrays of first and second derivatives due to points between which the z-coordinate changes very little.  To ensure more stable values of the derivatives, an outlier removal procedure is applied to all derivatives and second derivatives computed which consists of iteratively calculating the mean and variance $\sigma$ of each array, replacing any value that lies outside of $5\sigma$ of the mean value with the average of the two nearest values in the array, and continuing this procedure until the calculated variance $\sigma'^2$ is no longer less than the previous value of the variance $\sigma^2$. % (continue until $\sigma' < 0.99\sigma$).
 
-The curvature calculated using each pair of points is then corrected as follows: if for the two points $z_2 < z_1$, that is $dz < 0$, the curvature is multiplied by -1 (see section \ref{ssec:magmotion}).  Note that the outlier removal procedure described above is also applied to the calculated curvature array.  Figure \ref{fig_trkcurv} shows the calculated curvature signs for a single-electron and double-beta event, after filtering with a lowpass filter.
+The curvature calculated using each pair of points is then corrected as follows: if for the two points $z_2 < z_1$, that is 
+$dz < 0$, the curvature is multiplied by -1 (see section \ref{ssec:magmotion}).  Note that the outlier removal procedure 
+described above is also applied to the calculated curvature array.  Figure \ref{fig_trkcurv} shows the calculated curvature 
+signs for a single-electron and double-beta event, after filtering with a lowpass filter.  A curvature sign array is created 
+consisting of values of either $+1$ or $-1$ depending on the sign of each value in the calculated curvature array.  The 
+curvature asymmetry factor is defined as the average of the curvature sign array using elements in the first half of the 
+track minus the average of the curvature sign array using elements in the second half of the track.
 
 \begin{figure}[!htb]
 	\includegraphics[scale=0.48]{fig/plt_trkcurv_nmagse2_6.pdf}
 	\includegraphics[scale=0.48]{fig/plt_trkcurv_nmagbb2_2.pdf}
 	\caption{\label{fig_trkcurv}Calculated curvature sign at each point along the track for a single-electron event (left) and a double-beta event (right).  The red $+$ markers indicate positive curvature, while the blue dots indicate negative curvature.  Note that a lowpass filter has been applied to the tracks shown as described in section \protect\ref{ssec:FIR}.}
 \end{figure}
-
-A curvature sign array is created consisting of values of either $+1$ or $-1$ depending on the sign of each value in the calculated curvature array.  The curvature asymmetry factor is defined as the average of the curvature sign array using elements in the first half of the track minus the average of the curvature sign array using elements in the second half of the track.
 
 \begin{equation}\label{eqn_assym}
 \phi_{C} = \frac{1}{N/2}\Biggl(\sum_{i=0}^{N/2-1}\mathrm{sgn}(\kappa_{i}) - \sum_{i=N/2}^{N}\mathrm{sgn}(\kappa_{i})\Biggr).
