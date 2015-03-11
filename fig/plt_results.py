@@ -114,10 +114,10 @@ plt.plot(bvals_p10, eff80_p10, '.', color='green');
 plt.plot(bvals_p10, eff80_fp10, '-.', color='green');
 plt.plot(bvals_p10, eff80_fp10, '.', color='green');
 
-plt.plot(bvals_sp10, eff80_sp10, '-', color='orange', label='SeF$_6$, 10 atm');
-plt.plot(bvals_sp10, eff80_sp10, '.', color='orange');
-plt.plot(bvals_sp10, eff80_fsp10, '-.', color='orange');
-plt.plot(bvals_sp10, eff80_fsp10, '.', color='orange');
+#plt.plot(bvals_sp10, eff80_sp10, '-', color='orange', label='SeF$_6$, 10 atm');
+#plt.plot(bvals_sp10, eff80_sp10, '.', color='orange');
+#plt.plot(bvals_sp10, eff80_fsp10, '-.', color='orange');
+#plt.plot(bvals_sp10, eff80_fsp10, '.', color='orange');
 
 plt.plot(bvals_p15, eff80_p15, '-', color='red', label='Xe, 15 atm');
 plt.plot(bvals_p15, eff80_p15, '.', color='red');
@@ -148,10 +148,10 @@ plt.plot(bvals_p10, eff90_p10, '.', color='green');
 plt.plot(bvals_p10, eff90_fp10, '-.', color='green');
 plt.plot(bvals_p10, eff90_fp10, '.', color='green');
 
-plt.plot(bvals_sp10, eff90_sp10, '-', color='orange', label='SeF$_6$, 10 atm');
-plt.plot(bvals_sp10, eff90_sp10, '.', color='orange');
-plt.plot(bvals_sp10, eff90_fsp10, '-.', color='orange');
-plt.plot(bvals_sp10, eff90_fsp10, '.', color='orange');
+#plt.plot(bvals_sp10, eff90_sp10, '-', color='orange', label='SeF$_6$, 10 atm');
+#plt.plot(bvals_sp10, eff90_sp10, '.', color='orange');
+#plt.plot(bvals_sp10, eff90_fsp10, '-.', color='orange');
+#plt.plot(bvals_sp10, eff90_fsp10, '.', color='orange');
 
 plt.plot(bvals_p15, eff90_p15, '-', color='red', label='Xe, 15 atm');
 plt.plot(bvals_p15, eff90_p15, '.', color='red');
