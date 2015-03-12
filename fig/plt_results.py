@@ -103,26 +103,29 @@ for pr,bfield,eff80,eff90,eff80_fixed,eff90_fixed in zip(l_spressure,l_sbfield,l
 fig = plt.figure(1);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
-plt.plot(bvals_p5, eff80_p5, '-', color='blue', label='Xe, 5 atm');
-plt.plot(bvals_p5, eff80_p5, '.', color='blue');
-plt.plot(bvals_p5, eff80_fp5, '-.', color='blue');
+plt.plot(bvals_p5, eff80_fp5, '-', color='blue', label='Xe, 5 atm');
 plt.plot(bvals_p5, eff80_fp5, '.', color='blue');
+#plt.plot(bvals_p5, eff80_p5, '-.', color='blue');
+#plt.plot(bvals_p5, eff80_p5, '.', color='blue');
 
 
-plt.plot(bvals_p10, eff80_p10, '-', color='green', label='Xe, 10 atm');
-plt.plot(bvals_p10, eff80_p10, '.', color='green');
-plt.plot(bvals_p10, eff80_fp10, '-.', color='green');
+plt.plot(bvals_p10, eff80_fp10, '-', color='green', label='Xe, 10 atm');
 plt.plot(bvals_p10, eff80_fp10, '.', color='green');
+#plt.plot(bvals_p10, eff80_p10, '-.', color='green');
+#plt.plot(bvals_p10, eff80_p10, '.', color='green');
 
-#plt.plot(bvals_sp10, eff80_sp10, '-', color='orange', label='SeF$_6$, 10 atm');
-#plt.plot(bvals_sp10, eff80_sp10, '.', color='orange');
-#plt.plot(bvals_sp10, eff80_fsp10, '-.', color='orange');
+#plt.plot(bvals_sp10, eff80_fsp10, '-', color='orange', label='SeF$_6$, 10 atm');
 #plt.plot(bvals_sp10, eff80_fsp10, '.', color='orange');
+#plt.plot(bvals_sp10, eff80_sp10, '-.', color='orange');
+#plt.plot(bvals_sp10, eff80_sp10, '.', color='orange');
 
-plt.plot(bvals_p15, eff80_p15, '-', color='red', label='Xe, 15 atm');
-plt.plot(bvals_p15, eff80_p15, '.', color='red');
-plt.plot(bvals_p15, eff80_fp15, '-.', color='red');
+plt.plot(bvals_p15, eff80_fp15, '-', color='red', label='Xe, 15 atm');
 plt.plot(bvals_p15, eff80_fp15, '.', color='red');
+#plt.plot(bvals_p15, eff80_p15, '-.', color='red');
+#plt.plot(bvals_p15, eff80_p15, '.', color='red');
+
+axes = plt.gca()
+axes.set_ylim([0.1,0.8]);
 
 lnd = plt.legend(loc=4,frameon=False,handletextpad=0);
 plt.xlabel("Magnetic Field (T)");
@@ -138,25 +141,28 @@ plt.close();
 fig = plt.figure(2);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
-plt.plot(bvals_p5, eff90_p5, '-', color='blue', label='Xe, 5 atm');
-plt.plot(bvals_p5, eff90_p5, '.', color='blue');
-plt.plot(bvals_p5, eff90_fp5, '-.', color='blue');
+plt.plot(bvals_p5, eff90_fp5, '-', color='blue', label='Xe, 5 atm');
 plt.plot(bvals_p5, eff90_fp5, '.', color='blue');
+#plt.plot(bvals_p5, eff90_fp5, '-.', color='blue');
+#plt.plot(bvals_p5, eff90_fp5, '.', color='blue');
 
-plt.plot(bvals_p10, eff90_p10, '-', color='green', label='Xe, 10 atm');
-plt.plot(bvals_p10, eff90_p10, '.', color='green');
-plt.plot(bvals_p10, eff90_fp10, '-.', color='green');
+plt.plot(bvals_p10, eff90_fp10, '-', color='green', label='Xe, 10 atm');
 plt.plot(bvals_p10, eff90_fp10, '.', color='green');
+#plt.plot(bvals_p10, eff90_fp10, '-.', color='green');
+#plt.plot(bvals_p10, eff90_fp10, '.', color='green');
 
-#plt.plot(bvals_sp10, eff90_sp10, '-', color='orange', label='SeF$_6$, 10 atm');
-#plt.plot(bvals_sp10, eff90_sp10, '.', color='orange');
-#plt.plot(bvals_sp10, eff90_fsp10, '-.', color='orange');
+#plt.plot(bvals_sp10, eff90_fsp10, '-', color='orange', label='SeF$_6$, 10 atm');
 #plt.plot(bvals_sp10, eff90_fsp10, '.', color='orange');
+#plt.plot(bvals_sp10, eff90_sp10, '-.', color='orange');
+#plt.plot(bvals_sp10, eff90_sp10, '.', color='orange');
 
-plt.plot(bvals_p15, eff90_p15, '-', color='red', label='Xe, 15 atm');
-plt.plot(bvals_p15, eff90_p15, '.', color='red');
-plt.plot(bvals_p15, eff90_fp15, '-.', color='red');
+plt.plot(bvals_p15, eff90_fp15, '-', color='red', label='Xe, 15 atm');
 plt.plot(bvals_p15, eff90_fp15, '.', color='red');
+#plt.plot(bvals_p15, eff90_p15, '-.', color='red');
+#plt.plot(bvals_p15, eff90_p15, '.', color='red');
+
+axes = plt.gca()
+axes.set_ylim([0.1,0.8]);
 
 lnd = plt.legend(loc=4,frameon=False,handletextpad=0);
 plt.xlabel("Magnetic Field (T)");
@@ -168,7 +174,7 @@ fn_plt = "eff_vs_b_90.pdf";
 plt.savefig(fn_plt, bbox_inches='tight');
 plt.close();
 
-# Create the plot.
+# Create the plot of background rejection curves for varying resolution.
 fig = plt.figure(3);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
@@ -182,5 +188,46 @@ plt.ylabel("Signal efficiency (s)");
 
 # Print the plot.
 fn_plt = "10atm_05T_sigvsb_all.pdf";
+plt.savefig(fn_plt, bbox_inches='tight');
+plt.close();
+
+# Create the plots of efficiency vs. B for 80% and 90% background rejection.
+fig = plt.figure(4);
+fig.set_figheight(5.0);
+fig.set_figwidth(7.5);
+
+plt.plot(bvals_p10, eff80_fp10, '-', color='green', label='Xe, 10 atm, fixed filter');
+plt.plot(bvals_p10, eff80_fp10, '.', color='green');
+plt.plot(bvals_p10, eff80_p10, '-.', color='green', label='Xe, 10 atm, variable filter');
+plt.plot(bvals_p10, eff80_p10, '.', color='green');
+
+lnd = plt.legend(loc=4,frameon=False,handletextpad=0);
+plt.xlabel("Magnetic Field (T)");
+plt.ylabel("Signal efficiency (s)");
+plt.title("~ 80% Background Rejection");
+
+# Print the plot.
+fn_plt = "eff_vs_b_cf_filter_80.pdf";
+plt.savefig(fn_plt, bbox_inches='tight');
+plt.close();
+
+# Create the plot comparing Xe and SeF6.
+fig = plt.figure(5);
+fig.set_figheight(5.0);
+fig.set_figwidth(7.5);
+
+plt.plot(bvals_p10, eff80_fp10, '-', color='green', label='Xe, 10 atm');
+plt.plot(bvals_p10, eff80_fp10, '.', color='green');
+
+plt.plot(bvals_sp10, eff80_fsp10, '-', color='orange', label='SeF$_6$, 10 atm');
+plt.plot(bvals_sp10, eff80_fsp10, '.', color='orange');
+
+lnd = plt.legend(loc=4,frameon=False,handletextpad=0);
+plt.xlabel("Magnetic Field (T)");
+plt.ylabel("Signal efficiency (s)");
+plt.title("~ 80% Background Rejection");
+
+# Print the plot.
+fn_plt = "eff_vs_b_xe_sef6_80.pdf";
 plt.savefig(fn_plt, bbox_inches='tight');
 plt.close();

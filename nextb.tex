@@ -18,7 +18,7 @@ E-mail: \email{CorrespondingAuthor@email.com}}
 
 \bibliographystyle{unsrtnat}
 
-\abstract{We propose a potential improvement in background rejection capability of neutrinoless double-beta ($0\nu\beta\beta$) decay experiments conducted with high-pressure xenon gas detectors capable of imaging electron tracks.  The improvement relies on the ability to distinguish the different track signatures left by single-electron (background) events and two-electron ($0\nu\beta\beta$) events in such a detector in the presence of an external magnetic field.  This initial study shows that, by analyzing the curvature of the reconstructed helical tracks, a potentially significant additional background rejection factor can be obtained with an acceptable loss in signal efficiency.}
+\abstract{We propose a potential improvement in background rejection capability of neutrinoless double-beta ($0\nu\beta\beta$) decay experiments conducted with high-pressure gas detectors capable of imaging electron tracks.  The improvement relies on the ability to distinguish the different track signatures left by single-electron (background) events and two-electron ($0\nu\beta\beta$) events in such a detector in the presence of an external magnetic field.  This initial study shows that, by analyzing the curvature of the reconstructed helical tracks, a potentially significant additional background rejection factor can be obtained with an acceptable loss in signal efficiency.}
 
 \keywords{Neutrinoless double beta decay; Kalman filter; particle tracking}
 
@@ -103,8 +103,10 @@ We note that the ability to conduct a detailed study of the reconstructed track 
 with which the track can be reconstructed in the detector.  One major limiting factor in tracking resolution is the diffusion
 of electrons in the gas.  The ionization track produced in some active volume must be drifted to a readout plane and 
 therefore the electrons may diffuse significantly and limit the resolution with which the track can ultimately be
-reconstructed.  The use of an additive quenching gas may serve to reduce the diffusion to a level that would allow
-good resolution of the helical motion of an electron track in a magnetic field.
+reconstructed.  In some cases use of an additive quenching gas may serve to reduce the diffusion to a level that would 
+allow good resolution of the helical motion of an electron track in a magnetic field.  In this study, we will examine the
+effectiveness of background rejection using track analysis in the presence of a magnetic field in the case of two 
+different gases, xenon and selenium hexafluoride (SeF$_6$).
 
 %Typically total # bg. counts / ton / yr of order a few to few tens of counts (in paper and Justo's thesis); GERDA is 0.01 cts/keV/kg/yr, NEXT has 10^-4 cts/kg/year 10 keV*10^-4 gives 5 cts, factor of 5 or more and we'd be in the range of 1 count.  Can we still improve HPXe technologoy?  What are our current limitations (diffusion, think we can get 0.5 %, difficult to hit the Fano factor, close to intrinsic); can topological signal be improved (diffusion is problem), makes any analysis difficult (7mm); diffusion can be reduced to 1-3mm without losing energy resolution by additives... is it possible to imrprove further (this would already improve the blob): will Bfield give us an extra handle: explore this capability with 1-3 mm resolution, scanning B, P
  % Want to demonstrate 1-2 cts/ton/year; 12 keV * 10^-4 ... we currently have 5e-4, want to get 1e-4; new factor of 5
@@ -160,10 +162,14 @@ in the middle of the track.  However, due to multiple scattering, the magnitude 
 significantly.  Therefore, in this study we use only information on the sign of the curvature, which, though it can still
 be affected by a scatter of sufficiently large angle, remains relatively intact despite multiple scattering.
 
+\subsection{Use of Selenium Hexafluoride as a Substitute for Xenon}
+The use of selenium hexafluoride (SeF$_6$) gas has recently been proposed (cite Dave) as an alternative to xenon for an 
+ultra-low background $0\nu\beta\beta$ search experiment.
+
 \section{Implementation}\label{sec:implementation}
 
 \subsection{Track Preparation}\label{ssec:track}
-The simulation-based study consisted of analysis of Monte Carlo datasets generated in a large virtual box of high pressure xenon gas using GEANT4.  For various configurations of gas pressure and magnetic field, 10000 events were generated consisting of single energetic electrons of kinetic energy equal to the Q-value of $0\nu\beta\beta$ in xenon gas ($Q_{\beta\beta} = 2.447$ MeV), and 10000 $0\nu\beta\beta$ events were generated consisting of two energetic electrons with total energy equal to $Q_{\beta\beta}$.  Each simulated track was recorded as a series of hits consisting of a location $(x,y,z)$ and a deposited energy $E$.  Before proceeding with further analysis, the summed energy of all hits recorded in the track was required to be at least 2.4 MeV (events in which significant energy escaped from the active volume in the simulation were not considered further).
+The simulation-based study consisted of analysis of Monte Carlo datasets generated in a large virtual box of high pressure gas using GEANT4.  For various configurations of gas pressure and magnetic field, 10000 events were generated consisting of single energetic electrons of kinetic energy equal to the Q-value of $0\nu\beta\beta$ in xenon gas ($Q_{\beta\beta} = 2.447$ MeV), and 10000 $0\nu\beta\beta$ events were generated consisting of two energetic electrons with total energy equal to $Q_{\beta\beta}$.  Each simulated track was recorded as a series of hits consisting of a location $(x,y,z)$ and a deposited energy $E$.  Before proceeding with further analysis, the summed energy of all hits recorded in the track was required to be at least 2.4 MeV (events in which significant energy escaped from the active volume in the simulation were not considered further).
 
 From this series of hits, a single continuous track was constructed by defining a main track as those hits produced directly by the one (or two in the case of $0\nu\beta\beta$ events) energetic electron(s) produced in the event.  Other hits produced by secondary ionization electrons were added to the main track if they were produced within 1 mm of at least one hit in the main track, and indirectly\footnote{Hits added indirectly were bunched into sub-tracks of hits lying within 1 mm of at least one other hit in the sub-track, and the energy-weighted centroid of the sub-track was calculated.  The total energy of the sub-track was then added to the hit closest to the location of the calculated centroid.} if they were produced within 2 cm of at least one hit in the main track.  Events containing hits located greater than 2 cm from all hits in the main track were discarded.  Note that the ordering of the hits was determined by Monte Carlo, however the orientation of the track was defined by constructing two ``blobs'' composed of hits within 2 cm of the first and last hits of the track, and setting as the ``initial'' end the one at which the constructed blob had less total energy.  The resulting list of hits was then smeared randomly in $(x,y)$ about their original values according to a gaussian distribution with sigma $\sigma_{s}$.  The hits were then ``sparsed,'' that is each group of $N_{s}$ hits was replaced with a single hit with $(x,y,z)$ location equal to the energy-weighted average of the constituent hit locations and energy equal to the sum of the constituent energies.  From this point on we will refer to the final list of ordered hits as the ``track.''
 % In practice we will also have to determine the ordering in between hits!
@@ -288,7 +294,8 @@ track minus the average of the curvature sign array using elements in the second
 \noindent Note that if the number of hits in the track is odd, the first term includes the first $(N-1)/2$ hits and
 the second term includes the remaining $(N-1)/2 + 1$ hits.
 
-\section{Results: Background Rejection}
+\section{Results}
+\subsection{Background Rejection in Xenon}
 The analysis described in section \ref{sec:implementation} was performed for single-electron and
 $0\nu\beta\beta$ tracks for all combinations of $P =$ 5, 10, and 15 atm and $B =$ 0.1, 0.3, 0.5, 0.7, 
 and 1.0 T.  In all of these configurations, the hits were smeared in $(x,y)$ with $\sigma_{s} = 2$ mm and 
@@ -314,13 +321,35 @@ an analysis is summarized in figure \ref{fig_svsbg}.
 To demonstrate the performance of the method at the different configurations of gas pressure and magnetic 
 field, we examine the signal efficiency $s$ (fraction of $0\nu\beta\beta$ events correctly identified) obtained 
 given a cut that provides approximately 80\% and 90\% background rejection.  The results are shown in figure 
-\ref{fig_config}.
+\ref{fig_config}.  Note that in all of these analyses the lowpass filter applied to the track was designed with
+a fixed cutoff frequency of $k_{\mathrm{cyc}} = 0.085$, as a fixed cutoff frequency was found to produce overall
+better results than one calculated on a track-by-track basis (see section \ref{ssec:FIRdep}).
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[scale=0.43]{fig/eff_vs_b_80.pdf}
 	\includegraphics[scale=0.43]{fig/eff_vs_b_90.pdf}
 	\caption{\label{fig_config}Signal efficiency corresponding to approximately 80\% background rejection (left) and 90\% background rejection (right) vs. magnitude of applied external magnetic field for different pressures.  The solid lines show the results of an analysis in which the lowpass filter applied varied from track to track, calculated using equation \protect\ref{eqn_kcyc}.  The dot-dashed lines show the results of an analysis in which $k_{\mathrm{cyc}}$ was fixed to a value of 0.085, a value representative of these simulated tracks for $B = 0.5$ T.}  % and $N_{s} = 2$.}
+\end{figure}
+
+\subsection{Dependence on the Choice of FIR Filter}\label{ssec:FIRdep}
+Here we discuss briefly the implications of the lowpass filter design on the ability to reject background events.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.43]{fig/eff_vs_b_cf_filter_80.pdf}
+	\caption{\label{fig_FIRdependence}Signal efficiency vs. magnetic field for 80\% background rejection shown with two different filter calculations to demonstrate the effect of the lowpass filter design on the background rejection performance.  The use of a filter with cutoff frequency calculated on a track-by-track basis (``variable filter'') does not yield a remarkable improvement in performance at low values of $B$ and allows too much noise to remain at high values of $B$.  The use of a filter with a fixed cutoff frequency (``fixed filter,'' same as Xe 10 atm curve in figure \protect\ref{fig_config} left) in the range of those calculated for $B = 0.5$ T for all tracks eliminates the noise but does not eliminate information about the curvature to the extent that the performance is degraded.}
+\end{figure}
+
+\subsection{Comparison to Performance in SeF$_6$}
+Comparing the performance of xenon to that of SeF$_6$, we ultimately find that the performance is similar, and
+therefore that the additional challenges associated with constructing a TPC based on SeF$_6$ would not be worth
+the benefits in performance, if any.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.43]{fig/eff_vs_b_xe_sef6_80.pdf}
+	\caption{\label{fig_xevssef6}Signal efficiency vs. magnetic field for 80\% background rejection for 10 atm xenon (same as Xe 10 atm curve in figure \protect\ref{fig_config} left) and for 10 atm SeF$_6$.  Despite the reduced multiple scattering in SeF$_6$, the performance is not significantly different from that of pure xenon.}
 \end{figure}
 
 \section{Conclusions}
