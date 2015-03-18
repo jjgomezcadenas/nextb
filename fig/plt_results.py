@@ -29,6 +29,14 @@ l_seff90 = s_restbl[:,3];
 l_seff80_fixed = s_restbl[:,4];
 l_seff90_fixed = s_restbl[:,5];
 
+s1_restbl = np.loadtxt("results_SeF6_1mm.dat");
+l_s1pressure = s1_restbl[:,0];
+l_s1bfield = s1_restbl[:,1];
+l_s1eff80 = s1_restbl[:,2];
+l_s1eff90 = s1_restbl[:,3];
+l_s1eff80_fixed = s1_restbl[:,4];
+l_s1eff90_fixed = s1_restbl[:,5];
+
 sevsbtbl1 = np.loadtxt("sevsb_tbl1.dat");
 l_sevsb1_se = sevsbtbl1[:,3];
 l_sevsb1_bb0 = sevsbtbl1[:,5];
@@ -96,6 +104,17 @@ for pr,bfield,eff80,eff90,eff80_fixed,eff90_fixed in zip(l_spressure,l_sbfield,l
         eff90_sp15.append(eff90);
         eff80_fsp15.append(eff80_fixed);
         eff90_fsp15.append(eff90_fixed);
+    else:
+        print "WARNING: unexpected pressure = {0}".format(pr);
+
+bvals_sp10_1mm = []; eff80_sp10_1mm = []; eff90_sp10_1mm = []; eff80_fsp10_1mm = []; eff90_fsp10_1mm = []; 
+for pr,bfield,eff80,eff90,eff80_fixed,eff90_fixed in zip(l_s1pressure,l_s1bfield,l_s1eff80,l_s1eff90,l_s1eff80_fixed,l_s1eff90_fixed):
+    if(pr == 10):
+        bvals_sp10_1mm.append(bfield);
+        eff80_sp10_1mm.append(eff80);
+        eff90_sp10_1mm.append(eff90);
+        eff80_fsp10_1mm.append(eff80_fixed);
+        eff90_fsp10_1mm.append(eff90_fixed);
     else:
         print "WARNING: unexpected pressure = {0}".format(pr);
 
@@ -191,23 +210,23 @@ fn_plt = "10atm_05T_sigvsb_all.pdf";
 plt.savefig(fn_plt, bbox_inches='tight');
 plt.close();
 
-# Create the plots of efficiency vs. B for 80% and 90% background rejection.
+# Create the plots of efficiency vs. B for 90% background rejection.
 fig = plt.figure(4);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
 
-plt.plot(bvals_p10, eff80_fp10, '-', color='green', label='Xe, 10 atm, fixed filter');
-plt.plot(bvals_p10, eff80_fp10, '.', color='green');
-plt.plot(bvals_p10, eff80_p10, '-.', color='green', label='Xe, 10 atm, variable filter');
-plt.plot(bvals_p10, eff80_p10, '.', color='green');
+plt.plot(bvals_p10, eff90_fp10, '-', color='green', label='Xe, 10 atm, fixed filter');
+plt.plot(bvals_p10, eff90_fp10, '.', color='green');
+plt.plot(bvals_p10, eff90_p10, '-.', color='green', label='Xe, 10 atm, variable filter');
+plt.plot(bvals_p10, eff90_p10, '.', color='green');
 
 lnd = plt.legend(loc=4,frameon=False,handletextpad=0);
 plt.xlabel("Magnetic Field (T)");
 plt.ylabel("Signal efficiency (s)");
-plt.title("~ 80% Background Rejection");
+plt.title("~ 90% Background Rejection");
 
 # Print the plot.
-fn_plt = "eff_vs_b_cf_filter_80.pdf";
+fn_plt = "eff_vs_b_cf_filter_90.pdf";
 plt.savefig(fn_plt, bbox_inches='tight');
 plt.close();
 
@@ -216,18 +235,21 @@ fig = plt.figure(5);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
 
-plt.plot(bvals_p10, eff80_fp10, '-', color='green', label='Xe, 10 atm');
-plt.plot(bvals_p10, eff80_fp10, '.', color='green');
+plt.plot(bvals_p10, eff90_fp10, '-', color='green', label='Xe, 10 atm, 2mm');
+plt.plot(bvals_p10, eff90_fp10, '.', color='green');
 
-plt.plot(bvals_sp10, eff80_fsp10, '-', color='orange', label='SeF$_6$, 10 atm');
-plt.plot(bvals_sp10, eff80_fsp10, '.', color='orange');
+plt.plot(bvals_sp10, eff90_fsp10, '-', color='orange', label='SeF$_6$, 10 atm, 2mm');
+plt.plot(bvals_sp10, eff90_fsp10, '.', color='orange');
+
+plt.plot(bvals_sp10, eff90_fsp10_1mm, '-.', color='orange', label='SeF$_6$, 10 atm, 1mm');
+plt.plot(bvals_sp10, eff90_fsp10_1mm, '.', color='orange');
 
 lnd = plt.legend(loc=4,frameon=False,handletextpad=0);
 plt.xlabel("Magnetic Field (T)");
 plt.ylabel("Signal efficiency (s)");
-plt.title("~ 80% Background Rejection");
+plt.title("~ 90% Background Rejection");
 
 # Print the plot.
-fn_plt = "eff_vs_b_xe_sef6_80.pdf";
+fn_plt = "eff_vs_b_xe_sef6_90.pdf";
 plt.savefig(fn_plt, bbox_inches='tight');
 plt.close();
