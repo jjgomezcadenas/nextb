@@ -42,12 +42,12 @@ This process is allowed in the Standard Model and has been observed in several n
 postulated to exist in the zero-neutrino mode, or neutrinoless double-beta ($0\nu\beta\beta$) decay, in which the two 
 antineutrinos are not emitted as a product of the reaction and the total energy released in the decay, $Q_{\beta\beta}$, is 
 given to the two electrons.  The observation of $0\nu\beta\beta$ would have several significant implications
-in fundamental physics.  The decay cannot occur unless the neutrino is a Majorana particle, that is, unless it is
-physically equivalent to its anti-particle.  Majorana neutrinos would be evidence for new physics at an energy scale
-inversely proportional to the neutrino masses, and their existence violates the conservation of total lepton number. 
-Furthermore, lepton number violation combined with CP violation could explain the excess of matter over anti-matter
-present in the universe via the mechanism known as leptogenesis.  $0\nu\beta\beta$ decay has been frequently revisited
-in reviews (see for example \cite{Cadenas_2012, Bilenky_2010, Elliot_2012}).
+in fundamental physics.  The decay cannot occur unless the neutrino is a Majorana particle, that is,
+physically equivalent to its anti-particle.  Majorana neutrinos would be evidence for new physics at an energy 
+scale inversely proportional to the neutrino masses, and their existence violates the conservation of total lepton 
+number.  Furthermore, lepton number violation combined with CP violation could explain the excess of matter 
+over anti-matter present in the universe via the mechanism known as leptogenesis.  $0\nu\beta\beta$ decay 
+has been frequently revisited in reviews (see for example \cite{Cadenas_2012, Bilenky_2010, Elliot_2012}).
 
 Many experimental challenges accompany these far-reaching physics implications.  No confirmed observation of
 $0\nu\beta\beta$ has yet been made, though it has received much recent experimental attention.   The current 
@@ -132,8 +132,9 @@ This force will cause an electron to execute helical motion in the magnetic fiel
 In the presence of an applied external magnetic field, the ionization track produced by an energetic electron moving 
 through high pressure xenon gas will be a helix with some alterations due to electron multiple scattering.  If the direction
 of the applied magnetic field is known, the curvature of the track can be calculated to determine whether the component
-of the electron velocity along the magnetic field is parallel or antiparallel to the field.  The curvature $\kappa$ can 
-be calculated for track coordinates $(x,y,z)$ as
+of the electron velocity along the magnetic field is parallel or antiparallel to the field.  Assuming that the magnetic field is directed along the z-axis, we are interested in the curvature of the track in the $x$-$y$ 
+plane as it progresses in $z$.  The curvature $\kappa$ in the $x$-$y$ plane can be calculated for a track
+parameterized by the coordinate $z$ as
 
 \begin{equation}\label{eqn_curv}
 \kappa = \frac{(dx/dz)\cdot(d^2y/dz^2) - (dy/dz)\cdot(d^2x/dz^2)}{\Bigl[(dx/dz)^2 + (dy/dz)^2\Bigr]^{3/2}}.
@@ -169,7 +170,7 @@ ultra-low background $0\nu\beta\beta$ search experiment.
 \section{Implementation}\label{sec:implementation}
 
 \subsection{Track Preparation}\label{ssec:track}
-The simulation-based study consisted of analysis of Monte Carlo datasets generated in a large virtual box of high pressure gas using GEANT4.  For various configurations of gas pressure and magnetic field, 10000 events were generated consisting of single energetic electrons of kinetic energy equal to the Q-value of $0\nu\beta\beta$ in xenon gas ($Q_{\beta\beta} = 2.447$ MeV), and 10000 $0\nu\beta\beta$ events were generated consisting of two energetic electrons with total energy equal to $Q_{\beta\beta}$.  Each simulated track was recorded as a series of hits consisting of a location $(x,y,z)$ and a deposited energy $E$.  Before proceeding with further analysis, the summed energy of all hits recorded in the track was required to be at least 2.4 MeV (events in which significant energy escaped from the active volume in the simulation were not considered further).
+The simulation-based study consisted of analysis of Monte Carlo datasets generated in a large virtual box of high pressure gas using GEANT4.  For various configurations of gas pressure and magnetic field, $10^4$ events were generated consisting of single energetic electrons of kinetic energy equal to the Q-value of $0\nu\beta\beta$ in xenon gas ($Q_{\beta\beta} = 2.447$ MeV), and $10^4$ $0\nu\beta\beta$ events were generated consisting of two energetic electrons with total energy equal to $Q_{\beta\beta}$.  Each simulated track was recorded as a series of hits consisting of a location $(x,y,z)$ and a deposited energy $E$.  Before proceeding with further analysis, the summed energy of all hits recorded in the track was required to be at least 2.4 MeV (events in which significant energy escaped from the active volume in the simulation were not considered further).
 
 From this series of hits, a single continuous track was constructed by defining a main track as those hits produced directly by the one (or two in the case of $0\nu\beta\beta$ events) energetic electron(s) produced in the event.  Other hits produced by secondary ionization electrons were added to the main track if they were produced within 1 mm of at least one hit in the main track, and indirectly\footnote{Hits added indirectly were bunched into sub-tracks of hits lying within 1 mm of at least one other hit in the sub-track, and the energy-weighted centroid of the sub-track was calculated.  The total energy of the sub-track was then added to the hit closest to the location of the calculated centroid.} if they were produced within 2 cm of at least one hit in the main track.  Events containing hits located greater than 2 cm from all hits in the main track were discarded.  Note that the ordering of the hits was determined by Monte Carlo, however the orientation of the track was defined by constructing two ``blobs'' composed of hits within 2 cm of the first and last hits of the track, and setting as the ``initial'' end the one at which the constructed blob had less total energy.  The resulting list of hits was then smeared randomly in $(x,y)$ about their original values according to a gaussian distribution with sigma $\sigma_{s}$.  The hits were then ``sparsed,'' that is each group of $N_{s}$ hits was replaced with a single hit with $(x,y,z)$ location equal to the energy-weighted average of the constituent hit locations and energy equal to the sum of the constituent energies.  From this point on we will refer to the final list of ordered hits as the ``track.''
 % In practice we will also have to determine the ordering in between hits!
@@ -314,7 +315,7 @@ assuming the direction of travel is along the z-axis.  A single-electron track i
 assuming an initial energy of 2.447 MeV, to simulate background events.  For ``signal'' events, two 
 single-electron tracks are generated from a common vertex, each with an initial energy of $2.447/2 = 1.2235$ MeV. 
 
-This simple Monte Carlo allows us to study the influence of multiple scattering present in the simulated events in a
+This simplified Monte Carlo allows us to study the influence of multiple scattering present in the simulated events in a
 straightforward manner by changing the prefactor in equation \ref{eqn_mscat} from 13.6 MeV to a lower value.  
 Figure \ref{fig_trkcurv_cf} shows several signal and background tracks and their calculated curvature sign 
 simulated with different multiple scattering prefactors corresponding to no multiple scattering (0 MeV), the 
@@ -337,12 +338,19 @@ Increased multiple scattering makes the background rejection procedure more diff
 of multiple scattering often works against the curvature introduced by the magnetic field and quantified in
 equation \ref{eqn_assym}.  Figure \ref{fig_assym_cf} shows the calculated asymmetry factors for 1000 
 single-electron and two-electron tracks produced with different amounts of multiple scattering introduced.
-Note that other factors also affect the ability to reject background based ont he asymmetry factor.  In this
+Note that other factors also affect the ability to reject background based on the asymmetry factor.  In this
 simple model, two-electron tracks are produced for which both electrons are given exactly half of the energy
 $Q_{\beta\beta}$, though in practice, the energy will not be shared equally.  This serves to weaken the
 background rejection power of the asymmetry factor because the point at which the track should be separated
 is not always the central point.  The position reconstruction resolution, which is assumed to be perfect in this
-simple model, in practice will not be perfect and will also serve to weaken the background rejection power.  These factors are taken into account in the results of the more detailed Monte Carlo study presented in section \ref{sec:results}.
+simple model, in practice will not be perfect and will also serve to weaken the background rejection power.
+Furthermore, the multiple scattering model used only allows for scattering angles chosen from a Gaussian
+distribution with variance dictated by equation \ref{eqn_mscat} and does not model the
+non-Gaussian (large-angle) scattering that can occur in practice.\footnote{The absence of non-Gaussian
+scattering is a reasonable explanation for why the standard amount of multiple scattering dictated by equation
+\ref{eqn_mscat} does not yield tracks that qualitatively match those of more complex simulations (compare
+figures \ref{fig_trkcurv_cf} and \ref{fig_trkcurv}).}  These factors are taken into account in the 
+results of the more detailed Monte Carlo study presented in section \ref{sec:results}.
 
 \begin{figure}[!htb]
 	\includegraphics[scale=0.45]{fig/scurv_diff_means_ms13pt6.pdf}
@@ -351,7 +359,6 @@ simple model, in practice will not be perfect and will also serve to weaken the 
 \end{figure}
 % List the contributing factors for why this is worse than the simple MC (smearing, energy splitting)
 
-
 \section{Results}\label{sec:results}
 \subsection{Background Rejection in Xenon}
 The analysis described in section \ref{sec:implementation} was performed for single-electron and
@@ -359,7 +366,7 @@ $0\nu\beta\beta$ tracks for all combinations of $P =$ 5, 10, and 15 atm and $B =
 and 1.0 T.  In all of these configurations, the hits were smeared in $(x,y)$ with $\sigma_{s} = 2$ mm and 
 sparsed with $N_{s} = 2$.  Additional analyses in the $P =$ 10 atm, $B = 0.5$ T configuration were performed, 
 one with $\sigma_{s} = 1$ mm and $N_{s} = 1$, and another with $\sigma_{s} = 3$ mm and $N_{s} = 3$.  For 
-each configuration, 10000 events of each track type (single-electron and $0\nu\beta\beta$) were generated, 
+each configuration, $10^4$ events of each track type (single-electron and $0\nu\beta\beta$) were generated, 
 and approximately 40-65\% of the tracks passed the initial topological cuts described in section 
 \ref{ssec:track}.  Figure \ref{fig_trkcurv} shows the calculated curvature signs for a single-electron and double-beta event, after filtering with a lowpass filter, at $B = 0.5$ T and $P = 10$ atm.  Note that these tracks
 qualitatively better resemble those produced in the simple Monte Carlo with double the standard strength of 
@@ -387,6 +394,7 @@ an analysis is summarized in figure \ref{fig_svsbg}.
 	\includegraphics[scale=0.44]{fig/10atm_05T_sigvsb_all.pdf}
 	\caption{\label{fig_svsbg}Curvature asymmetry factor for single-electron and $0\nu\beta\beta$ events with $\sigma_{s} = 2$ mm and $N_{s} = 2$ (left) and resulting signal efficiency vs. background rejection curve produced by varying a cut on $\phi_{C}$ space, shown also for $\sigma_{s} = 1$ mm and $N_{s} = 1$ and $\sigma_{s} = 3$ mm and $N_{s} = 3$ (right).  Here $s$ is the fraction of the total number of $0\nu\beta\beta$ events considered that was identified as a $0\nu\beta\beta$ event, and $b$ is the fraction of the total number of single-electron background events considered that was identifield as a $0\nu\beta\beta$ event.  These results were obtained for the $P = 10$ atm and $B = 0.5$ T configuration.}
 \end{figure}
+% Note these plots are from the runs with variable cutoff frequency (calculated on a track-by-track basis).
 
 To demonstrate the performance of the method at the different configurations of gas pressure and magnetic 
 field, we examine the signal efficiency $s$ (fraction of $0\nu\beta\beta$ events correctly identified) obtained 
