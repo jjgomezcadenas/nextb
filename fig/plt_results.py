@@ -122,14 +122,14 @@ for pr,bfield,eff80,eff90,eff80_fixed,eff90_fixed in zip(l_s1pressure,l_s1bfield
 fig = plt.figure(1);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
-plt.plot(bvals_p5, eff80_fp5, '-', color='blue', label='Xe, 5 atm');
-plt.plot(bvals_p5, eff80_fp5, '.', color='blue');
-#plt.plot(bvals_p5, eff80_p5, '-.', color='blue');
-#plt.plot(bvals_p5, eff80_p5, '.', color='blue');
+plt.plot(bvals_p5, eff80_fp5, '-', lw=3, color='blue', label='Xe, 5 atm');
+plt.plot(bvals_p5, eff80_fp5, '.', markersize=12, color='blue');
+#plt.plot(bvals_p5, eff80_p5, '-.', lw=3, color='blue');
+#plt.plot(bvals_p5, eff80_p5, '.', markersize=12, color='blue');
 
 
-plt.plot(bvals_p10, eff80_fp10, '-', color='green', label='Xe, 10 atm');
-plt.plot(bvals_p10, eff80_fp10, '.', color='green');
+plt.plot(bvals_p10, eff80_fp10, '-', lw=3, color='green', label='Xe, 10 atm');
+plt.plot(bvals_p10, eff80_fp10, '.', markersize=12, color='green');
 #plt.plot(bvals_p10, eff80_p10, '-.', color='green');
 #plt.plot(bvals_p10, eff80_p10, '.', color='green');
 
@@ -138,8 +138,8 @@ plt.plot(bvals_p10, eff80_fp10, '.', color='green');
 #plt.plot(bvals_sp10, eff80_sp10, '-.', color='orange');
 #plt.plot(bvals_sp10, eff80_sp10, '.', color='orange');
 
-plt.plot(bvals_p15, eff80_fp15, '-', color='red', label='Xe, 15 atm');
-plt.plot(bvals_p15, eff80_fp15, '.', color='red');
+plt.plot(bvals_p15, eff80_fp15, '-', lw=3, color='red', label='Xe, 15 atm');
+plt.plot(bvals_p15, eff80_fp15, '.', markersize=12, color='red');
 #plt.plot(bvals_p15, eff80_p15, '-.', color='red');
 #plt.plot(bvals_p15, eff80_p15, '.', color='red');
 
@@ -160,13 +160,13 @@ plt.close();
 fig = plt.figure(2);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
-plt.plot(bvals_p5, eff90_fp5, '-', color='blue', label='Xe, 5 atm');
-plt.plot(bvals_p5, eff90_fp5, '.', color='blue');
+plt.plot(bvals_p5, eff90_fp5, '-', lw=3, color='blue', label='Xe, 5 atm');
+plt.plot(bvals_p5, eff90_fp5, '.', markersize=12, color='blue');
 #plt.plot(bvals_p5, eff90_fp5, '-.', color='blue');
 #plt.plot(bvals_p5, eff90_fp5, '.', color='blue');
 
-plt.plot(bvals_p10, eff90_fp10, '-', color='green', label='Xe, 10 atm');
-plt.plot(bvals_p10, eff90_fp10, '.', color='green');
+plt.plot(bvals_p10, eff90_fp10, '-', lw=3, color='green', label='Xe, 10 atm');
+plt.plot(bvals_p10, eff90_fp10, '.', markersize=12, color='green');
 #plt.plot(bvals_p10, eff90_fp10, '-.', color='green');
 #plt.plot(bvals_p10, eff90_fp10, '.', color='green');
 
@@ -175,8 +175,8 @@ plt.plot(bvals_p10, eff90_fp10, '.', color='green');
 #plt.plot(bvals_sp10, eff90_sp10, '-.', color='orange');
 #plt.plot(bvals_sp10, eff90_sp10, '.', color='orange');
 
-plt.plot(bvals_p15, eff90_fp15, '-', color='red', label='Xe, 15 atm');
-plt.plot(bvals_p15, eff90_fp15, '.', color='red');
+plt.plot(bvals_p15, eff90_fp15, '-', lw=3, color='red', label='Xe, 15 atm');
+plt.plot(bvals_p15, eff90_fp15, '.', markersize=12, color='red');
 #plt.plot(bvals_p15, eff90_p15, '-.', color='red');
 #plt.plot(bvals_p15, eff90_p15, '.', color='red');
 
@@ -197,9 +197,9 @@ plt.close();
 fig = plt.figure(3);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
-plt.plot(l_sevsb1_se, l_sevsb1_bb, '-', color='blue', label='$\sigma_{s} = 1$ mm, $N_{s} = 1$');
-plt.plot(l_sevsb2_se, l_sevsb2_bb, '-', color='green', label='$\sigma_{s} = 2$ mm, $N_{s} = 2$');
-plt.plot(l_sevsb3_se, l_sevsb3_bb, '-', color='red', label='$\sigma_{s} = 3$ mm, $N_{s} = 3$');
+plt.plot(l_sevsb1_se, l_sevsb1_bb, '-', color='blue', lw=3, label='$\sigma_{s} = 1$ mm, $N_{s} = 1$');
+plt.plot(l_sevsb2_se, l_sevsb2_bb, '-', color='green', lw=3, label='$\sigma_{s} = 2$ mm, $N_{s} = 2$');
+plt.plot(l_sevsb3_se, l_sevsb3_bb, '-', color='red', lw=3, label='$\sigma_{s} = 3$ mm, $N_{s} = 3$');
 
 lnd = plt.legend(loc=3,frameon=False,handletextpad=0);
 plt.xlabel("Background rejection (1-b)");
@@ -215,10 +215,10 @@ fig = plt.figure(4);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
 
-plt.plot(bvals_p10, eff90_fp10, '-', color='green', label='Xe, 10 atm, fixed filter');
-plt.plot(bvals_p10, eff90_fp10, '.', color='green');
-plt.plot(bvals_p10, eff90_p10, '-.', color='green', label='Xe, 10 atm, variable filter');
-plt.plot(bvals_p10, eff90_p10, '.', color='green');
+plt.plot(bvals_p10, eff90_fp10, '-', color='green', lw=3, label='Xe, 10 atm, fixed filter');
+plt.plot(bvals_p10, eff90_fp10, '.', color='green', markersize=12);
+plt.plot(bvals_p10, eff90_p10, '-.', color='green', lw=3, label='Xe, 10 atm, variable filter');
+plt.plot(bvals_p10, eff90_p10, '.', color='green', markersize=12);
 
 lnd = plt.legend(loc=4,frameon=False,handletextpad=0);
 plt.xlabel("Magnetic Field (T)");
@@ -235,14 +235,14 @@ fig = plt.figure(5);
 fig.set_figheight(5.0);
 fig.set_figwidth(7.5);
 
-plt.plot(bvals_p10, eff90_fp10, '-', color='green', label='Xe, 10 atm, 2mm');
-plt.plot(bvals_p10, eff90_fp10, '.', color='green');
+plt.plot(bvals_p10, eff90_fp10, '-', lw=3, color='green', label='Xe, 10 atm, 2mm');
+plt.plot(bvals_p10, eff90_fp10, '.', markersize=12, color='green');
 
-plt.plot(bvals_sp10, eff90_fsp10, '-', color='orange', label='SeF$_6$, 10 atm, 2mm');
-plt.plot(bvals_sp10, eff90_fsp10, '.', color='orange');
+plt.plot(bvals_sp10, eff90_fsp10, '-', lw=3, color='orange', label='SeF$_6$, 10 atm, 2mm');
+plt.plot(bvals_sp10, eff90_fsp10, '.', markersize=12, color='orange');
 
-plt.plot(bvals_sp10, eff90_fsp10_1mm, '-.', color='orange', label='SeF$_6$, 10 atm, 1mm');
-plt.plot(bvals_sp10, eff90_fsp10_1mm, '.', color='orange');
+plt.plot(bvals_sp10, eff90_fsp10_1mm, '-.', lw=3, color='orange', label='SeF$_6$, 10 atm, 1mm');
+plt.plot(bvals_sp10, eff90_fsp10_1mm, '.', markersize=12, color='orange');
 
 lnd = plt.legend(loc=4,frameon=False,handletextpad=0);
 plt.xlabel("Magnetic Field (T)");
