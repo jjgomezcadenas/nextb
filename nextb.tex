@@ -175,108 +175,21 @@ The simulation-based study consisted of analysis of Monte Carlo datasets generat
 From this series of hits, a single continuous track was constructed by defining a main track as those hits produced directly by the one (or two in the case of $0\nu\beta\beta$ events) energetic electron(s) produced in the event.  Other hits produced by secondary ionization electrons were added to the main track if they were produced within 1 mm of at least one hit in the main track, and indirectly\footnote{Hits added indirectly were bunched into sub-tracks of hits lying within 1 mm of at least one other hit in the sub-track, and the energy-weighted centroid of the sub-track was calculated.  The total energy of the sub-track was then added to the hit closest to the location of the calculated centroid.} if they were produced within 2 cm of at least one hit in the main track.  Events containing hits located greater than 2 cm from all hits in the main track were discarded.  Note that the ordering of the hits was determined by Monte Carlo, however the orientation of the track was defined by constructing two ``blobs'' composed of hits within 2 cm of the first and last hits of the track, and setting as the ``initial'' end the one at which the constructed blob had less total energy.  The resulting list of hits was then smeared randomly in $(x,y)$ about their original values according to a gaussian distribution with sigma $\sigma_{s}$.  The hits were then ``sparsed,'' that is each group of $N_{s}$ hits was replaced with a single hit with $(x,y,z)$ location equal to the energy-weighted average of the constituent hit locations and energy equal to the sum of the constituent energies.  From this point on we will refer to the final list of ordered hits as the ``track.''
 % In practice we will also have to determine the ordering in between hits!
 
-\subsection{A Lowpass FIR Filter}\label{ssec:FIR}
-One way to make the calculation of the curvature more consistent and less susceptible to noise introduced through 
-multiple scattering and non-ideal reconstruction resolution is to apply a lowpass filter to the lists of values for each 
-coordinate x, y, and z.  We now look at the arrays of x, y, and z coordinates as digital signals in the time
-domain, e.g. $x[n]$, that can be represented in the frequency domain $X[k]$ using the discrete Fourier transform
-
-\begin{equation}
-X[k] = \sum_{n=0}^{N-1}x[n]e^{-i2\pi kn/N},
-\end{equation}
-
-\noindent where $N$ is the total number of samples and $k$ is the discrete frequency of each complex
-sinusoid $e^{-i2\pi kn/N}$ in cycles per $N$ samples.  This discrete frequency can be translated to an analog
-frequency $f_{k}$ (for example in units of time$^{-1}$) by knowing the frequency at which the digital signal was
-sampled, or the sampling frequency $f_{s}$ in samples per unit time, as
-
-\begin{equation}
-f_{k} = kf_{s}.
-\end{equation}
-
-Our goal is to apply a digital lowpass filter to the coordinate arrays that serves to
-smooth the track by eliminating high-frequency noise yet retains the curvature of the track
-due to the magnetic field.  The ideal lowpass filter will serve to eliminate sinusoidal components
-$X[k]$ in the digital signal for $k$ greater than some cutoff frequency $k_{c}$ and allow 
-others with $k$ less than $k_{c}$.  In practice, the filter will have a non-ideal stopband in which sinusoidal 
-components with frequencies less than $k_{c}$ will be increasingly preserved with decreasing $k$ and those 
-with frequencies greater than $k_{c}$ will be increasingly attenuated with increasing $k$.  The filter must be designed 
-to ensure we don't eliminate the sinusoidal motion introduced by the magnetic field, and we use a
-filter with a wide stopband (this reduces its complexity) and place $k_{c}$ near the discrete frequency corresponding
-to the cyclotron frequency
-
-%The application of a magnetic field in the z-direction will cause an electron with some component of its velocity in the 
-%x-y plane to move in a helix, meaning that the projection of the electron's path in the x-y plane (in the absence of 
-%any other noise for example due to multiple scattering) will exhibit periodic motion with a fixed frequency.  This 
-%frequency is the cyclotron frequency $\omega_{\mathrm{cyc}}$
-
-\begin{equation}\label{eqn_wcyc}
-\omega_{\mathrm{cyc}} = qB/m_{e} = 1.76B \times 10^{11} \,\, \mathrm{rad/s},
-\end{equation}
-
-\noindent where $q \approx -1.60 \times 10^{-19}$ is the electron charge in Coulombs, $B$ is the magnetic field
-strength in Tesla, and $m_{e} \approx 9.11 \times 10^{-31}$ is the electron mass in kg.  The filter will be a finite impulse
-response (FIR) filter and will take the form of a  list of coefficients $b_{m}$.  It is applied to the signal $x[n]$ as
-  
-\begin{equation}
-  x_{f}[n] = \sum_{m=0}^{N_f} b_{m}x[n-m]
-\end{equation}
-  
-\noindent where the number of filter coefficients $N_{t}$ is the order of the filter.  A delay will exist in the
-final filtered signal equal to $N_{t}/2$ samples, and the final $N_{t}/2$ samples will not be useful in the final analysis
-and are removed.
-For a track sampled in x, y, and z for a total of $N$ samples, to determine what discrete frequency $k_{cyc}$ to which
-this analog frequency ($\omega_{\mathrm{cyc}}/2\pi$ in cycles per second) corresponds, one must know the frequency 
-with which the track has been sampled.  An average track production time $\overline{T}$ can be calculated from 
-tabulated values of $dE/dx$ (which, since this refers to kinetic energy loss, we will call $dK/dx$) as
-
-\begin{equation}\label{eqn_T}
-\overline{T} = \frac{1}{c}\int_{0}^{K_{f}} \biggl[\frac{\sqrt{(K^2-m_e^2)}}{K+m_e}(dK/dx)\biggr]^{-1} dK \approx 1.25 \,\, \mathrm{ns},
-\end{equation}
-
-\noindent where here we have used $K_{f} = Q_{\beta\beta} = 2.447$ MeV and tabulated 
-$dE/dx$ from NIST \cite{NIST_mac} in xenon.  The sampling frequency is then $f_{s} = N/T$, and so the motion
-due to the magnetic field should manifest itself in the arrays of sampled x and y coordinates
-of the track as a sinusoidal component of discrete frequency 
-
-\begin{equation}\label{eqn_kcyc}
-k_{\mathrm{cyc}} = (qB/m)\cdot(\overline{T}/N).
-\end{equation}
-
-One should ensure that the track is sampled at a rate higher than the cyclotron
-frequency, that is $N/T > \omega_{\mathrm{cyc}}/2\pi$, or the helical motion will not be properly
-reconstructed.  An example filter is shown in figure \ref{fig_FIR}.  For each track, an FIR filter is designed with 
-stopband frequency equal to $1.2k_{\mathrm{cyc}}$ and stopband width equal to 0.2.  This was sufficient to 
-eliminate high-frequency noise, leaving a smooth track for the calculation of derivatives, yet the filter order was
-low enough so as to not lose a significant number of the track samples.  For this track, a number of samples 
-$N = 198$ and using $T = 1.25$ ns from equation \ref{eqn_T} and $\omega_{\mathrm{cyc}} = 0.88 \times 
-10^{11}$ rad/s from equation \ref{eqn_wcyc} with $B = 0.5$ T, we have $k_{\mathrm{cyc}}/2\pi = 0.089$ cycles/sample 
-as shown in figure \ref{fig_FIR}.
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[scale=0.48]{fig/FIR_freq_resp_nmagse2_6.pdf}
-	\caption{\label{fig_FIR}FIR filter gain vs. discrete frequency $k$ (solid black curve) designed for a track of length $N = 198$ samples.  The coefficients $X[k]$ of the fast fourier transform (FFT) of the x-coordinate array of the track are shown vs. discrete frequency in gray.  The cutoff frequency used in designing the filter is shown as a blue vertical line.  The filter serves to eliminate the high-frequency noise components of the track that make the calculation of derivatives more difficult.}
-\end{figure}
-% Generated by rp_gfit.py with variable frequency, 10 atm, 0.5 T, run nmagse2
+The x, y, and z-coordinates of the track are then separated into individual arrays, and a lowpass 
+filter is applied to each array.  This serves to smooth the track and facilitates the calculation of 
+the derivatives.  Figure \ref{fig_flt} shows an example of a track before and after the filtering procedure, the
+details of which are discussed in appendix \ref{app:FIR}.
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[scale=0.48]{fig/plt_trk_unflt_nmagse2_6.pdf}
 	\includegraphics[scale=0.48]{fig/plt_trk_flt_nmagse2_6.pdf}
-	\caption{\label{fig_flt}An example of a single-electron track before (left) and after (right) the application of the lowpass filter shown in figure \protect\ref{fig_FIR}.}
+	\caption{\label{fig_flt}An example of a single-electron track before (left) and after (right) the application of a lowpass filter.  The filter applied in this case is shown in appendix \protect\ref{app:FIR} in figure \protect\ref{fig_FIR}.}
 \end{figure}
 % Generated by rp_gfit.py with variable frequency, 10 atm, 0.5 T, run nmagse2
 
-As the magnitude of $B$ increases, the frequency of helical motion often becomes great enough that placing the filter
-cutoff frequency $k_{c}$ near the cyclotron frequency does not permit sufficient filtering of the high-frequency
-components of the track, and the resulting track is not smooth enough for a clean calculation of the curvature.
-Thus we will often perform the analysis discussed in section \ref{ssec:curvature} using a lowpass filter with 
-cutoff frequency of a fixed value for all magnetic field strengths, knowing that for the higher fields the resulting 
-smoother track may be obtained at the expense of some information on the curvature induced by the field.
-
 \subsection{Determination of the Track Curvature}\label{ssec:curvature}
-The curvature at each hit in the track is calculated numerically by first separating the x-values, y-values, and z-values into their own arrays.  A lowpass FIR filter is designed to sufficiently smooth the track and applied to each of the arrays.  The derivatives $dx/dz$, $dy/dz$, $d^2x/dz^2$, and $d^2y/dz^2$ are calculated using the values in the array.  From these the curvature $\kappa$ is calculated at each point.  Since we do not have $x$ and $y$ as a function of $z$ but rather $x$, $y$, and $z$ as a function of hit number $n$, we can calculate the derivatives $x' \equiv dx/dn$, $y' \equiv dy/dn$, $z' \equiv dz/dn$ using the chain rule as $\frac{dx}{dz} = x'/z'$, and
+The curvature at each hit in the track is calculated by numerical computation of the derivatives $dx/dz$, $dy/dz$, $d^2x/dz^2$, and $d^2y/dz^2$ using the values in the coordinate arrays.  From these the curvature $\kappa$ is calculated at each point.  Since we do not have $x$ and $y$ as a function of $z$ but rather $x$, $y$, and $z$ as a function of hit number $n$, we can calculate the derivatives $x' \equiv dx/dn$, $y' \equiv dy/dn$, $z' \equiv dz/dn$ using the chain rule as $\frac{dx}{dz} = x'/z'$, and
 
 \begin{equation}
 \frac{d^2x}{dz^2} = \frac{x'' - z''(dx/dz)}{(z')^2}.
@@ -401,7 +314,7 @@ field, we examine the signal efficiency $s$ (fraction of $0\nu\beta\beta$ events
 given a cut that provides approximately 80\% and 90\% background rejection.  The results are shown in figure 
 \ref{fig_config}.  Note that in all of these analyses the lowpass filter applied to the track was designed with
 a fixed cutoff frequency of $k_{\mathrm{cyc}} = 0.085$, as a fixed cutoff frequency was found to produce overall
-better results than one calculated on a track-by-track basis (see section \ref{ssec:FIRdep}).  
+better results than one calculated on a track-by-track basis (see appendix \ref{app:FIR}).  
 
 \begin{figure}[!htb]
 	\centering
@@ -409,26 +322,6 @@ better results than one calculated on a track-by-track basis (see section \ref{s
 	\includegraphics[scale=0.43]{fig/eff_vs_b_90.pdf}
 	\caption{\label{fig_config}Signal efficiency corresponding to approximately 80\% background rejection (left) and 90\% background rejection (right) vs. magnitude of applied external magnetic field for different pressures.  In this analysis, $k_{\mathrm{cyc}}$ was fixed to a value of 0.085, a value representative of these simulated tracks for $B = 0.5$ T.}  % and $N_{s} = 2$.}
 \end{figure}
-
-\subsection{Dependence on the Choice of FIR Filter}\label{ssec:FIRdep}
-The results obtained in this analysis are dependent also on the design of the lowpass filter applied to the track.  At higher values of the magnetic field $B$, placing the cutoff frequency at $k_{c} = k_{\mathrm{cyc}}$ as calculated using equation
-\ref{eqn_kcyc} may not allow for the elimination of a sufficient amount of the high-frequency noise present, and the
-quality of the derivative calculation is degraded.  Therefore it may be an advantage to place the cutoff frequency of the filter
-below $k_{\mathrm{cyc}}$ despite increased attenuation at the discrete frequency corresponding to the helical motion 
-induced by the magnetic field.  \footnote{In any case, to the constant diversion from the ideal path of the electron
-introduced by multiple scattering, the curvature of the track in the magnetic field will not appear at a single distinct value in 
-the frequency domain.}  
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[scale=0.43]{fig/eff_vs_b_cf_filter_90.pdf}
-	\caption{\label{fig_FIRdependence}Signal efficiency vs. magnetic field for 80\% background rejection shown with two different filter calculations to demonstrate the effect of the lowpass filter design on the background rejection performance.  The use of a filter with cutoff frequency calculated on a track-by-track basis (``variable filter'') does not yield a remarkable improvement in performance at low values of $B$ and allows too much noise to remain at high values of $B$.  The use of a filter with a fixed cutoff frequency (``fixed filter,'' same as Xe 10 atm curve in figure \protect\ref{fig_config} left) in the range of those calculated for $B = 0.5$ T for all tracks eliminates the noise but does not eliminate information about the curvature to the extent that the performance is degraded.}
-\end{figure}
-
-Figure \ref{fig_FIRdependence} shows the results of the analysis at 10 atm in pure xenon for which
-the filter was designed for each track individually with cutoff frequency equal to $k_{\mathrm{cyc}}$, and for which the 
-cutoff frequency of all filters was chosen to be a fixed value.  Because the fixed-cutoff analysis performs significantly better
-at higher fields, it was chosen as the primary analysis in this study.
 
 \subsection{Comparison to Performance in SeF$_6$}
 Comparing the performance of xenon to that of SeF$_6$, we ultimately find that the performance is similar, and
@@ -449,6 +342,123 @@ $1 \times 10^{-4}$ counts/keV/kg/year, or about 1 count/year for a 100 kg detect
 investigation, including the development of a discriminating variable more sophisticated than the asymmetry 
 factor used in this study and application of this methodology to Monte Carlo data generated taking into account 
 more aspects of the detector track reconstruction process.
+
+\appendix
+
+\section{A Lowpass FIR Filter}\label{app:FIR}
+One way to make the calculation of the curvature of a track less susceptible to noise 
+introduced through multiple scattering and non-ideal reconstruction resolution is to apply a lowpass filter to 
+the lists of values for each coordinate x, y, and z.  We now look at the arrays of x, y, and z coordinates as digital 
+signals in the time domain, e.g. $x[n]$, where $n$ is the index of the corresponding hit.  Each array can be 
+represented in the frequency domain $X[k]$ using the discrete Fourier transform
+
+\begin{equation}
+X[k] = \sum_{n=0}^{N-1}x[n]e^{-i2\pi kn/N},
+\end{equation}
+
+\noindent where $N$ is the total number of samples and $k$ is the discrete frequency of each complex
+sinusoid $e^{-i2\pi kn/N}$ in cycles per $N$ samples.  This discrete frequency can be translated to an analog
+frequency $f_{k}$ (for example in units of time$^{-1}$) by knowing the frequency at which the digital signal was
+sampled, or the sampling frequency $f_{s}$ in samples per unit time, as
+
+\begin{equation}
+f_{k} = kf_{s}.
+\end{equation}
+
+The goal is to apply a digital lowpass filter to the coordinate arrays that serves to
+smooth the track by eliminating high-frequency noise yet retains the curvature of the track
+due to the magnetic field.  The ideal lowpass filter will serve to eliminate sinusoidal components
+$X[k]$ in the digital signal for $k$ greater than some cutoff frequency $k_{c}$ and allow 
+others with $k$ less than $k_{c}$.  In practice, the filter will have a non-ideal stopband in which sinusoidal 
+components with frequencies less than $k_{c}$ will be increasingly preserved with decreasing $k$ and those 
+with frequencies greater than $k_{c}$ will be increasingly attenuated with increasing $k$.  The filter must be 
+designed to ensure we don't eliminate the sinusoidal motion introduced by the magnetic field, and we use a
+filter with a wide stopband (this reduces its complexity) and place $k_{c}$ near the discrete frequency 
+corresponding to the cyclotron frequency
+
+%The application of a magnetic field in the z-direction will cause an electron with some component of its velocity in the 
+%x-y plane to move in a helix, meaning that the projection of the electron's path in the x-y plane (in the absence of 
+%any other noise for example due to multiple scattering) will exhibit periodic motion with a fixed frequency.  This 
+%frequency is the cyclotron frequency $\omega_{\mathrm{cyc}}$
+
+\begin{equation}\label{eqn_wcyc}
+\omega_{\mathrm{cyc}} = qB/m_{e} = 1.76B \times 10^{11} \,\, \mathrm{rad/s},
+\end{equation}
+
+\noindent where $q \approx -1.60 \times 10^{-19}$ is the electron charge in Coulombs, $B$ is the magnetic field
+strength in Tesla, and $m_{e} \approx 9.11 \times 10^{-31}$ is the electron mass in kg.  The filter will be a finite impulse
+response (FIR) filter and will take the form of a  list of coefficients $b_{m}$.  It is applied to the signal $x[n]$ as
+
+\begin{equation}
+x_{f}[n] = \sum_{m=0}^{N_f} b_{m}x[n-m]
+\end{equation}
+
+\noindent where the number of filter coefficients $N_{t}$ is the order of the filter.  A delay will exist in the
+final filtered signal equal to $N_{t}/2$ samples, and the final $N_{t}/2$ samples will not be useful in the final analysis
+and are removed.
+For a track sampled in x, y, and z for a total of $N$ samples, to determine what discrete frequency $k_{cyc}$ to which
+this analog frequency ($\omega_{\mathrm{cyc}}/2\pi$ in cycles per second) corresponds, one must know the frequency 
+with which the track has been sampled.  An average track production time $\overline{T}$ can be calculated from 
+tabulated values of $dE/dx$ (which, since this refers to kinetic energy loss, we will call $dK/dx$) as
+
+\begin{equation}\label{eqn_T}
+\overline{T} = \frac{1}{c}\int_{0}^{K_{f}} \biggl[\frac{\sqrt{(K^2-m_e^2)}}{K+m_e}(dK/dx)\biggr]^{-1} dK \approx 1.25 \,\, \mathrm{ns},
+\end{equation}
+
+\noindent where here we have used $K_{f} = Q_{\beta\beta} = 2.447$ MeV and tabulated 
+$dE/dx$ from NIST \cite{NIST_mac} in xenon.  The sampling frequency is then $f_{s} = N/T$, and so the motion
+due to the magnetic field should manifest itself in the arrays of sampled x and y coordinates
+of the track as a sinusoidal component of discrete frequency 
+
+\begin{equation}\label{eqn_kcyc}
+k_{\mathrm{cyc}} = (qB/m)\cdot(\overline{T}/N).
+\end{equation}
+
+One should ensure that the track is sampled at a rate higher than the cyclotron
+frequency, that is $N/T > \omega_{\mathrm{cyc}}/2\pi$, or the helical motion will not be properly
+reconstructed.  An example filter is shown in figure \ref{fig_FIR}.  For each track, an FIR filter is designed with 
+stopband frequency equal to $1.2k_{\mathrm{cyc}}$ and stopband width equal to 0.2.  This was sufficient to 
+eliminate high-frequency noise, leaving a smooth track for the calculation of derivatives, yet the filter order was
+low enough so as to not lose a significant number of the track samples.  For this track, a number of samples 
+$N = 198$ and using $T = 1.25$ ns from equation \ref{eqn_T} and $\omega_{\mathrm{cyc}} = 0.88 \times 
+10^{11}$ rad/s from equation \ref{eqn_wcyc} with $B = 0.5$ T, we have $k_{\mathrm{cyc}}/2\pi = 0.089$ 
+cycles/sample as shown in figure \ref{fig_FIR}.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.48]{fig/FIR_freq_resp_nmagse2_6.pdf}
+	\caption{\label{fig_FIR}FIR filter gain vs. discrete frequency $k$ (solid black curve) designed for a track of length $N = 198$ samples.  The coefficients $X[k]$ of the fast fourier transform (FFT) of the x-coordinate array of the track are shown vs. discrete frequency in gray.  The cutoff frequency used in designing the filter is shown as a blue vertical line.  The filter serves to eliminate the high-frequency noise components of the track that make the calculation of derivatives more difficult.}
+\end{figure}
+% Generated by rp_gfit.py with variable frequency, 10 atm, 0.5 T, run nmagse2
+
+As the magnitude of $B$ increases, the frequency of helical motion often becomes great enough that placing the 
+filter cutoff frequency $k_{c}$ near the cyclotron frequency does not permit sufficient filtering of the 
+high-frequency components of the track, and the resulting track is not smooth enough for a clean calculation of 
+the curvature.  Therefore it may be an advantage to place the cutoff frequency of the filter below 
+$k_{\mathrm{cyc}}$ despite increased attenuation at the discrete frequency corresponding to the helical motion 
+induced by the magnetic field.\footnote{In any case, to the constant diversion from the ideal path of the electron
+introduced by multiple scattering, the curvature of the track in the magnetic field will not appear at a single 
+distinct value in the frequency domain.}  Figure \ref{fig_FIRdependence} shows the signal efficiency vs. magnetic
+field for a background rejection of 90\% at 10 atm in pure xenon for which the filter was designed for each track 
+individually with cutoff frequency equal to $k_{\mathrm{cyc}}$, and for which the cutoff frequency of all filters 
+was chosen to be a fixed value.  
+Because the fixed-cutoff analysis performs significantly better at higher fields, it was chosen as the primary 
+analysis in this study.
+
+%Thus we will often perform the analysis discussed in section \ref{ssec:curvature} using a lowpass
+%filter with cutoff frequency of a fixed value for all magnetic field strengths, knowing that for the higher fields the 
+%resulting smoother track may be obtained at the expense of some information on the curvature induced by the 
+%field.∫
+%The results obtained in the curvature analysis are dependent also on the design of the lowpass filter applied to the 
+%track.  At higher values of the magnetic field $B$, placing the cutoff frequency at $k_{c} = k_{\mathrm{cyc}}$ as 
+%calculated using equation \ref{eqn_kcyc} may not allow for the elimination of a sufficient amount of the 
+%high-frequency noise present, and the quality of the derivative calculation is degraded.  
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.43]{fig/eff_vs_b_cf_filter_90.pdf}
+	\caption{\label{fig_FIRdependence}Signal efficiency vs. magnetic field for 90\% background rejection shown with two different filter calculations to demonstrate the effect of the lowpass filter design on the background rejection performance.  The use of a filter with cutoff frequency calculated on a track-by-track basis (``variable filter'') does not yield a remarkable improvement in performance at low values of $B$ and allows too much noise to remain at high values of $B$.  The use of a filter with a fixed cutoff frequency (``fixed filter,'' same as Xe 10 atm curve in figure \protect\ref{fig_config} left) in the range of those calculated for $B = 0.5$ T for all tracks eliminates the noise but does not eliminate information about the curvature to the extent that the performance is degraded.}
+\end{figure}
 
 \acknowledgments
 
