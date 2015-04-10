@@ -80,19 +80,25 @@ In this study we compare the single and double-electron track signatures in the 
 %%%%%
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.95\textwidth]{img/DL.png}\\
-\includegraphics[width=0.95\textwidth]{img/DT.png}
-\caption{Longitudinal and transverse diffusion in several gas mixtures (with xenon). Notice that the addition of very small amounts of \COT\ (of the order of 0.1--0.2 \%) reduce the diffusion to about $1.5$~mm/$\sqrt{\rm{m}}$.} \label{fig.DIF}
+\includegraphics[width=0.95\textwidth]{img/Longitudinal Diffusion300Vcm.pdf}\\
+\includegraphics[width=0.95\textwidth]{img/Transverse Diffusion300Vcm.pdf}
+\caption{Longitudinal and transverse diffusion when small amounts of \COT\ and \CHF\ are added to pure xenon. Notice that about 0.2 \% of \COT\ are enough to reduce both longitudinal and transverse diffusion to about $1.5$~mm/$\sqrt{\rm{m}}$.} \label{fig.DIF}
 \end{figure}
 %%%%%
 
 We note that the ability to conduct a detailed study of the reconstructed track is highly dependent on the spatial resolution with which the track can be reconstructed in the detector. Spacial resolution, in turn, depends on:
 \begin{enumerate}
-\item {\em Detector geometry:} this includes the pitch of the SiPMs in the tracking plane, and the thickness of the EL gap, as well as the SiPM response. Indeed, the use of SiPMs with very low dark current and high gain allows one to determine the location of an event by weighting the position of each sensor with the light recorded, thus improving dramatically the ``digital'' resolution, which goes as $\sim$pitch/$\sqrt{12}$. The digital point resolution corresponding to a pitch of 10 mm (NEXT-100) is 10$\sqrt{12} \sim 3$~mm. The non-zero width of the EL gap contributes to the spread of light between several SiPMs, an effect that partially spoils the resolution but leads to a better light distribution between sensors. Using weighted information (e.g, local barycenter algorithms), the point resolution improves to some 2 mm. A point resolution of 1 mm would require a pitch of 5 mm. 
-\item {\em Diffusion of the drifting electron cloud:}  both lateral and transverse diffusion are high in pure xenon (of the order of $10$~mm/$\sqrt{\rm{m}}$). Fortunately, the NEXT collaboration has recently demonstrated that diffusion can be reduced one order of magnitude by the addition of suitable gases. In particular, TMA (REF Diego paper), \CHF\ (Coimbra paper) and \COT\ (Co2 paper) have been studied in great detail. At the time of this writing, \COT\ seems to be the most promising mixture, capable of reducing both transverse and longitudinal diffusion to some $1.5$~mm/$\sqrt{\rm{m}}$ (figure \ref{fig.DIF}) without degrading the energy resolution and light yield relative to pure xenon. 
+\item {\em Detector geometry:} this includes the pitch of the SiPMs in the tracking plane, and the thickness of the EL gap, as well as the SiPM response. Indeed, the use of SiPMs with very low dark current and high gain allows one to determine the location of an event by weighting the position of each sensor with the light recorded, thus improving dramatically the ``digital'' resolution, which goes as $\sim$pitch/$\sqrt{12}$. The digital point resolution corresponding to a pitch of 10 mm (NEXT-100) is 10$\sqrt{12} \sim 3$~mm. Using weighted information (e.g, local barycenter algorithms), the point resolution improves by a factor of 2, to some 1.5 mm. A point resolution of (better than) 1 mm would require a pitch of 5 mm. 
+\item {\em The width of the EL:}
+The non-zero width of the EL gap adds an extra resolution term which goes like $w\sqrt{12}$~where $w$~is the width of the grid. For The NEXT-DEMO prototype, $w\sim 5 mm$, an effect that would add a resolution of 1.5 mm. For NEXT-100 and BEXT, $w\sim 3.5 mm$~reducing the resolution to 1 mm. 
+
+\item {\em Diffusion of the drifting electron cloud:}  both lateral and transverse diffusion are high in pure xenon (of the order of $10$~mm/$\sqrt{\rm{m}}$). Fortunately, the NEXT collaboration has recently demonstrated that diffusion can be reduced one order of magnitude by the addition of suitable gases. At the time of this writing, \COT\ seems to be the most promising mixture, capable of reducing both transverse and longitudinal diffusion to some $1.5$~mm/$\sqrt{\rm{m}}$ (figure \ref{fig.DIF}) without degrading the energy resolution and light yield relative to pure xenon. 
 \end{enumerate}
- 
-In this study, we will consider a ``default'' point resolution of 2 mm, which seems attainable with the 10 mm pitch deployed by NEXT-100. We also study how the separation between signal and background depend on position resolution.
+
+To summarize, it appears possible to achieve a resolution of 2 mm in z (the combination of 
+longitudinal diffusion and EL grid yields $\sqrt{1.5^2+1.5^2} \sim 2$~mm) and in x-y
+(the combination of pitch and transverse diffusion also yields $\sqrt{1.5^2+1.5^2} \sim 2$~mm). Thus, we
+ consider a ``default'' point resolution of 2 mm for this study. We also study how the separation between signal and background depend on position resolution.
 
 \section{Electron tracks propagating in high pressure gas inside a magnetic field}\label{sec.magmotion}
 
