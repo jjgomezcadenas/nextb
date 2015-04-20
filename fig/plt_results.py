@@ -14,7 +14,8 @@ from math import *
 
 plt_eff80 = False;
 plt_eff90 = False;
-plt_svsb = True;
+plt_svsb = False;
+plt_sens = True;
 plt_effvsB = False;
 plt_xeSeF6 = False;
 
@@ -50,10 +51,16 @@ l_sevsb1_bb = [];
 for fbb in l_sevsb1_bb0: l_sevsb1_bb.append(1-fbb);
 
 sevsbtbl2 = np.loadtxt("sevsb_tbl2.dat");
+l_sevsb2_cut0 = sevsbtbl2[:,0];
 l_sevsb2_se = sevsbtbl2[:,1];  # for vfc datafile: sevsbtbl2[:,3];
 l_sevsb2_bb0 = sevsbtbl2[:,2]; # for vfc datafile: sevsbtbl2[:,5];
+l_sevsb2_cut = []; l_sevsb2_sens = [];
 l_sevsb2_bb = [];
 for fbb in l_sevsb2_bb0: l_sevsb2_bb.append(1-fbb);
+for cval,sval,bval in zip(l_sevsb2_cut0,l_sevsb2_se,l_sevsb2_bb0):
+    if(sval > 0 and bval/sval**2 < 4):
+        l_sevsb2_cut.append(cval);
+        l_sevsb2_sens.append(bval/sval**2);
 
 sevsbtbl3 = np.loadtxt("sevsb_tbl3.dat");
 l_sevsb3_se = sevsbtbl3[:,1];  # for vfc datafile: sevsbtbl3[:,3];
@@ -221,10 +228,25 @@ if(plt_svsb):
     plt.savefig(fn_plt, bbox_inches='tight');
     plt.close();
 
+if(plt_sens):
+
+    fig = plt.figure(4);
+    fig.set_figheight(5.0);
+    fig.set_figwidth(7.5);
+    plt.plot(l_sevsb2_cut, l_sevsb2_sens, '-', color='blue', lw=3);
+
+    plt.xlabel("Asymmetry factor cut");
+    plt.ylabel("r");
+
+    # Print the plot.
+    fn_plt = "10atm_05T_sigvsb_sens.pdf";
+    plt.savefig(fn_plt, bbox_inches='tight');
+    plt.close();    
+
 # Create the plots of efficiency vs. B for 90% background rejection.
 if(plt_effvsB):
 
-    fig = plt.figure(4);
+    fig = plt.figure(5);
     fig.set_figheight(5.0);
     fig.set_figwidth(7.5);
 
@@ -246,7 +268,7 @@ if(plt_effvsB):
 # Create the plot comparing Xe and SeF6.
 if(plt_xeSeF6):
 
-    fig = plt.figure(5);
+    fig = plt.figure(6);
     fig.set_figheight(5.0);
     fig.set_figwidth(7.5);
 
