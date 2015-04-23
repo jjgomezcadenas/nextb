@@ -1,0 +1,44 @@
+\pdfoutput=1 % only if pdf/png/jpg images are used
+\documentclass{JINST}
+
+\usepackage{amsmath,amssymb}
+\usepackage[numbers,sort]{natbib}
+%\hypersetup{colorlinks, citecolor=blue, linkcolor=blue, filecolor=blue, urlcolor=red}
+
+\title{Using a Magnetic Field to Improve Background Rejection in Neutrinoless Double Beta Decay Experiments Based in High Pressure Time Projection Chambers}
+
+\author{J. Renner$^a$,\thanks{Corresponding author.}
+J. J. Gomez-Cadenas$^a$,
+D. Nygren$^b$, A. Cervera, J.A. Hernando, A. Imzaylov, F. Monrabal and J. Mu\~noz\\
+\llap{$^a$}Instituto de F\'isica Corpuscular (IFIC), CSIC \& Universitat de Val\`encia,\\ 
+Calle Catedr\'atico Jos\'e Beltr\'an, 2, 46980 Paterna, Valencia, Spain\\
+\llap{$^b$}Name of Institute,\\
+  Address, Country\\
+E-mail: \email{CorrespondingAuthor@email.com}}
+
+\bibliographystyle{unsrtnat}
+\input{src/commands}
+
+\abstract{We demonstrate that using an external magnetic field leads to an improved background rejection in neutrinoless double-beta (\bbonu) decay experiments based in high-pressure gas time projection chambers.  Such experiments are capable of imaging electron tracks, a feature that can be used to separate signal events (the two electrons emitted in a \bbonu\ decay) from background events, arising chiefly from single electrons of kinetic energy compatible with the end-point of the \bbonu\ decay (\Qbb) . Adding an external magnetic field of sufficiently high intensity (in the range of 0.5-1 Tesla for operating pressures in the range of 5-15 atmospheres), allows the measurement of the average sign of the electron(s) curvature in the gas. Such measurement is used  to construct an statistical estimator which can be used to reject background events by one order of magnitude at a moderate cost (60-80 \%) in efficiency signal. Combining this estimator with the excellent energy resolution and topological signature that can be obtained with high pressure gas TPCs it is possible to reach less than one count background event per ton year of exposure. Such low background rate is an essential feature of the next generation of \bbonu\ experiments, aiming to fully explore the inverse hierarchy of neutrino masses.}
+
+\keywords{Neutrinoless double beta decay; magnetic field; TPC; high-pressure xenon chambers; ion chambers; Xenon; Selenium Hexafluoride.}
+
+
+\begin{document}
+
+\input{src/Intro} 
+\input{src/bbonu}
+\input{src/experiments}
+\input{src/next} 
+\input{src/selenium} 
+\acknowledgments
+
+This work was supported by the European Research Council under the Advanced Grant 339787-NEXT and the Ministerio de Econom\'{i}a y Competitividad of Spain under Grants CONSOLIDER-Ingenio 2010 CSD2008-0037 (CUP), FPA2009-13697-C04-04, FPA2009-13697-C04-01, FIS2012-37947-C04-01, FIS2012-37947-C04-02, FIS2012-37947-C04-03, and FIS2012-37947-C04-04.
+
+\bibliography{nextb}
+
+% Still to consider:
+% - how does lower b.g. translate to sensitivity?
+
+
+\end{document}
