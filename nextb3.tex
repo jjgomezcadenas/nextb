@@ -86,8 +86,8 @@ The non-zero width of the EL gap adds an extra resolution term which goes like $
 %%%%%
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.95\textwidth]{img/Longitudinal_Diffusion300Vcm.pdf}
-	\includegraphics[width=0.95\textwidth]{img/Transverse_Diffusion300Vcm.pdf}
+	\includegraphics[width=0.75\textwidth]{img/Longitudinal_Diffusion300Vcm.pdf}
+	\includegraphics[width=0.75\textwidth]{img/Transverse_Diffusion300Vcm.pdf}
 	\caption{\label{fig.DIF}Longitudinal and transverse diffusion when small amounts of \COT\ and \CHF\ are added to pure xenon. Notice that about 0.3 \% of \COT\ are enough to reduce both longitudinal and transverse diffusion to about $1.5$~mm/$\sqrt{\rm{m}}$.}
 \end{figure}
 %%%%%
@@ -101,7 +101,7 @@ longitudinal diffusion and EL grid yields $\sqrt{1.5^2+1.5^2} \sim 2.1$~mm) and 
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[scale=0.6]{fig/bfield_motion.pdf}
+	\includegraphics[scale=0.5]{fig/bfield_motion.pdf}
 	\caption{\label{fig_bfieldmotion}Motion of an electron in a magnetic field.  The electron exhibits helical motion around the field line as shown (entering the page at the $\times$ and exiting the page at the $\bullet$) regardless of the direction of the component of the electron's velocity along the direction of $\mathbf{B}$.}
 \end{figure}
 
@@ -262,7 +262,7 @@ given a cut that provides approximately 80\% and 90\% background rejection.  The
 
 Note that the results depend significantly of the operating pressure. The best performance is obtained, as expected, at the lowest considered pressure (5 bar), and it reaches a plateau (80\% efficiency for a background rejection of 80\%, and 70\% efficiency for a background rejection of 90\%) for magnetic fields larger than 0.5 Tesla. The performance at 10 bar appears also quite acceptable. It reaches a plateau (75\% efficiency for a background rejection of 80\%, and 65\% efficiency for a background rejection of 90\%) for magnetic fields larger than 0.7 Tesla. The performance at 15 bar is poorer and does not saturate with the magnetic field, suggesting that some additional improvement can be obtained with large values of $B$. 
 
-\section{Potential Improvements and Further Study}
+\section{Improved methods}
 While the curvature asymmetry factor $\phi_C$ from equation \ref{eqn_assym} provides a reasonable separation between signal and background events, it still represents a rather minimal approach.  For example, in calculating $\phi_C$, the difference was taken in the average of the signs over the two halves of the track, but the vertex in a $0\nu\beta\beta$ event is not likely to be found in the center.  A more detailed analysis taking into account more features of the two different classes of events should give improved performance.  As an example of such an analysis, we consider constructing a track ``profile'' for each type of event containing the value of the curvature sign at each point along the track averaged over all events.  Since not all tracks will be of exactly the same length, we normalize the track length to 1, and thus the profile contains an average sign value for each fractional distance along the track.  Note that fractional distance is determined by hit number $k$ divided by the total number of hits $N$ rather than actual distance traveled.  Figure \ref{fig_profiles} shows profiles made for simulated single-electron and $0\nu\beta\beta$ events.  The profiles show a clear separation between signal and background events earlier in the track where the sign of the curvature is most likely to differ.
 
 \begin{figure}[!htb]
@@ -279,7 +279,7 @@ Once the profiles have been generated, they can be used to define a new variable
 
 \noindent and a similar sum $\chi^2_B$ in which the background profile $p_{B}$ is used in place of $p_{S}$.  The values $p_S(x)$ and $p_B(x)$ are the mean curvature signs at fractional track location $x = k/N$, and the values $\sigma^2_S$ and $\sigma^2_B$ are the variances of the mean curvature sign.  The variances were found to be near 1 at all $k/N$ in both profiles, reflecting the large amount of fluctuation in curvature sign at any given point on the track due to multiple scattering.  Despite these large variances, the large number of events used in determining the average values made for low errors on the mean and thus smooth profiles.  The discriminating variable is then $r_{\chi} = \chi^2_B/\chi^2_{S}$.  For background events, this ratio should be smaller, as the curvature signs throughout the track should be more similar to the background event profile (smaller $\chi^2_B$) and more different than the signal event profile (larger $\chi^2_S$).  Based on similar arguments, this ratio should be larger for signal events.
 
-Figure \ref{fig_svsbprof} compares the signal efficiency obtained for a given background rejection using the profile-based method (discriminant variable $r_{\chi}$) described in this section and the method based on the asymmetry factor $\phi_{C}$ described in section \ref{sec.curvature}.  The profile-based method performs better up to a background rejection of about 95\%.  This shows that more careful analysis can be beneficial, and there is likely potential for further optimization.
+Figure \ref{fig_svsbprof} compares the signal efficiency obtained for a given background rejection using the profile-based method (discriminant variable $r_{\chi}$) described in this section and the method based on the asymmetry factor $\phi_{C}$ described in section \ref{sec.curvature}.  The profile-based method performs better up to a background rejection of about 95\%.  This clearly shows the potential for further optimization. In our ``standard test case'' (10 atm, 2 mm resolution, 0.5 Tesla) a rejection factor of one order of magnitude is achieved for a signal efficiency of 80\% using the profile method. 
 
 \begin{figure}[!htb]
 	\centering
@@ -296,7 +296,7 @@ Figure \ref{fig_svsbprof} compares the signal efficiency obtained for a given ba
 	of the exposure for different background rates.}
 \end{figure}
 
-The application of an external magnetic field in a high-pressure detector capable of particle track reconstruction with resolution of approximately 2 mm in $(x,y,z)$ can provide an additional background rejection factor of 90\% with an acceptable signal efficiency at pressures of about 10 atm.  The background rejection improves with decreasing pressure due to the more extended tracks produced at lower gas densities.  For the lower pressures (5 atm and 10 atm), relatively little increase in signal efficiency is gained for an increase in magnetic field for fields greater than approximately 0.5 T. 
+The application of an external magnetic field in a high-pressure detector capable of particle track reconstruction with resolution of approximately 2 mm in $(x,y,z)$ can provide an additional background rejection factor of 90\% with good signal efficiency (80\%) at pressures of about 10 atm.  The background rejection improves with decreasing pressure due to the more extended tracks produced at lower gas densities.  For the lower pressures (5 atm and 10 atm), relatively little increase in signal efficiency is gained for an increase in magnetic field for fields greater than approximately 0.5 T. 
 
 With these results in hand, is interesting to consider the performance of BEXT. Even without considering the magnetic field, BEXT will improve the background rate of NEXT-100 due to three factors:
 \begin{enumerate}
@@ -306,7 +306,7 @@ $0.75/0.28 \sim 2.7$~times smaller than that of NEXT-100.
 \item {\em better tracking resolution}, due to low diffusion (in fact, the Xe-\COT\ mixture will be implemented in NEXT-100, thus improving its background rate). This results in a better determination of the blobs, and an improved rejection factor. Our current MC simulations estimate that a factor 2 can be easily achieved.
 \end{enumerate}
 
-Thus, the background rejection of BEXT combining these three factors, may be up to a factor 9 better than that of NEXT-100. Let us consider, for the sake of the discussion, a conservative estimate of a factor of 5. Thus it appears reasonable to assume a background rate of $10^{-4}$ \ckky\ {\em without adding a magnetic field}. As we have seen, the addition of a magnetic field can provide an additional order of magnitude separation between signal and background, resulting in a background rate of $10^{-5}$ \ckky.  For a resolution of 0.5\% FWHM at \Qbb\ the ROI has a width of 12 keV and thus one finds $\sim$0.1 background events per ton-year. As shown in figure \ref{fig_futureXe}, this is enough to fully cover the inverse hierarchy (even allowing for the relatively low selection efficiency of $\sim$ 20\%) in a few years. In fact, although the selection efficiency can be traded to some extent for background rejection, one of the main attractive features of the HPXe technology, for which BEXT would represent the ton scale, is the potential to offer a  background-free experiment to explore the inverse hierarchy. Given the extremely long lifetimes of the process being explored (a full coverage of the inverse hierarchy requires sensitivity to lifetimes of $10^{27}$~year for the \bbonu\ process), providing such a background-free experiment may be a must. 
+Thus, the background rejection of BEXT combining these three factors, may be up to a factor 9 better than that of NEXT-100. Let us consider, for the sake of the discussion, a conservative estimate of a factor of 5. Thus it appears reasonable to assume a background rate of $10^{-4}$ \ckky\ {\em without adding a magnetic field}. As we have seen, the addition of a magnetic field can provide an additional order of magnitude separation between signal and background, resulting in a background rate of $10^{-5}$ \ckky.  For a resolution of 0.5\% FWHM at \Qbb\ the ROI has a width of 12 keV and thus one finds $\sim$0.1 background events per ton-year. As shown in figure \ref{fig_futureXe}, this is enough to fully cover the inverse hierarchy (even allowing for the relatively low selection efficiency of $\sim$ 25\%) in a few years. In fact, although the selection efficiency can be traded to some extent for background rejection, one of the main attractive features of the HPXe technology, for which BEXT would represent the ton scale, is the potential to offer a  background-free experiment to explore the inverse hierarchy. Given the extremely long lifetimes of the process being explored (a full coverage of the inverse hierarchy requires sensitivity to lifetimes of $10^{27}$~year for the \bbonu\ process), providing such a background-free experiment may be a must. 
 
 \appendix
 
