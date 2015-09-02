@@ -35,11 +35,18 @@ One of the technologies currently being developed is that of high pressure xenon
 
 The NEXT experiment has completed the R\&D phase which was carried out with the large-scale prototypes NEXT-DEMO and NEXT-DBDM. The prototypes have measured an energy resolution which extrapolates to 0.5--0.7 \% FWHM at \Qbb. NEXT-DEMO has also shown the robustness of the topological signal \cite{Alvarez:2012xda,Alvarez:2012kua,Alvarez:2013gxa,Lorca:2014sra}. Currently, the NEXT collaboration is commissioning the first phase of the experiment, called NEW at the Canfranc underground laboratory (LSC). NEW is a scaled-down version of NEXT-100, deploying 10 kg of isotope mass and 20\% of the sensors of NEXT-100 (12 PMTs in the energy plane and  1,800 SiPMs in the tracking plane).
 
-The NEXT background model, which will be fully validated with NEW, predicts a background rate of $5 \times 10^{-4}$~\ckky\ in the ROI \cite{Nebot-Guinot:2014raa}. The energy resolution for NEXT-100 is assumed to be 0.7\% FWHM at \Qbb\ ($\sim$ 17 keV). NEXT-100 is scheduled to begin acquiring data in 2017. The experiment expects less than one count of background per 100 kg and year of exposure, and thus its sensitivity to \Tonu\ is not dominated by background subtraction and increases rapidly with exposure. The expected sensitivity to the \bbonu\ period is $\Tonu > 7 \times 10^{25}$~yr for a exposure of 300 kg$\cdot$yr. This translates into a \mbb\ sensitivity range of $[67-187]$~meV, depending on the nuclear matrix element.
+The NEXT background model, which will be fully validated with NEW, predicts a background rate of $5 \times 10^{-4}$~\ckky\ in the ROI \cite{Nebot-Guinot:2014raa}. The energy resolution for NEXT-100 is assumed to be 0.7\% FWHM at \Qbb\ ($\sim$ 17 keV). NEXT-100 is scheduled to begin acquiring data in 2017. The experiment expects less than one count of background per 100 kg and year of exposure, and thus its sensitivity to \Tonu\ is not dominated by background subtraction and increases rapidly with exposure. The expected sensitivity to the \bbonu\ period is $\Tonu > 7 \times 10^{25}$~yr for a exposure of 300 kg$\cdot$yr. This translates into a \mbb\ sensitivity range of $[67-187]$~meV, depending on the nuclear matrix element. An important advantage of the HPXe technology is the fact that it can be extrapolated to ton scale target masses.
 
-The HPXe technology can be extrapolated to the ton scale, as discussed in \cite{Gomez-Cadenas:2015bext} where the concept of a magnetized HPXe detector, called BEXT (B-field Experiment with a Xenon TPC) is described.  BEXT would be, like NEXT-100, an asymmetric TPC, but both the energy and the tracking plane would employ SiPMs (about 50,000 units in each plane). The fiducial mass of the detector would be in the range of 1 ton. The gas in BEXT will be xenon with a small quantity (0.3\%) of \COT\ in order to reduce diffusion to $\sim$~1.5 mm/$\sqrt{m}$ (see section \ref{sec.topology}).
+%as discussed in \cite{Gomez-Cadenas:2015bext} where the concept of a magnetized HPXe detector, called BEXT (B-field Experiment with a Xenon TPC) is described.  BEXT would be, like NEXT-100, an asymmetric TPC, but both the energy and the tracking plane would employ SiPMs (about 50,000 units in each plane). The fiducial mass of the detector would be in the range of 1 ton. The gas in BEXT will be xenon with a small quantity (0.3\%) of \COT\ in order to reduce diffusion to $\sim$~1.5 mm/$\sqrt{m}$ (see section \ref{sec.topology}).
 
-Both NEXT-100 and BEXT are capable of imaging electron tracks, a feature that can be used to separate signal events (the two electrons emitted in a \bbonu\ decay) from background events, arising chiefly from single electrons of kinetic energy comparable with the end-point of the \bbonu\ decay (\Qbb). In this paper, we show that adding an external magnetic field of sufficiently high intensity (in the range of 0.5--1 Tesla for operating pressures in the range of 5-15 atmospheres) allows for improved separation of signal and background events via the construction of a statistical estimator based on the average sign of the curvature of the electron track in the magnetic field.  This estimator can be used to reject background events by one order of magnitude while maintaining a 60-80\% signal efficiency (depending on the pressure). Combining this estimator with the excellent energy resolution and topological signature characteristic of the HPXe-EL TPCs, we estimate that BEXT will be able to reach less than one count background event per ton year of exposure, and thus meet the requirements needed to explore the inverse hierarchy.
+A central feature of an HPXe is the capability of imaging electron tracks, a feature that can be used to separate signal events (the two electrons emitted in a \bbonu\ decay) from background events, arising chiefly from single electrons of kinetic energy comparable with the end-point of the \bbonu\ decay (\Qbb). In this paper, we show that adding an external magnetic field of sufficiently high intensity (in the range of 0.5--1 Tesla for operating pressures in the range of 5-15 atmospheres) allows for improved separation of signal and background events provided that two key conditions are met. 
+\begin{enumerate}
+\item The spatial resolution needs to be sufficiently good (in the range of 2-3 mm). 
+\item The electron track needs to be reconstructed with sufficient precision. 
+\end{enumerate}
+
+If the above two conditions are met, then an statistical estimator based on the average sign of the curvature of the electron track in the magnetic field, can be constructed.
+  This estimator can be used to reject background events by one order of magnitude while maintaining a 60-80\% signal efficiency (depending on the pressure). Combining this estimator with the excellent energy resolution and topological signature characteristic of the HPXe-EL TPCs, we estimate that a future ton-scale detector will be able to reach less than one count background event per ton year of exposure, and thus meet the requirements needed to explore the inverse hierarchy.
 
 This paper is organized as follows.  Section \ref{sec.topology} describes the reconstruction of the tracks of high-energy electrons produced in the dense gas of a high pressure TPC.  The production and analysis of such tracks in the presence of an external magnetic field is described in section \ref{sec.magmotion}. In section \ref{sec.track} we describe the Monte Carlo data sample used for this study, and in section \ref{sec.curvature} we describe the analysis procedure applied to the data.  Finally, the main results are shown in section \ref{sec.results}, and their implications are discussed in section \ref{sec.outlook}.
 
@@ -74,44 +81,50 @@ Figure \ref{fig.SS} shows the principle of operation of an asymmetric HPXe TPC u
 
 Double beta decay events leave a distinctive topological signature in a HPXe TPC: a continuous track with larger energy depositions (\emph{blobs}) at both ends due to the Bragg-like peaks in the d$E$/d$x$ of the stopping electrons (figure \ref{fig.ETRK2}, left). In contrast, background electrons are produced by Compton or photoelectric interactions, and are characterized by a single blob in one of the ends (figure \ref{fig.ETRK2}, right). Reconstruction of this topology using the tracking plane provides a powerful means of background rejection. For each track, the energy in both extremes of the track is measured and labelled as $E_{b1}$~ (the energy of the most energetic energy deposition), and $E_{b2}$~ (the least energetic energy deposition). In a signal event, $E_{b1} \sim E_{b2} $, while for background events $E_{b1} >> E_{b2} $. Figure \ref{fig.BLOBS} shows how this feature can be used to separate signal from background. 
 
-In this study we compare the single and double-electron track signatures in the presence of an applied external magnetic field and quantify the additional ability to reject single-electron events that is gained by examining the curvature of the tracks induced by the field.  We note that the ability to conduct a detailed study of the reconstructed track is highly dependent on the spatial resolution with which the track can be reconstructed in the detector. Spacial resolution, in turn, depends on:
+In this study we compare the single and double-electron track signatures in the presence of an applied external magnetic field and quantify the additional ability to reject single-electron events that is gained by examining the curvature of the tracks induced by the field.  We note that the ability to conduct a detailed study of the reconstructed track is highly dependent on the spatial resolution with which the track can be reconstructed in the detector {\em and} of developing a reconstruction algorithm with minimum bias to find the track extremes and track orientation. 
+
+Spacial resolution, in turn, depends on:
 \begin{enumerate}
 \item {\em Detector geometry:} this includes the pitch of the SiPMs in the tracking plane, and the thickness of the EL gap, as well as the SiPM response. Indeed, the use of SiPMs with very low dark current and high gain allows one to determine the location of an event by weighting the position of each sensor with the light recorded, thus improving dramatically the ``digital'' resolution, which goes as $\sim$pitch/$\sqrt{12}$. The digital point resolution corresponding to a pitch of 10 mm (NEXT-100) is 10$/\sqrt{12} \sim 3$~mm. Using weighted information (e.g, local barycenter algorithms), the point resolution improves to about 1 mm. 
 \item {\em The width of the EL:}
 The non-zero width of the EL gap adds an extra resolution term which goes like $w/\sqrt{12}$~where $w$~is the width of the grid. For The NEXT-DEMO prototype, $w\sim 5$, an effect that would add a resolution of 1.5 mm. For NEXT-100 and BEXT, $w\sim 3.5$~reducing the resolution to 1 mm. 
 
-\item {\em Diffusion of the drifting electron cloud:}  both lateral and transverse diffusion are high in pure xenon (of the order of $10$~mm/$\sqrt{\rm{m}}$). Fortunately, diffusion can be reduced by the addition of suitable gases. In particular the addition of small amounts of \COT\ (of the order of 0.3\%) reduce both transverse and longitudinal diffusion to some $1.5$~mm/$\sqrt{\rm{m}}$ as shown in figure \ref{fig.DIF})\footnote{Furthermore, the addition of such small amounts of \COT\ has little effect in the light yield and resolution with respect of pure xenon (C. Monteiro et al, internal communication, NEXT collaboration, paper in preparation).}
+\item {\em Diffusion of the drifting electron cloud:}  both lateral and transverse diffusion are high in pure xenon (of the order of $10$~mm/$\sqrt{\rm{m}}$). On the other hand, work in progress within the NEXT collaboration\footnote{``A homeopathic cure to large diffusion in pure xenon'', the NEXT collaboration, paper in preparation} suggests that adding small amounts of cooling gases such as \CHF\ or \CFF\ to pure xenon (at the level of 0.1 \% of \CHF\ or 0.01\% of \CFF\ reduce both transverse and longitudinal diffusion to some $2.0$~mm/$\sqrt{\rm{m}}$.
 \end{enumerate}
 
+Concerning reconstruction algorithms, the NEXT collaboration is currently studying the MST\footnote{MST: Renner and Para, note in preparation}. Describe what MST does and how we expect it to work beautifully. IT IS EXPECTED THAT MST FULFILS THE CONDITION OF MINIMUM BIAS REQUIRED FOR THIS STUDY. 
+
 %%%%%
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.75\textwidth]{img/Longitudinal_Diffusion300Vcm.pdf}
-	\includegraphics[width=0.75\textwidth]{img/Transverse_Diffusion300Vcm.pdf}
-	\caption{\label{fig.DIF}Longitudinal and transverse diffusion when small amounts of \COT\ and \CHF\ are added to pure xenon. Notice that about 0.3 \% of \COT\ are enough to reduce both longitudinal and transverse diffusion to about $1.5$~mm/$\sqrt{\rm{m}}$.}
-\end{figure}
+%\begin{figure}[!htb]
+%	\centering
+%	\includegraphics[width=0.75\textwidth]{img/Longitudinal_Diffusion300Vcm.pdf}
+%	\includegraphics[width=0.75\textwidth]{img/Transverse_Diffusion300Vcm.pdf}
+%	\caption{\label{fig.DIF}Longitudinal and transverse diffusion when small amounts of \COT\ and \CHF\ are added to pure xenon. Notice that about 0.3 \% of \COT\ are enough to reduce both longitudinal and transverse diffusion to about $1.5$~mm/$\sqrt{\rm{m}}$.}
+%\end{figure}
 %%%%%
 
-To summarize, it appears possible to achieve a resolution of $\sim$2 mm in z (the combination of 
-longitudinal diffusion and EL grid yields $\sqrt{1.5^2+1.5^2} \sim 2.1$~mm) and in x-y
-(the combination of pitch and transverse diffusion yields $\sqrt{1^2+1.5^2} \sim 1.8$~mm). Thus, we
- consider a ``default'' point resolution of 2 mm for this study. We also study how the separation between signal and background depend on position resolution.
+To summarize, it appears possible to achieve a resolution of $\sim$2-3 mm in x-y-z, and to reconstruct tracks with minimum bias as discussed before. In the remainder of this paper we assume both conditions. Our Monte Carlo study smears the individual hits by 2-3 mm and assumes that the reconstruction algorithms provides the correct ordering of the track. 
+
+%(the combination of 
+%longitudinal diffusion and EL grid yields $\sqrt{1.5^2+1.5^2} \sim 2.1$~mm) and in x-y
+%(the combination of pitch and transverse diffusion yields $\sqrt{1^2+1.5^2} \sim 1.8$~mm). Thus, we
+% consider a ``default'' point resolution of 2 mm for this study. We also study how the separation between signal and background depend on position resolution.
 
 \section{Electron tracks propagating in high pressure gas inside a magnetic field}\label{sec.magmotion}
 
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[scale=0.5]{fig/bfield_motion.pdf}
-	\caption{\label{fig_bfieldmotion}Motion of an electron in a magnetic field.  The electron exhibits helical motion around the field line as shown (entering the page at the $\times$ and exiting the page at the $\bullet$) regardless of the direction of the component of the electron's velocity along the direction of $\mathbf{B}$.}
-\end{figure}
+%\begin{figure}[!htb]
+%	\centering
+%	\includegraphics[scale=0.5]{fig/bfield_motion.pdf}
+%	\caption{\label{fig_bfieldmotion}Motion of an electron in a magnetic field.  The electron exhibits helical motion around the field line as shown (entering the page at the $\times$ and exiting the page at the $\bullet$) regardless of the direction of the component of the electron's velocity along the direction of $\mathbf{B}$.}
+%\end{figure}
 
 A particle of charge $q$ moving at a velocity $\mathbf{v}$ in the presence of a magnetic field $\mathbf{B}$ is acted upon by a force
-
-\begin{equation}\label{eqn_Bmotion}
-\mathbf{F} = q(\mathbf{v} \times \mathbf{B}).
-\end{equation}
-
-\noindent This force will cause an electron (propagating in vacuum) to execute a helical motion in the magnetic field such that if the thumb of the right hand is positioned along the direction of the field line $\mathbf{B}$ the electron will spiral in the direction in which the fingers curl when closed around the field line (see figure \ref{fig_bfieldmotion}).  The frequency of rotation about the field line is known as the cyclotron frequency $\omega_{\mathrm{cyc}} = qB/m$, where $B$ is the magnitude of the applied magnetic field $B = |\mathbf{B}|$ and $m$ is the mass of the charged particle. The radius of curvature $r$ of the trajectory is directly proportional to the electron transverse momentum $p_{T}$ and to the inverse of the magnitude of the magnetic field, $r = p_{T}/qB$.
+%
+%\begin{equation}\label{eqn_Bmotion}
+$\mathbf{F} = q(\mathbf{v} \times \mathbf{B})$.
+%\end{equation}
+%
+This force will cause an electron (propagating in vacuum) to execute a helical motion in the magnetic field such that if the thumb of the right hand is positioned along the direction of the field line $\mathbf{B}$ the electron will spiral in the direction in which the fingers curl when closed around the field line.  The frequency of rotation about the field line is known as the cyclotron frequency $\omega_{\mathrm{cyc}} = qB/m$, where $B$ is the magnitude of the applied magnetic field $B = |\mathbf{B}|$ and $m$ is the mass of the charged particle. The radius of curvature $r$ of the trajectory is directly proportional to the electron transverse momentum $p_{T}$ and to the inverse of the magnitude of the magnetic field, $r = p_{T}/qB$.
 
 If the direction of the applied magnetic field is known, the curvature of the track can be calculated to determine whether the component of the electron velocity along the magnetic field is parallel or antiparallel to the field.  Assuming that the magnetic field is directed along the z-axis, we are interested in the curvature of the track in the $x$-$y$ plane as it progresses in $z$.  The curvature $\kappa$ in the $x$-$y$ plane can be calculated for a track parameterized by the coordinate $z$ as
 
@@ -262,7 +275,7 @@ given a cut that provides approximately 80\% and 90\% background rejection.  The
 
 Note that the results depend significantly of the operating pressure. The best performance is obtained, as expected, at the lowest considered pressure (5 bar), and it reaches a plateau (80\% efficiency for a background rejection of 80\%, and 70\% efficiency for a background rejection of 90\%) for magnetic fields larger than 0.5 Tesla. The performance at 10 bar appears also quite acceptable. It reaches a plateau (75\% efficiency for a background rejection of 80\%, and 65\% efficiency for a background rejection of 90\%) for magnetic fields larger than 0.7 Tesla. The performance at 15 bar is poorer and does not saturate with the magnetic field, suggesting that some additional improvement can be obtained with large values of $B$. 
 
-\section{Improved methods}
+\section{Using profiles to improve the measurement of the sign curvature}
 While the curvature asymmetry factor $\phi_C$ from equation \ref{eqn_assym} provides a reasonable separation between signal and background events, it still represents a rather minimal approach.  For example, in calculating $\phi_C$, the difference was taken in the average of the signs over the two halves of the track, but the vertex in a $0\nu\beta\beta$ event is not likely to be found in the center.  A more detailed analysis taking into account more features of the two different classes of events should give improved performance.  As an example of such an analysis, we consider constructing a track ``profile'' for each type of event containing the value of the curvature sign at each point along the track averaged over all events.  Since not all tracks will be of exactly the same length, we normalize the track length to 1, and thus the profile contains an average sign value for each fractional distance along the track.  Note that fractional distance is determined by hit number $k$ divided by the total number of hits $N$ rather than actual distance traveled.  Figure \ref{fig_profiles} shows profiles made for simulated single-electron and $0\nu\beta\beta$ events.  The profiles show a clear separation between signal and background events earlier in the track where the sign of the curvature is most likely to differ.
 
 \begin{figure}[!htb]
@@ -289,24 +302,24 @@ Figure \ref{fig_svsbprof} compares the signal efficiency obtained for a given ba
 
 \section{Outlook: the case of a ton-scale HPXe TPC with a magnetic field}\label{sec.outlook}
 
-\begin{figure}[!htb]
-\centering
-	\includegraphics[scale=0.5]{img/FutureXe136.pdf}
-	\caption{\label{fig_futureXe} Sensitivity of a future xenon experiment (of perfect efficiency) as a function
-	of the exposure for different background rates.}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%	\includegraphics[scale=0.5]{img/FutureXe136.pdf}
+%	\caption{\label{fig_futureXe} Sensitivity of a future xenon experiment (of perfect efficiency) as a function
+%	of the exposure for different background rates.}
+%\end{figure}
 
 The application of an external magnetic field in a high-pressure detector capable of particle track reconstruction with resolution of approximately 2 mm in $(x,y,z)$ can provide an additional background rejection factor of 90\% with good signal efficiency (80\%) at pressures of about 10 atm.  The background rejection improves with decreasing pressure due to the more extended tracks produced at lower gas densities.  For the lower pressures (5 atm and 10 atm), relatively little increase in signal efficiency is gained for an increase in magnetic field for fields greater than approximately 0.5 T. 
 
-With these results in hand, is interesting to consider the performance of BEXT. Even without considering the magnetic field, BEXT will improve the background rate of NEXT-100 due to three factors:
-\begin{enumerate}
-\item {\em better economy of scale}: BEXT is a cylinder of 3 m diameter and 3 m length. Its fiducial volume (proportional to the signal) is 21.2 m$^3$, while its fiducial surface (proportional to the background) is 28.3 m$^2$. The ratio of surface-to-volume (proportional to the ratio signal-to-noise) is 0.75.  NEXT-100 has 1.1 m diameter and 1.2 m length. Its fiducial volume is 1.21 m$^3$ while its fiducial surface is 4.2 m$^2$. The ratio surface-to-volume is 0.28. The economy of scale law states that, everything else being the same (radioactive budget per unit surface and discrimination power), the background of BEXT will be approximately 
-$0.75/0.28 \sim 2.7$~times smaller than that of NEXT-100. 
-\item {\em smaller radioactive budget}: This is achieved by substituting PMTs (which are rather radioactive) with SiPMs, whose radioactivity is very small \cite{NEXT_radiopurity}. In addition, BEXT will be located inside a water tank rather than inside a lead castle, resulting in less residual background (from the lead) and better control of radon. A 50\% improvement in the radioactive budget may be attainable, which would result in further reduction of the background by a factor of 1.5.
-\item {\em better tracking resolution}, due to low diffusion (in fact, the Xe-\COT\ mixture will be implemented in NEXT-100, thus improving its background rate). This results in a better determination of the blobs, and an improved rejection factor. Our current MC simulations estimate that a factor 2 can be easily achieved.
-\end{enumerate}
+%With these results in hand, is interesting to consider the performance of BEXT. Even without considering the magnetic field, BEXT will improve the background rate of NEXT-100 due to three factors:
+%\begin{enumerate}
+%\item {\em better economy of scale}: BEXT is a cylinder of 3 m diameter and 3 m length. Its fiducial volume (proportional to the signal) is 21.2 m$^3$, while its fiducial surface (proportional to the background) is 28.3 m$^2$. The ratio of surface-to-volume (proportional to the ratio signal-to-noise) is 0.75.  NEXT-100 has 1.1 m diameter and 1.2 m length. Its fiducial volume is 1.21 m$^3$ while its fiducial surface is 4.2 m$^2$. The ratio surface-to-volume is 0.28. The economy of scale law states that, everything else being the same (radioactive budget per unit surface and discrimination power), the background of BEXT will be approximately 
+%$0.75/0.28 \sim 2.7$~times smaller than that of NEXT-100. 
+%\item {\em smaller radioactive budget}: This is achieved by substituting PMTs (which are rather radioactive) with SiPMs, whose radioactivity is very small \cite{NEXT_radiopurity}. In addition, BEXT will be located inside a water tank rather than inside a lead castle, resulting in less residual background (from the lead) and better control of radon. A 50\% improvement in the radioactive budget may be attainable, which would result in further reduction of the background by a factor of 1.5.
+%\item {\em better tracking resolution}, due to low diffusion (in fact, the Xe-\COT\ mixture will be implemented in NEXT-100, thus improving its background rate). This results in a better determination of the blobs, and an improved rejection factor. Our current MC simulations estimate that a factor 2 can be easily achieved.
+%\end{enumerate}
 
-Thus, the background rejection of BEXT combining these three factors, may be up to a factor 9 better than that of NEXT-100. Let us consider, for the sake of the discussion, a conservative estimate of a factor of 5. Thus it appears reasonable to assume a background rate of $10^{-4}$ \ckky\ {\em without adding a magnetic field}. As we have seen, the addition of a magnetic field can provide an additional order of magnitude separation between signal and background, resulting in a background rate of $10^{-5}$ \ckky.  For a resolution of 0.5\% FWHM at \Qbb\ the ROI has a width of 12 keV and thus one finds $\sim$0.1 background events per ton-year. As shown in figure \ref{fig_futureXe}, this is enough to fully cover the inverse hierarchy (even allowing for the relatively low selection efficiency of $\sim$ 25\%) in a few years. In fact, although the selection efficiency can be traded to some extent for background rejection, one of the main attractive features of the HPXe technology, for which BEXT would represent the ton scale, is the potential to offer a  background-free experiment to explore the inverse hierarchy. Given the extremely long lifetimes of the process being explored (a full coverage of the inverse hierarchy requires sensitivity to lifetimes of $10^{27}$~year for the \bbonu\ process), providing such a background-free experiment may be a must. 
+It follows that the background rejection of a future ton-scale HPXe using a magnetic field could be up to a factor 10 better than the current rejection factor expected by the NEXT-100 experiment (while keeping an efficiency in the range of 25\%). The resulting background rate would be around $5 \cdot 10^{-5}$ \ckky\ or about half count per ton and year in the ROI, assuming a resolution of 0.5\% FWHM at \Qbb. This is enough, for most NME sets, to fully cover the inverse hierarchy  in a few years. 
 
 \appendix
 
