@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -61,27 +61,16 @@ M.~Nebot-Guinot, P.~Ferrario, J.~Martin-Albo, J.~Mu{\~n}oz Vidal, and J.J.
   experiment}.
 \newblock \emph{arXiv:1410.6699}, 2014.
 
-\bibitem[Gomez-Cadenas(2015)]{Gomez-Cadenas:2015bext}
-J.J. Gomez-Cadenas.
-\newblock {The search for neutrinoless double beta decay}.
-\newblock \emph{arXiv:1502.00581}, 2015.
-
-\bibitem[Agostinelli et~al.(2003)]{GEANT4}
-S.~Agostinelli et~al.
-\newblock {Geant4---a simulation toolkit}.
-\newblock \emph{Nucl. Instrum. Methods A}, 506:\penalty0 250--303, 2003.
-
-\bibitem[{\'A}lvarez et~al.(2013)]{NEXT_radiopurity}
-V.~{\'A}lvarez et~al.
-\newblock {Radiopurity control in the NEXT-100 double beta decay experiment:
-  procedures and initial measurements}.
-\newblock \emph{JINST}, 8:\penalty0 T01002, 2013.
-
 \bibitem[Hubbell and Seltzer()]{NIST_mac}
 J.~H. Hubbell and S.~M. Seltzer.
 \newblock \emph{{NIST: Tables of X-Ray Mass Attenuation Coefficients and Mass
   Energy-Absorption Coefficients}}.
 \newblock
   \href{http://physics.nist.gov/PhysRefData/XrayMassCoef/tab1.html}{http://physics.nist.gov/PhysRefData/XrayMassCoef/tab1.html}.
+
+\bibitem[Agostinelli et~al.(2003)]{GEANT4}
+S.~Agostinelli et~al.
+\newblock {Geant4---a simulation toolkit}.
+\newblock \emph{Nucl. Instrum. Methods A}, 506:\penalty0 250--303, 2003.
 
 \end{thebibliography}
