@@ -19,7 +19,7 @@ E-mail: \email{jrenner@ific.uv.es}}
 \bibliographystyle{unsrtnat}
 \input{commands}
 
-\abstract{We demonstrate that the application of an external magnetic field could lead to an improved background rejection in neutrinoless double-beta (\bbonu) decay experiments using a high-pressure xenon (HPXe) TPC.  HPXe chambers are capable of imaging electron tracks, a feature that enhances the separation between signal events (the two electrons emitted in the \bbonu\ decay of \XE) and background events, arising chiefly from single electrons of kinetic energy compatible with the end-point of the \bbonu\ decay (\Qbb). Applying an external magnetic field of sufficiently high intensity (in the range of 0.5-1 Tesla for operating pressures in the range of 5-15 atmospheres) causes the electrons to produce helical tracks.  Assuming the tracks can be properly reconstructed, the sign (direction) of curvature can be determined at several points along these tracks, and such information can be used to separate signal ($0\nu\beta\beta$) events containing two electrons producing a track with two different directions of curvature from background (single-electron) events producing a track that should spiral in a single direction.   Due to electron multiple scattering, this strategy is not perfectly efficient on an event-by-event basis, but a statistical estimator can be constructed which can be used to reject background events by one order of magnitude at a moderate cost ($\sim$30\%) in signal efficiency. Combining this estimator with the excellent energy resolution and topological signature identification characteristic of the HPXe TPC, it is possible to reach a background rate of less than one count per ton-year of exposure.  Such a low background rate is an essential feature of the next generation of \bbonu\ experiments, aiming to fully explore the inverse hierarchy of neutrino masses.}
+\abstract{We demonstrate that the application of an external magnetic field could lead to an improved background rejection in neutrinoless double-beta (\bbonu) decay experiments using a high-pressure xenon (HPXe) TPC.  HPXe chambers are capable of imaging electron tracks, a feature that enhances the separation between signal events (the two electrons emitted in the \bbonu\ decay of \XE) and background events, arising chiefly from single electrons of kinetic energy compatible with the end-point of the \bbonu\ decay (\Qbb). Applying an external magnetic field of sufficiently high intensity (in the range of 0.5-1 Tesla for operating pressures in the range of 5-15 atmospheres) causes the electrons to produce helical tracks.  Assuming the tracks can be properly reconstructed, the sign of the curvature can be determined at several points along these tracks, and such information can be used to separate signal ($0\nu\beta\beta$) events containing two electrons producing a track with two different directions of curvature from background (single-electron) events producing a track that should spiral in a single direction.   Due to electron multiple scattering, this strategy is not perfectly efficient on an event-by-event basis, but a statistical estimator can be constructed which can be used to reject background events by one order of magnitude at a moderate cost ($\sim$30\%) in signal efficiency. Combining this estimator with the excellent energy resolution and topological signature identification characteristic of the HPXe TPC, it is possible to reach a background rate of less than one count per ton-year of exposure.  Such a low background rate is an essential feature of the next generation of \bbonu\ experiments, aiming to fully explore the inverse hierarchy of neutrino masses.}
 
 \keywords{Neutrinoless double beta decay; magnetic field; TPC; high-pressure xenon chambers;  Xenon; NEXT-100 experiment}
 
@@ -33,16 +33,14 @@ After 75 years of experimental effort, no compelling evidence for the existence 
 
 One of the technologies currently being developed is that of high pressure xenon (HPXe) Time Projection Chambers (TPCs). In particular, the NEXT collaboration \cite{Gomez-Cadenas:2014dxa} is building a HPXe TPC capable of holding 100 kg of xenon enriched at 90\% in the \bb\ decaying isotope \XE. NEXT operates at 15 bar and uses electroluminescent (EL) amplification of the ionization signal to optimize energy resolution. The detection of EL light provides an energy measurement using 60 photomultipliers (PMTs) located behind the cathode (the \emph{energy plane}) as well as tracking  via a dense array of about 8,000 silicon photomultipliers (SiPMs) located behind the anode (the \emph{tracking plane}).
 
-The NEXT experiment has completed the R\&D phase which was carried out with the large-scale prototypes NEXT-DEMO and NEXT-DBDM. The prototypes have measured an energy resolution which extrapolates to 0.5--0.7 \% FWHM at \Qbb. NEXT-DEMO has also shown the robustness of the topological signal \cite{Alvarez:2012xda,Alvarez:2012kua,Alvarez:2013gxa,Lorca:2014sra}. Currently, the NEXT collaboration is commissioning the first phase of the experiment, called NEW, at the Canfranc underground laboratory (LSC). NEW is a scaled-down version of NEXT-100, deploying 10 kg of isotope mass and 20\% of the sensors of NEXT-100 (12 PMTs in the energy plane and  1,800 SiPMs in the tracking plane).
+The NEXT experiment has completed the R\&D phase which was carried out with the large-scale prototypes NEXT-DEMO and NEXT-DBDM. The prototypes have measured an energy resolution which extrapolates to 0.5--0.7 \% FWHM at \Qbb. NEXT-DEMO has also shown the robustness of the topological signal described in section \ref{sec.topology} below \cite{Alvarez:2012xda,Alvarez:2012kua,Alvarez:2013gxa,Lorca:2014sra}. Currently, the NEXT collaboration is commissioning the first phase of the experiment, called NEW, at the Canfranc underground laboratory (LSC). NEW is a scaled-down version of NEXT-100, deploying 10 kg of isotope mass and 20\% of the sensors of NEXT-100 (12 PMTs in the energy plane and  1,800 SiPMs in the tracking plane).
 
-The NEXT background model, which will be fully validated with NEW, predicts a background rate of $5 \times 10^{-4}$~\ckky\ in the ROI \cite{Nebot-Guinot:2014raa}. The energy resolution for NEXT-100 is assumed to be 0.7\% FWHM at \Qbb\ ($\sim$ 17 keV). NEXT-100 is scheduled to begin acquiring data in 2017. The experiment expects less than one count of background per 100 kg and year of exposure, and thus its sensitivity to \Tonu\ is not dominated by background subtraction and increases rapidly with exposure. The expected sensitivity to the \bbonu\ half-life is $\Tonu > 7 \times 10^{25}$~yr for a exposure of 300 kg$\cdot$yr. This translates into a \mbb\ sensitivity range of $[90-180]$~meV, depending on the nuclear matrix element. An important advantage of the HPXe technology is the fact that it can be extrapolated to ton-scale target masses.
+The NEXT background model, which will be fully validated with NEW, predicts a background rate of $5 \times 10^{-4}$~\ckky\ in the ROI \cite{Nebot-Guinot:2014raa}. The energy resolution for NEXT-100 is assumed to be 0.7\% FWHM at \Qbb\ ($\sim$ 17 keV). NEXT-100 is scheduled to begin acquiring data in 2017. The experiment expects less than one count of background per 100 kg and year of exposure, and thus its sensitivity to \Tonu\ is not dominated by background subtraction and increases rapidly with exposure. The expected sensitivity to the \bbonu\ half-life is $\Tonu > 7 \times 10^{25}$~yr for a exposure of 300 kg$\cdot$yr. This translates into a \mbb\ sensitivity range of $[90-180]$~meV, depending on the nuclear matrix element. An important advantage of the HPXe technology is the fact that it can be extrapolated to ton-scale target masses \cite{NEXT_2014}.
 
-%as discussed in \cite{Gomez-Cadenas:2015bext} where the concept of a magnetized HPXe detector, called BEXT (B-field Experiment with a Xenon TPC) is described.  BEXT would be, like NEXT-100, an asymmetric TPC, but both the energy and the tracking plane would employ SiPMs (about 50,000 units in each plane). The fiducial mass of the detector would be in the range of 1 ton. The gas in BEXT will be xenon with a small quantity (0.3\%) of \COT\ in order to reduce diffusion to $\sim$~1.5 mm/$\sqrt{m}$ (see section \ref{sec.topology}).
-
-A central feature of a HPXe TPC is the capability of imaging electron tracks, a feature that can be used to separate signal events (the two electrons emitted in a \bbonu\ decay) from background events (mainly due to single electrons with kinetic energy comparable to the end-point of the \bbonu\ decay, \Qbb). In this paper, we show that adding an external magnetic field of sufficiently high intensity (in the range of 0.5--1 Tesla for operating pressures in the range of 5-15 atmospheres) allows for improved separation of signal and background events provided that two key conditions are met. 
+A central feature of a HPXe TPC is the capability of imaging electron tracks, a feature that can be used to separate signal events (the two electrons emitted in a \bbonu\ decay) from background events (mainly due to single electrons with kinetic energy comparable to the end-point of the \bbonu\ decay, \Qbb). In this paper, we show that adding an external magnetic field of sufficiently high intensity (in the range of 0.5--1 Tesla for operating pressures in the range of 5-15 atmospheres) allows for improved separation of signal and background events provided that two key conditions are met:
 \begin{enumerate}
-\item The spatial resolution needs to be sufficiently good (in the range of 2-3 mm). 
-\item The electron track needs to be reconstructed with sufficient precision. 
+\item The spatial resolution is sufficiently good (in the range of 2-3 mm). 
+\item The electron track is reconstructed with sufficient precision. 
 \end{enumerate}
 
 If the above two conditions are met, then a statistical estimator based on the average sign of the curvature of the electron track in the magnetic field can be constructed.  This estimator can be used to reject background events by one order of magnitude while maintaining a 60-80\% signal efficiency (depending on the pressure). Combining this estimator with the excellent energy resolution and topological signature characteristic of the HPXe-EL TPCs, we estimate that a future ton-scale detector will be able to reach less than one count background event per ton year of exposure, and thus meet the requirements needed to explore the inverse hierarchy.
@@ -52,10 +50,9 @@ This paper is organized as follows.  Section \ref{sec.topology} describes the re
 \section{Imaging tracks in a HPXe TPC}
 \label{sec.topology}
 
-%%%%%
 \begin{figure}[!htb]
 \centering
-\includegraphics[width= 0.95\textwidth]{img/SoftAsymmetric_bound.pdf}
+\includegraphics[width= 0.95\textwidth]{fig/SoftAsymmetric_bound.pdf}
 \caption{Principle of operation of an asymmetric HPXe TPC with EL readout.} \label{fig.SS}
 \end{figure}
 
@@ -64,7 +61,7 @@ Figure \ref{fig.SS} shows the principle of operation of an asymmetric HPXe TPC u
 %%%%%
 \begin{figure}[!htb]
 \centering
-\includegraphics[width= 0.95\textwidth]{img/TrackSignature.pdf}
+\includegraphics[width= 0.95\textwidth]{fig/TrackSignature.pdf}
 \caption{Monte Carlo simulation of a signal (\bbonu) event (left) and a  background event (right) in xenon gas at 15~bar. The color corresponds to energy deposition in the gas. The signal consist of two electrons emitted from a common vertex, and thus it features large energy depositions  (blobs) at both ends of the track. Background events are, typically, single-electron tracks (produced by photoelectric or Compton interactions of high energy gammas emitted by \BI\ or \TL\ isotopes), and thus feature only one blob.} \label{fig.ETRK2}
 \end{figure}
 %%%%%
@@ -72,19 +69,19 @@ Figure \ref{fig.SS} shows the principle of operation of an asymmetric HPXe TPC u
 %%%%%
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.45\textwidth]{img/EnergyBlobsSignal.pdf}
-\includegraphics[width=0.45\textwidth]{img/EnergyBlobsTl208.pdf}
+\includegraphics[width=0.45\textwidth]{fig/EnergyBlobsSignal.pdf}
+\includegraphics[width=0.45\textwidth]{fig/EnergyBlobsTl208.pdf}
 \caption{Probability distribution of signal (left) and background (right) events in terms of the energies of the end-of-track blobs. The blob labelled as `1' corresponds to the more energetic one, whereas `blob 2' corresponds to the less energetic of the two. In a signal event, the blobs have, on average, the same energy. In a background event, blob 1 has an energy similar to that of a signal event while the energy of blob 2 is very small.} \label{fig.BLOBS}
 \end{figure}
 %%%%%
 
 Double beta decay events leave a distinctive topological signature in a HPXe TPC: a continuous track with larger energy depositions (\emph{blobs}) at both ends due to the Bragg-like peaks in the d$E$/d$x$ of the stopping electrons (figure \ref{fig.ETRK2}, left). In contrast, background electrons are produced by Compton or photoelectric interactions, and are characterized by a single blob in one of the ends (figure \ref{fig.ETRK2}, right). Reconstruction of this topology using the tracking plane provides a powerful means of background rejection. For each track, the energy in both extremes of the track is measured and labelled as $E_{b1}$~ (the energy of the most energetic energy deposition), and $E_{b2}$~ (the least energetic energy deposition). In a signal event, $E_{b1} \sim E_{b2} $, while for background events $E_{b1} >> E_{b2} $. Figure \ref{fig.BLOBS} shows how this feature can be used to separate signal from background. 
 
-In this study we compare the single and double-electron track signatures in the presence of an external magnetic field and quantify the additional ability to reject single-electron events that is gained by examining the curvature of the tracks induced by the field.  We note that the ability to conduct a detailed study of the reconstructed track is highly dependent on the spatial resolution with which the track can be reconstructed in the detector {\em and} on developing a reconstruction algorithm with minimum bias to find the track extremes and track orientation. 
+In this study we compare the single and double-electron track signatures in the presence of an external magnetic field and quantify the additional ability to reject single-electron events that is gained by examining the curvature of the tracks induced by the field.  We note that the ability to conduct a detailed study of the reconstructed track is highly dependent on the spatial resolution with which the track can be reconstructed in the detector {\em and} on developing a reconstruction algorithm with minimum bias (designed to properly reconstruct a wide range of event geometries without focusing on a restricted set of special cases) to find the track extremes and track orientation. 
 
 Spacial resolution, in turn, depends on:
 \begin{enumerate}
-\item {\em Tracking plane design:} this includes the pitch of the SiPMs in the tracking plane as well as the SiPM response. Indeed, the use of SiPMs with very low dark current and high gain allows one to determine the location of an event by weighting the position of each sensor with the light recorded, thus improving dramatically the ``digital'' resolution, which goes as $\sim$pitch/$\sqrt{12}$. The digital point resolution corresponding to a pitch of 10 mm (NEXT-100) is 10$/\sqrt{12} \sim 3$~mm. Using weighted information (e.g, local barycenter algorithms), the point resolution improves to about 1 mm. 
+\item {\em Tracking plane design:} this includes the pitch of the SiPMs in the tracking plane as well as the SiPM response. Indeed, the use of SiPMs with very low dark current and high gain allows one to determine the location of an event by weighting the position of each sensor with the light recorded, thus improving dramatically the ``digital'' resolution, which goes as $\sim$pitch/$\sqrt{12}$. The digital point resolution corresponding to a pitch of 10 mm (NEXT-100) is 10$/\sqrt{12} \sim 3$~mm. Using weighted information (e.g, local barycenter algorithms), the point resolution improves to about 1 mm (see \cite{Lorca:2014sra}). 
 \item {\em The width of the EL region:}
 The non-zero width of the EL gap adds an extra resolution term which goes like $w/\sqrt{12}$~where $w$~is the width of the grid. For the NEXT-DEMO prototype, $w\sim 5$, so this effect would add a resolution term of 1.5 mm. For NEXT-100, $w\sim 3.5$~reducing the resolution to 1 mm. 
 
@@ -93,29 +90,9 @@ The non-zero width of the EL gap adds an extra resolution term which goes like $
 
 Concerning reconstruction algorithms, the collection of energy depositions (``hits'') that are provided by the tracking plane must be organized into an ordered track in which the beginning and end of the track are correctly identified.  This is a difficult task due to the wide variety of track geometries that can result from multiple scattering, and it must be noted that the results of this study assume it is done correctly for all events.  The NEXT collaboration is currently working on a reconstruction algorithm capable of properly ordering the hits with minimum bias towards specific geometries. 
 
-%%%%%
-%\begin{figure}[!htb]
-%	\centering
-%	\includegraphics[width=0.75\textwidth]{img/Longitudinal_Diffusion300Vcm.pdf}
-%	\includegraphics[width=0.75\textwidth]{img/Transverse_Diffusion300Vcm.pdf}
-%	\caption{\label{fig.DIF}Longitudinal and transverse diffusion when small amounts of \COT\ and \CHF\ are added to pure xenon. Notice that about 0.3 \% of \COT\ are enough to reduce both longitudinal and transverse diffusion to about $1.5$~mm/$\sqrt{\rm{m}}$.}
-%\end{figure}
-%%%%%
-
 To summarize, it appears possible to achieve a resolution of $\sim$2-3 mm in x-y-z, and to reconstruct tracks with minimum bias as discussed before. In the remainder of this paper we assume both conditions. Our Monte Carlo study smears the individual hits by 2-3 mm and assumes that the reconstruction algorithm provides the correct ordering of the track. 
 
-%(the combination of 
-%longitudinal diffusion and EL grid yields $\sqrt{1.5^2+1.5^2} \sim 2.1$~mm) and in x-y
-%(the combination of pitch and transverse diffusion yields $\sqrt{1^2+1.5^2} \sim 1.8$~mm). Thus, we
-% consider a ``default'' point resolution of 2 mm for this study. We also study how the separation between signal and background depend on position resolution.
-
 \section{Electron tracks propagating in high pressure gas inside a magnetic field}\label{sec.magmotion}
-
-%\begin{figure}[!htb]
-%	\centering
-%	\includegraphics[scale=0.5]{fig/bfield_motion.pdf}
-%	\caption{\label{fig_bfieldmotion}Motion of an electron in a magnetic field.  The electron exhibits helical motion around the field line as shown (entering the page at the $\times$ and exiting the page at the $\bullet$) regardless of the direction of the component of the electron's velocity along the direction of $\mathbf{B}$.}
-%\end{figure}
 
 A particle of charge $q$ moving at a velocity $\mathbf{v}$ in the presence of a magnetic field $\mathbf{B}$ is acted upon by a force
 %
@@ -123,7 +100,7 @@ A particle of charge $q$ moving at a velocity $\mathbf{v}$ in the presence of a 
 $\mathbf{F} = q(\mathbf{v} \times \mathbf{B})$.
 %\end{equation}
 %
-This force will cause an electron (propagating in vacuum) to execute a helical motion in the magnetic field such that if the thumb of the right hand is positioned along the direction of the field line $\mathbf{B}$ the electron will rotate in the direction in which the fingers curl when closed around the field line.  The frequency of rotation about the field line is known as the cyclotron frequency $\omega_{\mathrm{cyc}} = qB/m$, where $B$ is the magnitude of the magnetic field $B = |\mathbf{B}|$ and $m$ is the mass of the charged particle. The radius of curvature $r$ of the trajectory is directly proportional to the electron transverse momentum $p_{T}$ and to the inverse of the magnitude of the magnetic field, $r = p_{T}/qB$.
+This force will cause an electron (propagating in vacuum) to undergo helical motion in the magnetic field such that if the thumb of the right hand is positioned along the direction of the field line $\mathbf{B}$ the electron will rotate in the direction in which the fingers curl when closed around the field line.  The frequency of rotation about the field line is known as the cyclotron frequency $\omega_{\mathrm{cyc}} = qB/m$, where $B$ is the magnitude of the magnetic field $B = |\mathbf{B}|$ and $m$ is the mass of the charged particle. The radius of curvature $r$ of the trajectory is directly proportional to the electron transverse momentum $p_{T}$ and to the inverse of the magnitude of the magnetic field, $r = p_{T}/qB$.  In the presence of matter, the particle looses energy (and $p_{T}$), and hence the radius of curvature decreases progressively, resulting in a spiral. 
 
 If the direction of the applied magnetic field is known, the curvature of the track can be calculated to determine whether the component of the electron velocity along the magnetic field is parallel or antiparallel to the field.  Assuming that the magnetic field is directed along the z-axis, we are interested in the curvature of the track in the $x$-$y$ plane as it progresses in $z$.  The curvature $\kappa$ in the $x$-$y$ plane can be calculated for a track parameterized by the coordinate $z$ as
 
@@ -131,7 +108,7 @@ If the direction of the applied magnetic field is known, the curvature of the tr
 \kappa = \frac{(dx/dz)\cdot(d^2y/dz^2) - (dy/dz)\cdot(d^2x/dz^2)}{\Bigl[(dx/dz)^2 + (dy/dz)^2\Bigr]^{3/2}}.
 \end{equation}
 
-With this definition, an electron traveling in the direction of the magnetic field will rotate around the field lines with positive curvature, while an electron traveling opposite the direction of the magnetic field will spiral with negative curvature.  
+With this definition, an electron traveling in the direction of the magnetic field will rotate around the field lines with positive curvature, while an electron traveling opposite the direction of the magnetic field will rotate with negative curvature.  
 
 The curvature, however, will be of the opposite sign if the track orientation is not properly identified in the calculation (i.e., if $dz$ is of the wrong sign).  Thus, when calculating the curvature of a single-electron track, one would expect $\kappa > 0$ for $dz > 0$ and $\kappa < 0$ for $dz < 0$ given that $dz$ is always in the direction of the electron velocity.  However, for a \bbonu\ ``double electron'' track (defined as the track between the two blobs that mark the start and end of the trajectory), taking one of the extremes to be the beginning of the track and the other to be the end will lead to a calculation of $\kappa$ assuming the wrong track orientation for one of the two electrons, as the vertex at which the reaction occurred is found somewhere on the interior of the track.  Therefore one expects to find $\kappa > 0$ for $dz < 0$ and $\kappa < 0$ for $dz > 0$ for a significant fraction of the track.  This difference in the behavior of the calculated curvature of reconstructed tracks can be used to distinguish single-electrons from \bbonu\ double electrons.
 
@@ -148,30 +125,29 @@ path by significant angles. The process can be described approximately by consid
 In the absence of MS the transverse momentum of an electron could be directly determined by the track
 curvature. Consequently, a single-electron track---for which the momentum is greatest at one end of the
 track and decreases toward the other end---would be clearly distinguishable
-from a double-electron track consisting of two electrons traveling in opposite directions originating at some vertex in the middle of the track.  Unfortunately, in a HPXe TPC multiple scattering is high, resulting in large errors that complicate the direct measurement of the magnitude of the curvature. The sign of the curvature, however, is much less affected by MS.
-%(in fact, the gaussian component of MS, described by equation \ref{eqn_mscat}, does not change locally the turning sense of the electron, which is only affected by non-gaussian, large-angle scatters that cannot be described by Moli\`{e}re theory). 
+from a double-electron track consisting of two electrons traveling in opposite directions originating at some vertex in the middle of the track.  Unfortunately, in a HPXe TPC multiple scattering is high, resulting in large errors that complicate the direct measurement of the magnitude of the curvature. The sign of the curvature, however, should be much less affected by MS.
 Consequently we choose the sign of the curvature, rather than its magnitude, as our discriminating variable.  
 
 \section{Determination of the Track Curvature}\label{sec.curvature}
-Given a track of electron ionization defined as a collection of hits containing position and energy information, $(x,y,z,E)$, the curvature at each hit in the track is calculated by numerical computation of the derivatives $dx/dz$, $dy/dz$, $d^2x/dz^2$, and $d^2y/dz^2$.  From these the curvature $\kappa$ is calculated at each point.  Since we do not have $x$ and $y$ as a function of $z$ but rather $x$, $y$, and $z$ as a function of hit number $n$, we can calculate the derivatives $x' \equiv dx/dn$, $y' \equiv dy/dn$, $z' \equiv dz/dn$ using the chain rule as $\frac{dx}{dz} = x'/z'$, and
+Given a track of electron ionization defined as a collection of hits containing position and energy information, $(x,y,z,E)$, the curvature at each hit in the track is calculated by numerical computation of the derivatives $dx/dz$, $dy/dz$, $d^2x/dz^2$, and $d^2y/dz^2$.  From these the curvature $\kappa$ is calculated at each point.  Since we do not have $x$ and $y$ as a function of $z$ but rather $x$, $y$, and $z$ as a function of hit number $n$, we can first calculate the derivatives $x' \equiv dx/dn$, $y' \equiv dy/dn$, $z' \equiv dz/dn$ using the difference of two adjacent values (e.g., $x'_{i} = x_{i+1}-x_{i}$).  Then, using the chain rule, $dx/dz = x'/z'$, and
 
 \begin{equation}
 \frac{d^2x}{dz^2} = \frac{x'' - z''(dx/dz)}{(z')^2}.
 \end{equation}
 
-The expressions for $dy/dz$ and $d^2y/dz^2$ can be obtained by replacing in the above $x \rightarrow y$.  Note that outliers may need to be removed from the resulting arrays of first and second derivatives due to points between which the z-coordinate changes very little.  To ensure more stable values of the derivatives, an outlier removal procedure is applied to all derivatives and second derivatives computed which consists of iteratively calculating the mean and variance $\sigma$ of each array, replacing any value that lies outside of $5\sigma$ of the mean value with the average of the two nearest values in the array, and continuing this procedure until the calculated variance is no longer less than the value of the variance calculated in the previous iteration. % (continue until $\sigma' < 0.99\sigma$).
+The expressions for $dy/dz$ and $d^2y/dz^2$ can be obtained by replacing in the above $x \rightarrow y$.  Note that outliers may need to be removed from the resulting arrays of first and second derivatives due to points between which the z-coordinate changes very little.  To ensure more stable values of the derivatives, an outlier removal procedure is applied to all derivatives and second derivatives computed which consists of iteratively calculating the mean and variance $\sigma$ of each array, replacing any value that lies outside of $5\sigma$ of the mean value with the average of the two nearest values in the array, and continuing this procedure until the calculated variance is no longer less than the value of the variance calculated in the previous iteration.
 
 The curvature calculated using each pair of points is then corrected as follows: if for the two points $z_2 < z_1$, that is 
-$dz < 0$, the curvature is multiplied by -1 (see section \ref{sec.magmotion}).  Note that the outlier removal procedure described above is also applied to the calculated curvature array.  
+$dz < 0$, the curvature is multiplied by -1 (see section \ref{sec.magmotion}).  Note that the outlier removal procedure described in the previous paragraph is also applied to the calculated curvature array.  
 
-The discriminant variable is obtained by condensing the curvature information for each track into a single numerical value indicative of the nature of the track.  First a curvature sign array is created 
+The discriminant variable is obtained by collapsing the curvature information for each track into a single numerical value indicative of the nature of the track.  First a curvature sign array is created 
 consisting of values of either $+1$ or $-1$ depending on the sign of each value in the calculated curvature array.  The 
 numerical value, which we will
 call the {\em curvature asymmetry factor (CAF)}, is defined as the average of the curvature sign array using elements in the first half of 
 the track minus the average of the curvature sign array using elements in the second half of the track:
 
 \begin{equation}\label{eqn_assym}
-\phi_{C} = \frac{1}{N/2}\Biggl(\sum_{k=0}^{N/2-1}\mathrm{sgn}(\kappa_{k}) - \sum_{k=N/2}^{N}\mathrm{sgn}(\kappa_{k})\Biggr).
+\phi_{C} = \frac{1}{N/2}\Biggl(\sum_{k=0}^{N/2-1}\mathrm{sign}(\kappa_{k}) - \sum_{k=N/2}^{N}\mathrm{sign}(\kappa_{k})\Biggr).
 \end{equation}
 
 \noindent Note that if the number of hits in the track is odd, the first term includes the first $(N-1)/2$ hits and
@@ -187,7 +163,7 @@ initial direction of travel is assigned at random and is updated after each step
 by calculating a random $\theta_x$ and $\theta_y$ using equation \ref{eqn_mscat} and
 assuming the direction of travel is along the z-axis.  A single-electron track is generated in this way 
 assuming an initial energy of 2.447 MeV, to simulate background events.  For ``signal'' events, two 
-single-electron tracks are generated from a common vertex, each with an initial energy of $2.447/2 = 1.2235$ MeV. Notice that this is not realistic, since the two electrons produced in \bbonu\ events share their energy only statistically. Event-by-event, each electron can have an energy that varies between 0 and \Qbb\, with the other electron taking the rest. This makes it much harder, in practice, to separate \bbonu\ events from single electrons than in the naive case assumed here for illustration purposes.
+single-electron tracks are generated from a common vertex, each with an initial energy of $2.447/2 = 1.2235$ MeV. Note that this assumption of equally shared energy is made to simplify the present example, and in real \bbonu\ events, each electron can have an energy that varies between 0 and \Qbb\, with the other electron taking the rest. This makes it much harder, in practice, to separate \bbonu\ events from single electrons than in the naive case assumed here for illustration purposes.
 
 Our toy Monte Carlo allows us to study the influence of (the gaussian component of) multiple scattering present in the simulated events in a
 straightforward manner by changing the pre-factor in equation \ref{eqn_mscat} from 13.6 MeV to a lower or higher value.  
@@ -218,7 +194,7 @@ Increasing multiple scattering  makes the background rejection procedure more di
 of MS often works against the curvature introduced by the magnetic field and quantified in
 equation \ref{eqn_assym}. However, as shown in figure \ref{fig_assym_cf} the CAF separates single-electron and double-electron tracks perfectly, even when the amount of MS is doubled. Naturally, this result is too optimistic, as already mentioned, for several reasons: the toy MC only includes the gaussian component of MS, neglecting important non-gaussian effects (included in the Geant-4 simulation), the point resolution is assumed perfect, and the "double-electrons" share exactly half of the energy. However, the good separation shown in figure \ref{fig_assym_cf} demonstrates that the proposed procedure is sound. 
 
-\section{Data sample}\label{sec.track}
+\section{Simulated data sample}\label{sec.track}
 The primary simulation-based study consisted of analysis of Monte Carlo datasets generated in a large virtual box of high pressure xenon gas using GEANT4 \cite{GEANT4}. Such an arrangement emulates events contained in the fiducial volume of NEXT-100. For various configurations of gas pressure and magnetic field, $10^4$ signal (\bbonu) events and $10^4$ background events (single electrons of kinetic energy equal to \Qbb) were generated.  
 
 Each simulated track was recorded as a series of hits consisting of a location $(x,y,z)$ and a deposited energy $E$.  Space coordinates were grouped in a single continuous track constructed by adding together all the hits left by the electron (in the case of single electron events) or the two electrons (in the case of \bbonu\ events). This procedure emulates the pattern recognition in a HPXe TPC, which reconstructs as a single track both single and double electrons (see figure \ref{fig.ETRK2}), and assumes that the hits are reconstructed in the proper order. Furthermore, the hits were smeared to simulate point resolution. Before proceeding with further analysis, the summed energy of all hits recorded in the track was required to be at least 2.4 MeV. This cut corresponds to demanding the event energy to be within the ROI. 
@@ -239,8 +215,8 @@ details of which are discussed in appendix \ref{app:FIR}.
 \section{Results}\label{sec.results}
 The analysis described in section \ref{sec.curvature} was performed for single-electron and
 \bbonu\ tracks for all combinations of $P =$ 5, 10, and 15 atm and $B =$ 0.1, 0.3, 0.5, 0.7, 
-and 1.0 T.  In all of these configurations, the hits were smeared in $(x,y,z)$ with $\sigma_{s} = 2$ mm.  They were also ``sparsed,'' that is, groups of every $N_{s}$ hits were averaged into a single hit, with $N_{s} = 2$.  Additional analyses in the $P =$ 10 atm, $B = 0.5$ T configuration were performed, one with $\sigma_{s} = 1$ mm and $N_{s} = 1$, and another with $\sigma_{s} = 3$ mm and $N_{s} = 3$.  For each configuration, $10^4$ events of each track type (single-electron and \bbonu) were generated. 
-For illustrative purposes, figure \ref{fig_trkcurv} shows the calculated curvature signs for a single-electron and double-beta event, after filtering with a lowpass filter, at $B = 0.5$ T and $P = 10$ atm.  
+and 1.0 T.  In all of these configurations, the hits were smeared in $(x,y,z)$ with $\sigma_{s} = 2$ mm.  They were also ``sparsed,'' that is, groups of every $N_{s}$ hits were averaged into a single hit, with $N_{s} = 2$.  Additional analyses in the $P =$ 10 atm, $B = 0.5$ T configuration were performed, one with $\sigma_{s} = 1$ mm and $N_{s} = 1$, and another with $\sigma_{s} = 3$ mm and $N_{s} = 3$.  For each configuration, $10^4$ events of each type (single-electron and \bbonu) were generated. 
+For illustration purposes, figure \ref{fig_trkcurv} shows the calculated curvature signs for a single-electron and double-beta event, after filtering with a lowpass filter, at $B = 0.5$ T and $P = 10$ atm.  
 
 \begin{figure}[!htb]
 	\includegraphics[scale=0.48]{fig/plt_trkcurv_nmagse2_6.pdf}
@@ -249,8 +225,7 @@ For illustrative purposes, figure \ref{fig_trkcurv} shows the calculated curvatu
 \end{figure}
 % Generated by rp_gfit.py with variable frequency, 10 atm, 0.5 T, runs nmagse2, nmagbb2
 
-For each track we calculate the curvature asymmetry factor shown in equation \ref{eqn_assym}. Next, a cut was placed on the CAF, defining the events considered to be candidate 
-\bbonu\ tracks.  The cut was varied, and in each case 
+For each track we calculate the curvature asymmetry factor shown in equation \ref{eqn_assym}. Next, a cut was placed on the CAF, defining the events considered to be \bbonu\ candidates.  The cut was varied, and in each case 
 the fraction of single-electron (background) tracks rejected by the cut was determined along with the fraction of 
 \bbonu\ (signal) tracks accepted.\footnote{Of the $10^4$ events generated for each configuration and track type, only events that passed a set of initial topological cuts were considered in the curvature analysis.  These cuts required a minimum total deposited energy of 2.4 MeV and the deposition of this energy in a single continuous track, so events with some energy deposited significantly away ($> 2$ cm) from the main track were not analyzed further.  The final fraction of events therefore refers to a fraction of this subset of events analyzed, not a fraction of the total $10^4$ events generated.}  An example of such an analysis is summarized in figure \ref{fig_svsbg}.
 
@@ -274,7 +249,7 @@ field, we examine the signal efficiency $s$ (fraction of \bbonu\ events correctl
 given a cut that provides approximately 80\% and 90\% background rejection.  The results are shown in figure 
 \ref{fig_config}.
 
-Note that the results depend significantly of the operating pressure. The best performance is obtained, as expected, at the lowest considered pressure (5 bar), and it reaches a plateau (80\% efficiency for a background rejection of 80\%, and 70\% efficiency for a background rejection of 90\%) for magnetic fields larger than 0.5 Tesla. The performance at 10 bar appears also quite acceptable. It reaches a plateau (75\% efficiency for a background rejection of 80\%, and 65\% efficiency for a background rejection of 90\%) for magnetic fields larger than 0.7 Tesla. The performance at 15 bar is poorer and does not saturate with the magnetic field, suggesting that some additional improvement can be obtained with larger values of $B$. 
+Note that the results depend significantly of the operating pressure. The best performance is obtained, as expected, at the lowest considered pressure (5 bar), and it reaches a plateau (80\% efficiency for a background rejection of 80\%, and 70\% efficiency for a background rejection of 90\%) for magnetic fields larger than 0.5 Tesla. The performance at 10 bar appears also quite acceptable. It reaches a plateau (75\% efficiency for a background rejection of 80\%, and 65\% efficiency for a background rejection of 90\%) for magnetic fields larger than 0.7 Tesla. The performance at 15 bar is poorer and does not saturate with the magnetic field in the region studied ($B < 1$ Tesla), suggesting that some additional improvement can be obtained with larger values of $B$. 
 
 \section{An improved analysis}\label{sec.improvedanalysis}
 While the curvature asymmetry factor $\phi_C$ from equation \ref{eqn_assym} provides a reasonable separation between signal and background events, it still represents a rather minimal approach.  For example, in calculating $\phi_C$, the difference was taken in the average of the signs over the two halves of the track, but the vertex in a $0\nu\beta\beta$ event is not likely to be found in the center.  A more detailed analysis taking into account more features of the two different classes of events should give improved performance.  As an example of such an analysis, we consider constructing a track ``profile'' for each type of event containing the value of the curvature sign at each point along the track averaged over all events.  Since not all tracks will be of exactly the same length, we normalize the track length to 1, and thus the profile contains an average sign value for each fractional distance along the track.  Note that fractional distance is determined by hit number $k$ divided by the total number of hits $N$ rather than actual distance traveled.  Figure \ref{fig_profiles} shows profiles made for simulated single-electron and $0\nu\beta\beta$ events.  The profiles show a clear separation between signal and background events earlier in the track where the sign of the curvature is most likely to differ.
@@ -285,13 +260,13 @@ While the curvature asymmetry factor $\phi_C$ from equation \ref{eqn_assym} prov
 	\caption{\label{fig_profiles}Average curvature sign profiles for single-electron and $0\nu\beta\beta$ events generated at $B = 0.5$ T and $P = 10$ atm, with $\sigma_{s} = 2$ mm and $N_{s} = 2$.  The profile shows the average sign vs. fractional distance along the track ($k/N$, where $k$ is the hit number and $N$ is the total number of hits).  The profiles were created by dividing the normalized track into 15 bins, and for each calculated curvature value for each event, adding a value of $+1$ or $-1$ to the bin, then dividing each bin by the total number of values placed in it.  The values in the first and second bin were extrapolated linearly to $k/N = 0$, and those in the final two bins were extrapolated to $k/N = 1$.  The entire set of values was then interpolated using cubic polynomials.}
 \end{figure}
 
-Once the profiles have been generated, they can be used to define a new variable that will provide separation between the two classes of events.  For each event, the sign of the curvature $\mathrm{sgn}(\kappa_{i})$ at each (normalized) distance along the track is compared to that of the profile for signal ($0\nu\beta\beta$) events, $p_{S}$, and background (single-electron) events, $p_{B}$, in creating two $\chi^2$-like sums,
+Once the profiles have been generated, they can be used to define a new variable that will provide separation between the two classes of events.  For each event, the sign of the curvature $\mathrm{sign}(\kappa_{i})$ at each (normalized) distance along the track is compared to that of the profile for signal ($0\nu\beta\beta$) events, $p_{S}$, and background (single-electron) events, $p_{B}$, in creating two $\chi^2$-like sums,
 
 \begin{equation}
- \chi^2_{S} = \sum_{k=0}^{N}\frac{[\mathrm{sgn}(\kappa_{k}) - p_{S}(k/N)]^{2}}{\sigma^2_{s}(k/N)},
+ \chi^2_{S} = \sum_{k=0}^{N}\frac{[\mathrm{sign}(\kappa_{k}) - p_{S}(k/N)]^{2}}{\sigma^2_{s}(k/N)},
 \end{equation}
 
-\noindent and a similar sum $\chi^2_B$ in which the background profile $p_{B}$ is used in place of $p_{S}$.  The values $p_S(x)$ and $p_B(x)$ are the mean curvature signs at fractional track location $x = k/N$, and the values $\sigma^2_S$ and $\sigma^2_B$ are the variances of the mean curvature sign.  The variances were found to be near 1 at all $k/N$ in both profiles, reflecting the large amount of fluctuation in curvature sign at any given point on the track due to multiple scattering.  Despite these large variances, the large number of events used in determining the average values made for low errors on the mean and thus smooth profiles.  The discriminating variable is then $r_{\chi} = \chi^2_B/\chi^2_{S}$.  For background events, this ratio should be smaller, as the curvature signs throughout the track should be more similar to the background event profile (smaller $\chi^2_B$) and more different than the signal event profile (larger $\chi^2_S$).  Based on similar arguments, this ratio should be larger for signal events.
+\noindent and a similar sum $\chi^2_B$ in which the background profile $p_{B}$ is used in place of $p_{S}$.  The values $p_S(\alpha)$ and $p_B(\alpha)$ are the mean curvature signs at fractional track location $\alpha = k/N$, and the values $\sigma^2_S$ and $\sigma^2_B$ are the variances of the mean curvature sign.  The variances were found to be near 1 at all $k/N$ in both profiles, reflecting the large amount of fluctuation in curvature sign at any given point on the track due to multiple scattering.  Despite these large variances, the large number of events used in determining the average values made for low errors on the mean and thus smooth profiles.  The discriminating variable is then $r_{\chi} = \chi^2_B/\chi^2_{S}$.  For background events, this ratio should be smaller, as the curvature signs throughout the track should be more similar to the background event profile (smaller $\chi^2_B$) and more different than the signal event profile (larger $\chi^2_S$).  Based on similar arguments, this ratio should be larger for signal events.
 
 Figure \ref{fig_svsbprof} compares the signal efficiency obtained for a given background rejection using the profile-based method (discriminant variable $r_{\chi}$) described in this section and the method based on the asymmetry factor $\phi_{C}$ described in section \ref{sec.curvature}.  The profile-based method performs better up to a background rejection of about 95\%.  This clearly shows the potential for further optimization. In our ``standard test case'' (10 atm, 2 mm resolution, 0.5 Tesla) a rejection factor of one order of magnitude is achieved for a signal efficiency of about 75\% using the profile method. 
 
@@ -303,25 +278,9 @@ Figure \ref{fig_svsbprof} compares the signal efficiency obtained for a given ba
 
 \section{Outlook: the case of a ton-scale HPXe TPC with a magnetic field}\label{sec.outlook}
 
-%\begin{figure}[!htb]
-%\centering
-%	\includegraphics[scale=0.5]{img/FutureXe136.pdf}
-%	\caption{\label{fig_futureXe} Sensitivity of a future xenon experiment (of perfect efficiency) as a function
-%	of the exposure for different background rates.}
-%\end{figure}
+The application of an external magnetic field in a high-pressure detector capable of accurate particle track reconstruction with resolution of approximately 2 mm in $(x,y,z)$ can provide an additional background rejection factor of 90\% with good signal efficiency (70-80\%) at pressures of about 10 atm.  The background rejection improves with decreasing pressure due to the more extended tracks produced at lower gas densities and more modest MS (leading to a more accurate calculation of sign($\kappa$) at each hit).  A sufficient track reconstruction algorithm has not yet been realized to take full advantage of these findings, and the NEXT collaboration is currently working towards a potentially suitable algorithm.
 
-The application of an external magnetic field in a high-pressure detector capable of accurate particle track reconstruction with resolution of approximately 2 mm in $(x,y,z)$ can provide an additional background rejection factor of 90\% with good signal efficiency (70-80\%) at pressures of about 10 atm.  The background rejection improves with decreasing pressure due to the more extended tracks produced at lower gas densities.  A sufficient track reconstruction algorithm has not yet been realized to take full advantage of these findings, and the NEXT collaboration is currently working towards a potentially suitable algorithm.
-%For the lower pressures (5 atm and 10 atm), relatively little increase in signal efficiency is gained for an increase in magnetic field for fields greater than approximately 0.5 T. 
-
-%With these results in hand, is interesting to consider the performance of BEXT. Even without considering the magnetic field, BEXT will improve the background rate of NEXT-100 due to three factors:
-%\begin{enumerate}
-%\item {\em better economy of scale}: BEXT is a cylinder of 3 m diameter and 3 m length. Its fiducial volume (proportional to the signal) is 21.2 m$^3$, while its fiducial surface (proportional to the background) is 28.3 m$^2$. The ratio of surface-to-volume (proportional to the ratio signal-to-noise) is 0.75.  NEXT-100 has 1.1 m diameter and 1.2 m length. Its fiducial volume is 1.21 m$^3$ while its fiducial surface is 4.2 m$^2$. The ratio surface-to-volume is 0.28. The economy of scale law states that, everything else being the same (radioactive budget per unit surface and discrimination power), the background of BEXT will be approximately 
-%$0.75/0.28 \sim 2.7$~times smaller than that of NEXT-100. 
-%\item {\em smaller radioactive budget}: This is achieved by substituting PMTs (which are rather radioactive) with SiPMs, whose radioactivity is very small \cite{NEXT_radiopurity}. In addition, BEXT will be located inside a water tank rather than inside a lead castle, resulting in less residual background (from the lead) and better control of radon. A 50\% improvement in the radioactive budget may be attainable, which would result in further reduction of the background by a factor of 1.5.
-%\item {\em better tracking resolution}, due to low diffusion (in fact, the Xe-\COT\ mixture will be implemented in NEXT-100, thus improving its background rate). This results in a better determination of the blobs, and an improved rejection factor. Our current MC simulations estimate that a factor 2 can be easily achieved.
-%\end{enumerate}
-
-It follows that the background rejection of a future ton-scale HPXe using a magnetic field could be up to a factor of 10 better than the current rejection factor expected by the NEXT-100 experiment (while keeping an efficiency in the range of 25\%). The resulting background rate would be around $5 \cdot 10^{-5}$ \ckky\ or about a half count per ton and year in the ROI, assuming a resolution of 0.5\% FWHM at \Qbb. This is enough, for most NME sets, to fully cover the inverse hierarchy  in a few years. 
+It follows that the background rejection of a future ton-scale HPXe using a magnetic field could be up to a factor of 10 better than the current rejection factor expected by the NEXT-100 experiment while keeping an efficiency in the range of 20-25\% (NEXT-100 is expected to operate with a signal efficiency of approximately 30\% \cite{NEXT_2013} without considering additional rejection provided by the present analysis). The resulting background rate would be around $5 \cdot 10^{-5}$ \ckky\ or about a half count per ton and year in the ROI, assuming a resolution of 0.5\% FWHM at \Qbb. This is enough, for most nuclear matrix element sets, to fully cover the inverse hierarchy  in a few years. 
 
 \appendix
 
@@ -356,11 +315,6 @@ with frequencies greater than $k_{c}$ will be increasingly attenuated with incre
 designed to ensure we don't eliminate the sinusoidal motion introduced by the magnetic field, and we use a
 filter with a wide stopband (this reduces its complexity) and place $k_{c}$ near the discrete frequency 
 corresponding to the cyclotron frequency
-
-%The application of a magnetic field in the z-direction will cause an electron with some component of its velocity in the 
-%x-y plane to move in a helix, meaning that the projection of the electron's path in the x-y plane (in the absence of 
-%any other noise for example due to multiple scattering) will exhibit periodic motion with a fixed frequency.  This 
-%frequency is the cyclotron frequency $\omega_{\mathrm{cyc}}$
 
 \begin{equation}\label{eqn_wcyc}
 \omega_{\mathrm{cyc}} = qB/m_{e} = 1.76B \times 10^{11} \,\, \mathrm{rad/s},
@@ -429,17 +383,6 @@ was chosen to be a fixed value.
 Because the fixed-cutoff analysis performs significantly better at higher fields, it was chosen as the primary 
 analysis in this study.  For the results shown in section \ref{sec.results}, the lowpass filter applied to all tracks 
 was designed with a fixed cutoff frequency of $k_{c}/2\pi = 0.102$ (with the exception of those shown in figure \ref{fig_trkcurv}, to which the filter shown in figure \ref{fig_FIR} specifically was applied).
-
-%Thus we will often perform the analysis discussed in section \ref{sec.curvature} using a lowpass
-%filter with cutoff frequency of a fixed value for all magnetic field strengths, knowing that for the higher fields the 
-%resulting smoother track may be obtained at the expense of some information on the curvature induced by the 
-%field.
-%The results obtained in the curvature analysis are dependent also on the design of the lowpass filter applied to the 
-%track.  At higher values of the magnetic field $B$, placing the cutoff frequency at $k_{c} = k_{\mathrm{cyc}}$ as 
-%calculated using equation \ref{eqn_kcyc} may not allow for the elimination of a sufficient amount of the 
-%high-frequency noise present, and the quality of the derivative calculation is degraded.  
-
-
 
 \acknowledgments
 
