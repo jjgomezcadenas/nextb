@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -61,6 +61,11 @@ M.~Nebot-Guinot, P.~Ferrario, J.~Martin-Albo, J.~Mu{\~n}oz Vidal, and J.J.
   experiment}.
 \newblock \emph{arXiv:1410.6699}, 2014.
 
+\bibitem[{G{\'o}mez Cadenas} et~al.(2014)]{NEXT_2014}
+J.J. {G{\'o}mez Cadenas} et~al.
+\newblock {Present Status and Future Perspectives of the NEXT Experiment}.
+\newblock \emph{Advances in High Energy Physics}, 2014:\penalty0 907067, 2014.
+
 \bibitem[Hubbell and Seltzer()]{NIST_mac}
 J.~H. Hubbell and S.~M. Seltzer.
 \newblock \emph{{NIST: Tables of X-Ray Mass Attenuation Coefficients and Mass
@@ -72,5 +77,11 @@ J.~H. Hubbell and S.~M. Seltzer.
 S.~Agostinelli et~al.
 \newblock {Geant4---a simulation toolkit}.
 \newblock \emph{Nucl. Instrum. Methods A}, 506:\penalty0 250--303, 2003.
+
+\bibitem[{\'A}lvarez et~al.(2013)]{NEXT_2013}
+V.~{\'A}lvarez et~al.
+\newblock {Near-intrinsic energy resolution for 30--662 keV gamma rays in a
+  high pressure xenon electroluminescent TPC}.
+\newblock \emph{Nucl. Instrum. Methods A}, 708:\penalty0 101--114, 2013.
 
 \end{thebibliography}
